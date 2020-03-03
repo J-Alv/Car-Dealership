@@ -19,15 +19,6 @@ namespace Dealership
         public Dealership()
         {
             InitializeComponent();
-            conn = new MySqlConnection(connString);
-            conn.Open();
-            string CmdString = "SELECT FirstName, MiddleName, LastName FROM Customer WHERE " + "FirstName = '" + cust_firstNMTxtB.Text.ToString() + "' AND MiddleName = '" + cust_middleNMTxtB.Text.ToString() + "' AND LastName = '" + cust_lastNMTxtB.Text.ToString() + "' AND Email = '" + cust_emailTxtB.Text.ToString() + "'";
-
-            MySqlDataAdapter sda = new MySqlDataAdapter(CmdString, conn);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            cust_dataGridView.DataSource = ds.Tables[0].DefaultView;
-            conn.Close();
         }
     }
 }
