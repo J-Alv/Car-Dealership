@@ -145,7 +145,7 @@
             // 
             this.cust_PhoneNbrTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cust_PhoneNbrTxtB.Location = new System.Drawing.Point(179, 179);
-            this.cust_PhoneNbrTxtB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cust_PhoneNbrTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_PhoneNbrTxtB.Name = "cust_PhoneNbrTxtB";
             this.cust_PhoneNbrTxtB.Size = new System.Drawing.Size(192, 29);
             this.cust_PhoneNbrTxtB.TabIndex = 12;
@@ -166,7 +166,7 @@
             // 
             this.cust_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cust_dataGridView.Location = new System.Drawing.Point(386, 9);
-            this.cust_dataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cust_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.cust_dataGridView.Name = "cust_dataGridView";
             this.cust_dataGridView.RowHeadersWidth = 51;
             this.cust_dataGridView.RowTemplate.Height = 24;
@@ -177,7 +177,7 @@
             // 
             this.cust_emailTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cust_emailTxtB.Location = new System.Drawing.Point(179, 234);
-            this.cust_emailTxtB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cust_emailTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_emailTxtB.Name = "cust_emailTxtB";
             this.cust_emailTxtB.Size = new System.Drawing.Size(192, 29);
             this.cust_emailTxtB.TabIndex = 9;
@@ -210,7 +210,7 @@
             // 
             this.cust_lastNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cust_lastNMTxtB.Location = new System.Drawing.Point(179, 123);
-            this.cust_lastNMTxtB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cust_lastNMTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_lastNMTxtB.Name = "cust_lastNMTxtB";
             this.cust_lastNMTxtB.Size = new System.Drawing.Size(192, 29);
             this.cust_lastNMTxtB.TabIndex = 6;
@@ -219,7 +219,7 @@
             // 
             this.cust_middleNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cust_middleNMTxtB.Location = new System.Drawing.Point(179, 66);
-            this.cust_middleNMTxtB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cust_middleNMTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_middleNMTxtB.Name = "cust_middleNMTxtB";
             this.cust_middleNMTxtB.Size = new System.Drawing.Size(192, 29);
             this.cust_middleNMTxtB.TabIndex = 5;
@@ -381,7 +381,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(385, 10);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -420,7 +420,7 @@
             this.cars_NoCheckBox.AutoSize = true;
             this.cars_NoCheckBox.BackColor = System.Drawing.Color.White;
             this.cars_NoCheckBox.Location = new System.Drawing.Point(278, 243);
-            this.cars_NoCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cars_NoCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.cars_NoCheckBox.Name = "cars_NoCheckBox";
             this.cars_NoCheckBox.Size = new System.Drawing.Size(54, 28);
             this.cars_NoCheckBox.TabIndex = 25;
@@ -432,7 +432,7 @@
             this.cars_YesCheckBox.AutoSize = true;
             this.cars_YesCheckBox.BackColor = System.Drawing.Color.White;
             this.cars_YesCheckBox.Location = new System.Drawing.Point(216, 243);
-            this.cars_YesCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cars_YesCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.cars_YesCheckBox.Name = "cars_YesCheckBox";
             this.cars_YesCheckBox.Size = new System.Drawing.Size(61, 28);
             this.cars_YesCheckBox.TabIndex = 24;
@@ -443,7 +443,7 @@
             // 
             this.cars_YearTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cars_YearTxtB.Location = new System.Drawing.Point(178, 184);
-            this.cars_YearTxtB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cars_YearTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_YearTxtB.Name = "cars_YearTxtB";
             this.cars_YearTxtB.Size = new System.Drawing.Size(192, 29);
             this.cars_YearTxtB.TabIndex = 23;
@@ -464,7 +464,7 @@
             // 
             this.cars_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cars_dataGridView.Location = new System.Drawing.Point(385, 14);
-            this.cars_dataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cars_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.cars_dataGridView.Name = "cars_dataGridView";
             this.cars_dataGridView.RowHeadersWidth = 51;
             this.cars_dataGridView.RowTemplate.Height = 24;
@@ -499,7 +499,7 @@
             // 
             this.cars_modelTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cars_modelTxtB.Location = new System.Drawing.Point(178, 128);
-            this.cars_modelTxtB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cars_modelTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_modelTxtB.Name = "cars_modelTxtB";
             this.cars_modelTxtB.Size = new System.Drawing.Size(192, 29);
             this.cars_modelTxtB.TabIndex = 17;
@@ -508,7 +508,7 @@
             // 
             this.cars_makeTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cars_makeTxtB.Location = new System.Drawing.Point(178, 71);
-            this.cars_makeTxtB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cars_makeTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_makeTxtB.Name = "cars_makeTxtB";
             this.cars_makeTxtB.Size = new System.Drawing.Size(192, 29);
             this.cars_makeTxtB.TabIndex = 16;
