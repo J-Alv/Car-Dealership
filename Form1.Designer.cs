@@ -54,7 +54,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.sales_DateLbl = new System.Windows.Forms.Label();
             this.sales_FromDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.sale_dataGridView = new System.Windows.Forms.DataGridView();
             this.carTab = new MetroFramework.Controls.MetroTabPage();
             this.cars_NoCheckBox = new System.Windows.Forms.CheckBox();
             this.cars_YesCheckBox = new System.Windows.Forms.CheckBox();
@@ -69,12 +69,13 @@
             this.cars_VINLbl = new System.Windows.Forms.Label();
             this.cars_VINTxtB = new System.Windows.Forms.TextBox();
             this.employeeTab = new MetroFramework.Controls.MetroTabPage();
+            this.testBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.metroTabControl.SuspendLayout();
             this.customerTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).BeginInit();
             this.saleTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sale_dataGridView)).BeginInit();
             this.carTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cars_dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -110,7 +111,7 @@
             this.metroTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl.Location = new System.Drawing.Point(0, 52);
             this.metroTabControl.Name = "metroTabControl";
-            this.metroTabControl.SelectedIndex = 2;
+            this.metroTabControl.SelectedIndex = 1;
             this.metroTabControl.Size = new System.Drawing.Size(950, 436);
             this.metroTabControl.TabIndex = 1;
             this.metroTabControl.UseSelectable = true;
@@ -269,7 +270,7 @@
             this.saleTab.Controls.Add(this.dateTimePicker1);
             this.saleTab.Controls.Add(this.sales_DateLbl);
             this.saleTab.Controls.Add(this.sales_FromDateTimePicker);
-            this.saleTab.Controls.Add(this.dataGridView1);
+            this.saleTab.Controls.Add(this.sale_dataGridView);
             this.saleTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saleTab.HorizontalScrollbarBarColor = true;
             this.saleTab.HorizontalScrollbarHighlightOnWheel = false;
@@ -377,19 +378,20 @@
             this.sales_FromDateTimePicker.Size = new System.Drawing.Size(308, 29);
             this.sales_FromDateTimePicker.TabIndex = 22;
             // 
-            // dataGridView1
+            // sale_dataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(385, 10);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(552, 374);
-            this.dataGridView1.TabIndex = 21;
+            this.sale_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sale_dataGridView.Location = new System.Drawing.Point(385, 10);
+            this.sale_dataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.sale_dataGridView.Name = "sale_dataGridView";
+            this.sale_dataGridView.RowHeadersWidth = 51;
+            this.sale_dataGridView.RowTemplate.Height = 24;
+            this.sale_dataGridView.Size = new System.Drawing.Size(552, 374);
+            this.sale_dataGridView.TabIndex = 21;
             // 
             // carTab
             // 
+            this.carTab.Controls.Add(this.testBtn);
             this.carTab.Controls.Add(this.cars_NoCheckBox);
             this.carTab.Controls.Add(this.cars_YesCheckBox);
             this.carTab.Controls.Add(this.cars_YearTxtB);
@@ -560,6 +562,16 @@
             this.employeeTab.VerticalScrollbarHighlightOnWheel = false;
             this.employeeTab.VerticalScrollbarSize = 10;
             // 
+            // testBtn
+            // 
+            this.testBtn.Location = new System.Drawing.Point(135, 314);
+            this.testBtn.Name = "testBtn";
+            this.testBtn.Size = new System.Drawing.Size(75, 32);
+            this.testBtn.TabIndex = 26;
+            this.testBtn.Text = "TestQ";
+            this.testBtn.UseVisualStyleBackColor = true;
+            this.testBtn.Click += new System.EventHandler(this.testBtn_Click);
+            // 
             // Dealership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,7 +590,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).EndInit();
             this.saleTab.ResumeLayout(false);
             this.saleTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sale_dataGridView)).EndInit();
             this.carTab.ResumeLayout(false);
             this.carTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cars_dataGridView)).EndInit();
@@ -607,7 +619,7 @@
         private System.Windows.Forms.TextBox cust_PhoneNbrTxtB;
         private System.Windows.Forms.Label cust_PhoneNbrLbl;
         private System.Windows.Forms.DateTimePicker sales_FromDateTimePicker;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView sale_dataGridView;
         private System.Windows.Forms.Label sales_DateLbl;
         private System.Windows.Forms.CheckBox sale_EmployeeCheckBox;
         private System.Windows.Forms.CheckBox sale_CustCheckBox;
@@ -629,6 +641,7 @@
         private System.Windows.Forms.Label cars_makeLbl;
         private System.Windows.Forms.Label cars_VINLbl;
         private System.Windows.Forms.TextBox cars_VINTxtB;
+        private System.Windows.Forms.Button testBtn;
     }
 }
 

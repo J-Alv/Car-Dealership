@@ -23,5 +23,28 @@ namespace Dealership
         {
             InitializeComponent();
         }
+
+        private void testBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn = new MySqlConnection(connString);
+                conn.Open();
+                string CmdString = "SELECT * FROM Customer";
+                MySqlCommand cmd = null;
+                cmd = new MySqlCommand(CmdString, conn);
+                cmd.ExecuteNonQuery();
+
+                MySqlDataAdapter sda = new MySqlDataAdapter(CmdString, conn);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                conn.Close();   
+            }
+            catch(MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
