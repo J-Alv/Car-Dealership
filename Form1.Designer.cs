@@ -59,6 +59,13 @@
             this.salesHistory_FromDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.sale_dataGridView = new System.Windows.Forms.DataGridView();
             this.carTab = new MetroFramework.Controls.MetroTabPage();
+            this.cars_MileageTxtB = new System.Windows.Forms.TextBox();
+            this.cars_MilageLbl = new System.Windows.Forms.Label();
+            this.cars_ColorLbl = new System.Windows.Forms.Label();
+            this.cars_ColorTxtB = new System.Windows.Forms.TextBox();
+            this.cars_ModeLbl = new System.Windows.Forms.Label();
+            this.cars_comboBox = new System.Windows.Forms.ComboBox();
+            this.car_SearchBtn = new System.Windows.Forms.Button();
             this.cars_NoCheckBox = new System.Windows.Forms.CheckBox();
             this.cars_YesCheckBox = new System.Windows.Forms.CheckBox();
             this.cars_YearTxtB = new System.Windows.Forms.TextBox();
@@ -86,13 +93,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.sales_VinNumberLabel = new System.Windows.Forms.Label();
             this.sales_VinNumberTextBox = new System.Windows.Forms.TextBox();
-            this.car_SearchBtn = new System.Windows.Forms.Button();
-            this.cars_comboBox = new System.Windows.Forms.ComboBox();
-            this.cars_ModeLbl = new System.Windows.Forms.Label();
-            this.cars_MileageTxtB = new System.Windows.Forms.TextBox();
-            this.cars_MilageLbl = new System.Windows.Forms.Label();
-            this.cars_ColorLbl = new System.Windows.Forms.Label();
-            this.cars_ColorTxtB = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.metroTabControl.SuspendLayout();
             this.customerTab.SuspendLayout();
@@ -487,6 +487,78 @@
             this.carTab.VerticalScrollbarHighlightOnWheel = false;
             this.carTab.VerticalScrollbarSize = 10;
             // 
+            // cars_MileageTxtB
+            // 
+            this.cars_MileageTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cars_MileageTxtB.Location = new System.Drawing.Point(183, 253);
+            this.cars_MileageTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.cars_MileageTxtB.Name = "cars_MileageTxtB";
+            this.cars_MileageTxtB.Size = new System.Drawing.Size(192, 29);
+            this.cars_MileageTxtB.TabIndex = 33;
+            // 
+            // cars_MilageLbl
+            // 
+            this.cars_MilageLbl.AutoEllipsis = true;
+            this.cars_MilageLbl.AutoSize = true;
+            this.cars_MilageLbl.BackColor = System.Drawing.Color.White;
+            this.cars_MilageLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cars_MilageLbl.ForeColor = System.Drawing.Color.Black;
+            this.cars_MilageLbl.Location = new System.Drawing.Point(12, 256);
+            this.cars_MilageLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cars_MilageLbl.Name = "cars_MilageLbl";
+            this.cars_MilageLbl.Size = new System.Drawing.Size(77, 24);
+            this.cars_MilageLbl.TabIndex = 32;
+            this.cars_MilageLbl.Text = "Mileage";
+            // 
+            // cars_ColorLbl
+            // 
+            this.cars_ColorLbl.AutoSize = true;
+            this.cars_ColorLbl.BackColor = System.Drawing.Color.White;
+            this.cars_ColorLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cars_ColorLbl.Location = new System.Drawing.Point(12, 219);
+            this.cars_ColorLbl.Name = "cars_ColorLbl";
+            this.cars_ColorLbl.Size = new System.Drawing.Size(55, 24);
+            this.cars_ColorLbl.TabIndex = 31;
+            this.cars_ColorLbl.Text = "Color";
+            // 
+            // cars_ColorTxtB
+            // 
+            this.cars_ColorTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cars_ColorTxtB.Location = new System.Drawing.Point(183, 219);
+            this.cars_ColorTxtB.Name = "cars_ColorTxtB";
+            this.cars_ColorTxtB.Size = new System.Drawing.Size(192, 29);
+            this.cars_ColorTxtB.TabIndex = 30;
+            // 
+            // cars_ModeLbl
+            // 
+            this.cars_ModeLbl.AutoSize = true;
+            this.cars_ModeLbl.BackColor = System.Drawing.Color.White;
+            this.cars_ModeLbl.Location = new System.Drawing.Point(12, 17);
+            this.cars_ModeLbl.Name = "cars_ModeLbl";
+            this.cars_ModeLbl.Size = new System.Drawing.Size(59, 24);
+            this.cars_ModeLbl.TabIndex = 29;
+            this.cars_ModeLbl.Text = "Mode";
+            // 
+            // cars_comboBox
+            // 
+            this.cars_comboBox.FormattingEnabled = true;
+            this.cars_comboBox.Location = new System.Drawing.Point(77, 14);
+            this.cars_comboBox.Name = "cars_comboBox";
+            this.cars_comboBox.Size = new System.Drawing.Size(158, 32);
+            this.cars_comboBox.TabIndex = 28;
+            this.cars_comboBox.SelectedIndexChanged += new System.EventHandler(this.cars_comboBox_SelectedIndexChanged);
+            // 
+            // car_SearchBtn
+            // 
+            this.car_SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.car_SearchBtn.Location = new System.Drawing.Point(8, 335);
+            this.car_SearchBtn.Name = "car_SearchBtn";
+            this.car_SearchBtn.Size = new System.Drawing.Size(141, 51);
+            this.car_SearchBtn.TabIndex = 27;
+            this.car_SearchBtn.Text = "Search";
+            this.car_SearchBtn.UseVisualStyleBackColor = true;
+            this.car_SearchBtn.Click += new System.EventHandler(this.car_SearchBtn_Click);
+            // 
             // cars_NoCheckBox
             // 
             this.cars_NoCheckBox.AutoSize = true;
@@ -498,6 +570,7 @@
             this.cars_NoCheckBox.TabIndex = 25;
             this.cars_NoCheckBox.Text = "No";
             this.cars_NoCheckBox.UseVisualStyleBackColor = false;
+            this.cars_NoCheckBox.Click += new System.EventHandler(this.cars_NoCheckBox_Click);
             // 
             // cars_YesCheckBox
             // 
@@ -510,6 +583,7 @@
             this.cars_YesCheckBox.TabIndex = 24;
             this.cars_YesCheckBox.Text = "Yes";
             this.cars_YesCheckBox.UseVisualStyleBackColor = false;
+            this.cars_YesCheckBox.Click += new System.EventHandler(this.cars_YesCheckBox_Click);
             // 
             // cars_YearTxtB
             // 
@@ -800,77 +874,6 @@
             this.sales_VinNumberTextBox.Name = "sales_VinNumberTextBox";
             this.sales_VinNumberTextBox.Size = new System.Drawing.Size(192, 29);
             this.sales_VinNumberTextBox.TabIndex = 27;
-            // 
-            // car_SearchBtn
-            // 
-            this.car_SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.car_SearchBtn.Location = new System.Drawing.Point(8, 335);
-            this.car_SearchBtn.Name = "car_SearchBtn";
-            this.car_SearchBtn.Size = new System.Drawing.Size(103, 51);
-            this.car_SearchBtn.TabIndex = 27;
-            this.car_SearchBtn.Text = "Search";
-            this.car_SearchBtn.UseVisualStyleBackColor = true;
-            this.car_SearchBtn.Click += new System.EventHandler(this.car_SearchBtn_Click);
-            // 
-            // cars_comboBox
-            // 
-            this.cars_comboBox.FormattingEnabled = true;
-            this.cars_comboBox.Location = new System.Drawing.Point(77, 14);
-            this.cars_comboBox.Name = "cars_comboBox";
-            this.cars_comboBox.Size = new System.Drawing.Size(121, 32);
-            this.cars_comboBox.TabIndex = 28;
-            // 
-            // cars_ModeLbl
-            // 
-            this.cars_ModeLbl.AutoSize = true;
-            this.cars_ModeLbl.BackColor = System.Drawing.Color.White;
-            this.cars_ModeLbl.Location = new System.Drawing.Point(12, 17);
-            this.cars_ModeLbl.Name = "cars_ModeLbl";
-            this.cars_ModeLbl.Size = new System.Drawing.Size(59, 24);
-            this.cars_ModeLbl.TabIndex = 29;
-            this.cars_ModeLbl.Text = "Mode";
-            // 
-            // cars_MileageTxtB
-            // 
-            this.cars_MileageTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_MileageTxtB.Location = new System.Drawing.Point(183, 253);
-            this.cars_MileageTxtB.Margin = new System.Windows.Forms.Padding(2);
-            this.cars_MileageTxtB.Name = "cars_MileageTxtB";
-            this.cars_MileageTxtB.Size = new System.Drawing.Size(192, 29);
-            this.cars_MileageTxtB.TabIndex = 33;
-            // 
-            // cars_MilageLbl
-            // 
-            this.cars_MilageLbl.AutoEllipsis = true;
-            this.cars_MilageLbl.AutoSize = true;
-            this.cars_MilageLbl.BackColor = System.Drawing.Color.White;
-            this.cars_MilageLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_MilageLbl.ForeColor = System.Drawing.Color.Black;
-            this.cars_MilageLbl.Location = new System.Drawing.Point(12, 256);
-            this.cars_MilageLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.cars_MilageLbl.Name = "cars_MilageLbl";
-            this.cars_MilageLbl.Size = new System.Drawing.Size(77, 24);
-            this.cars_MilageLbl.TabIndex = 32;
-            this.cars_MilageLbl.Text = "Mileage";
-            // 
-            // cars_ColorLbl
-            // 
-            this.cars_ColorLbl.AutoSize = true;
-            this.cars_ColorLbl.BackColor = System.Drawing.Color.White;
-            this.cars_ColorLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_ColorLbl.Location = new System.Drawing.Point(12, 219);
-            this.cars_ColorLbl.Name = "cars_ColorLbl";
-            this.cars_ColorLbl.Size = new System.Drawing.Size(55, 24);
-            this.cars_ColorLbl.TabIndex = 31;
-            this.cars_ColorLbl.Text = "Color";
-            // 
-            // cars_ColorTxtB
-            // 
-            this.cars_ColorTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_ColorTxtB.Location = new System.Drawing.Point(183, 219);
-            this.cars_ColorTxtB.Name = "cars_ColorTxtB";
-            this.cars_ColorTxtB.Size = new System.Drawing.Size(192, 29);
-            this.cars_ColorTxtB.TabIndex = 30;
             // 
             // Dealership
             // 

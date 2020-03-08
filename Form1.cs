@@ -22,8 +22,10 @@ namespace Dealership
         public Dealership()
         {
             InitializeComponent();
+            cars_comboBox.Items.Add("Show Inventory");
             cars_comboBox.Items.Add("Add Car");
             cars_comboBox.Items.Add("Search Car");
+            cars_comboBox.SelectedIndex = 0;
         }
 
         private void cust_ListAllButton_Click(object sender, EventArgs e)
@@ -84,6 +86,7 @@ namespace Dealership
                 MySqlCommand cmd = null;
                 MySqlDataAdapter sda = null;
                 conn = new MySqlConnection(connString);
+                DataSet ds = new DataSet();
                 conn.Open();
 
                 string VIN = cars_VINTxtB.Text.ToString();
@@ -92,24 +95,93 @@ namespace Dealership
                 string Year = cars_YearTxtB.Text.ToString();
                 string Color = cars_ColorTxtB.Text.ToString();
                 string Mileage = cars_MileageTxtB.Text.ToString();
+                bool Used = cars_YesCheckBox.Checked;
                 string CmdString = "";
-               
-                CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Used) VALUES ('"
-                + VIN + "', '" + Make + "', '" + Model + "', " + Year + ", '" + Color + "', " + Mileage + ", 1)";
 
-                cmd = new MySqlCommand(CmdString, conn);
-                cmd.ExecuteNonQuery();
+                switch(cars_comboBox.SelectedIndex)
+                {
+                    case 0:
+                        CmdString = "SELECT * FROM Car";
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        
+                        sda.Fill(ds);
+                        cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+                    case 1:
+                        if (cars_YesCheckBox.Checked == true)
+                        {
+                            CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Used) VALUES ('"
+                            + VIN + "', '" + Make + "', '" + Model + "', " + Year + ", '" + Color + "', " + Mileage + ", 1)";
+                        }
+                        else
+                        {
+                            CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Used) VALUES ('"
+                            + VIN + "', '" + Make + "', '" + Model + "', " + Year + ", '" + Color + "', " + Mileage + ", 0)";
+                        }
+                       
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
 
-                CmdString = "SELECT * FROM Car WHERE ID = last_insert_id()";
-                sda = new MySqlDataAdapter(CmdString, conn);
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
-                cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
-                conn.Close();                             
+                        CmdString = "SELECT * FROM Car WHERE ID = last_insert_id()";
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+                    case 2:
+                        CmdString = "SELECT * FROM Car WHERE VIN = '" + VIN + "' OR MAKE = '" + Make
+                            + "' OR Model = '" + Model + "' OR Year = '" + Year + "' OR Color = '"
+                            + Color + "' OR Mileage = '" + Mileage + "' OR Used = " + Used;
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+                }                                          
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void cars_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(cars_comboBox.SelectedIndex)
+            {
+                case 0:
+                    car_SearchBtn.Text = "Show All Cars";
+                    break;
+                case 1:
+                    car_SearchBtn.Text = "Add Car";
+                    break;
+                case 2:
+                    car_SearchBtn.Text = "Search";
+                    break;
+            }
+        }
+
+        private void cars_YesCheckBox_Click(object sender, EventArgs e)
+        {
+            if (cars_YesCheckBox.Checked == true)
+            {
+                if (cars_NoCheckBox.Checked == true)
+                {
+                    cars_YesCheckBox.Checked = false;
+                }
+            }
+        }
+
+        private void cars_NoCheckBox_Click(object sender, EventArgs e)
+        {
+            if (cars_NoCheckBox.Checked == true)
+            {
+                if (cars_YesCheckBox.Checked == true)
+                {
+                    cars_NoCheckBox.Checked = false;
+                }
             }
         }
     }
