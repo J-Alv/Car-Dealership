@@ -82,7 +82,6 @@ namespace Dealership
             try
             {
                 MySqlCommand cmd = null;
-                DataSet ds = new DataSet();
                 MySqlDataAdapter sda = null;
                 conn = new MySqlConnection(connString);
                 conn.Open();
@@ -95,12 +94,15 @@ namespace Dealership
                 string Mileage = cars_MileageTxtB.Text.ToString();
                 string CmdString = "";
                
-                CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Used) VALUES ("
-                + VIN + ", " + Make + ", " + Year + ", " + Color + ", " + Mileage + ", 1)";
+                CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Used) VALUES ('"
+                + VIN + "', '" + Make + "', '" + Model + "', " + Year + ", '" + Color + "', " + Mileage + ", 1)";
 
                 cmd = new MySqlCommand(CmdString, conn);
                 cmd.ExecuteNonQuery();
+
+                CmdString = "SELECT * FROM Car WHERE ID = last_insert_id()";
                 sda = new MySqlDataAdapter(CmdString, conn);
+                DataSet ds = new DataSet();
                 sda.Fill(ds);
                 cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
                 conn.Close();                             
