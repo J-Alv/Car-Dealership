@@ -95,6 +95,20 @@
             this.sales_VinNumberTextBox = new System.Windows.Forms.TextBox();
             this.cars_ByLbl = new System.Windows.Forms.Label();
             this.cars_ByComboBox = new System.Windows.Forms.ComboBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.metroTabControl.SuspendLayout();
             this.customerTab.SuspendLayout();
@@ -103,8 +117,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.sale_dataGridView)).BeginInit();
             this.carTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cars_dataGridView)).BeginInit();
+            this.employeeTab.SuspendLayout();
             this.sales_Tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -139,7 +155,7 @@
             this.metroTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl.Location = new System.Drawing.Point(0, 52);
             this.metroTabControl.Name = "metroTabControl";
-            this.metroTabControl.SelectedIndex = 2;
+            this.metroTabControl.SelectedIndex = 3;
             this.metroTabControl.Size = new System.Drawing.Size(1096, 493);
             this.metroTabControl.TabIndex = 1;
             this.metroTabControl.UseSelectable = true;
@@ -166,7 +182,7 @@
             this.customerTab.HorizontalScrollbarSize = 10;
             this.customerTab.Location = new System.Drawing.Point(4, 38);
             this.customerTab.Name = "customerTab";
-            this.customerTab.Size = new System.Drawing.Size(942, 394);
+            this.customerTab.Size = new System.Drawing.Size(1088, 451);
             this.customerTab.TabIndex = 0;
             this.customerTab.Text = "Customers";
             this.customerTab.VerticalScrollbarBarColor = true;
@@ -698,6 +714,20 @@
             // 
             // employeeTab
             // 
+            this.employeeTab.Controls.Add(this.textBox4);
+            this.employeeTab.Controls.Add(this.label6);
+            this.employeeTab.Controls.Add(this.label7);
+            this.employeeTab.Controls.Add(this.textBox5);
+            this.employeeTab.Controls.Add(this.button2);
+            this.employeeTab.Controls.Add(this.textBox6);
+            this.employeeTab.Controls.Add(this.label9);
+            this.employeeTab.Controls.Add(this.dataGridView2);
+            this.employeeTab.Controls.Add(this.label11);
+            this.employeeTab.Controls.Add(this.textBox7);
+            this.employeeTab.Controls.Add(this.textBox8);
+            this.employeeTab.Controls.Add(this.label12);
+            this.employeeTab.Controls.Add(this.label13);
+            this.employeeTab.Controls.Add(this.textBox9);
             this.employeeTab.HorizontalScrollbarBarColor = true;
             this.employeeTab.HorizontalScrollbarHighlightOnWheel = false;
             this.employeeTab.HorizontalScrollbarSize = 10;
@@ -899,6 +929,153 @@
             this.cars_ByComboBox.TabIndex = 35;
             this.cars_ByComboBox.SelectedIndexChanged += new System.EventHandler(this.cars_ByComboBox_SelectedIndexChanged);
             // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(165, 246);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(316, 29);
+            this.textBox4.TabIndex = 54;
+            // 
+            // label6
+            // 
+            this.label6.AutoEllipsis = true;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(12, 249);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 24);
+            this.label6.TabIndex = 53;
+            this.label6.Text = "Mileage";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 212);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 24);
+            this.label7.TabIndex = 52;
+            this.label7.Text = "Color";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(165, 212);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(316, 29);
+            this.textBox5.TabIndex = 51;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(16, 349);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(141, 63);
+            this.button2.TabIndex = 48;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(165, 178);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(316, 29);
+            this.textBox6.TabIndex = 45;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(12, 182);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 24);
+            this.label9.TabIndex = 44;
+            this.label9.Text = "Year";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(525, 10);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(552, 430);
+            this.dataGridView2.TabIndex = 43;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(12, 149);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 24);
+            this.label11.TabIndex = 41;
+            this.label11.Text = "Model";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(165, 145);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(316, 29);
+            this.textBox7.TabIndex = 40;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(165, 112);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(316, 29);
+            this.textBox8.TabIndex = 39;
+            // 
+            // label12
+            // 
+            this.label12.AutoEllipsis = true;
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(12, 115);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(56, 24);
+            this.label12.TabIndex = 38;
+            this.label12.Text = "Make";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.White;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(12, 78);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(115, 24);
+            this.label13.TabIndex = 37;
+            this.label13.Text = "VIN Number";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(165, 78);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(316, 29);
+            this.textBox9.TabIndex = 36;
+            // 
             // Dealership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -921,9 +1098,12 @@
             this.carTab.ResumeLayout(false);
             this.carTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cars_dataGridView)).EndInit();
+            this.employeeTab.ResumeLayout(false);
+            this.employeeTab.PerformLayout();
             this.sales_Tab.ResumeLayout(false);
             this.sales_Tab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -997,6 +1177,20 @@
         private System.Windows.Forms.TextBox cars_ColorTxtB;
         private System.Windows.Forms.Label cars_ByLbl;
         private System.Windows.Forms.ComboBox cars_ByComboBox;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox9;
     }
 }
 

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace Dealership
 {
@@ -29,7 +23,7 @@ namespace Dealership
 
             cars_ByComboBox.Items.Add("VIN");
             cars_ByComboBox.Items.Add("Make and Model");
- 
+
         }
 
         private void cust_ListAllButton_Click(object sender, EventArgs e)
@@ -102,12 +96,12 @@ namespace Dealership
                 bool Used = cars_YesCheckBox.Checked;
                 string CmdString = "";
 
-                switch(cars_comboBox.SelectedIndex)
+                switch (cars_comboBox.SelectedIndex)
                 {
                     case 0:
                         CmdString = "SELECT * FROM Car";
                         sda = new MySqlDataAdapter(CmdString, conn);
-                        
+
                         sda.Fill(ds);
                         cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();
@@ -123,7 +117,7 @@ namespace Dealership
                             CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Used) VALUES ('"
                             + VIN + "', '" + Make + "', '" + Model + "', " + Year + ", '" + Color + "', " + Mileage + ", 0)";
                         }
-                       
+
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
@@ -152,7 +146,7 @@ namespace Dealership
                         cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();
                         break;
-                }                                          
+                }
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -162,14 +156,14 @@ namespace Dealership
 
         private void cars_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch(cars_comboBox.SelectedIndex)
-            { 
+            switch (cars_comboBox.SelectedIndex)
+            {
                 case 0:
                     cars_VINLbl.Text = "VIN";
                     car_SearchBtn.Text = "Show Inventory";
                     cars_makeLbl.Text = "Make";
                     cars_modelLbl.Text = "Model";
-                  
+
                     cars_VINLbl.Visible = false;
                     cars_VINTxtB.Visible = false;
 
@@ -259,7 +253,7 @@ namespace Dealership
 
                     cars_ByLbl.Visible = true;
                     cars_ByComboBox.Visible = true;
-                    
+
                     break;
             }
         }
