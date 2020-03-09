@@ -24,6 +24,13 @@ namespace Dealership
             cars_ByComboBox.Items.Add("VIN");
             cars_ByComboBox.Items.Add("Make and Model");
 
+            emp_comboBox.Items.Add("All Employees");
+            emp_comboBox.Items.Add("Search Employee");
+            emp_comboBox.Items.Add("Add New Employee");
+            emp_comboBox.Items.Add("Update Employee");
+            emp_comboBox.Items.Add("Delete Employee");
+            emp_comboBox.SelectedIndex = 0;
+
         }
 
         private void cust_ListAllButton_Click(object sender, EventArgs e)
@@ -340,6 +347,132 @@ namespace Dealership
                     cars_ByComboBox.Visible = true;
 
                     break;
+            }
+        }
+
+        private void emp_Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MySqlCommand cmd = null;
+                MySqlDataAdapter sda = null;
+                conn = new MySqlConnection(connString);
+                DataSet ds = new DataSet();
+                conn.Open();
+
+                string ID = emp_IDTxtB.Text.ToString();
+                string FirstName = emp_FirstNameTxtB.Text.ToString();
+                string MiddleName = emp_MiddleNameTxtB.Text.ToString();
+                string LastName = emp_LastNameTxtB.Text.ToString();
+                string PhoneNumber = emp_PhoneTxtB.Text.ToString();
+                string SupervisorID = emp_SupervisorIDTxtB.Text.ToString();
+                string Email = emp_EmailTxtB.Text.ToString();
+                string Title = emp_TitleTxtB.Text.ToString();
+                string CmdString = "";
+
+                switch (emp_comboBox.SelectedIndex)
+                {
+                    case 0:
+                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
+                            "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+
+                    case 1:
+                        CmdString = "";
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+
+                    case 2:
+                        break;
+
+                    case 3:
+                        CmdString = "UPDATE Employee SET ";
+
+                        if (FirstName != "")
+                        {
+                            CmdString += "FirstName = '" + FirstName + "'";
+                        }
+                        if (MiddleName != "")
+                        {
+                            if (FirstName != "")
+                                CmdString += ", MiddleName = '" + MiddleName + "'";
+                            else
+                                CmdString += "MiddleName = " + MiddleName + "'";
+                        }
+                        if (LastName != "")
+                        {
+                            if (FirstName != "" || MiddleName != "")
+                                CmdString += ", LastName = '" + LastName + "'";
+                            else
+                                CmdString += "LastName = '" + LastName + "'";
+                        }
+                        if (SupervisorID != "")
+                        {
+                            if (FirstName != "" || MiddleName != "" || LastName != "")
+                                CmdString += ", SupervisorID = " + SupervisorID;
+                            else
+                                CmdString += "SupervisorID = " + SupervisorID;
+                        }
+                        if (Email != "")
+                        {
+                            if (FirstName != "" || MiddleName != "" || LastName != "" || SupervisorID != "")
+                                CmdString += ", Email = '" + Email + "'";
+                            else
+                                CmdString += "Email = '" + Email + "'";
+                        }
+                        if (Title != "")
+                        {
+                            if (FirstName != "" || MiddleName != "" || LastName != "" || SupervisorID != "" || Email != "")
+                                CmdString += ", Title = '" + Title + "'";
+                            else
+                                CmdString += "Title = '" + Title + "'";
+                        }
+                        CmdString += "WHERE ID = " + ID;
+
+                        if (PhoneNumber != "")
+                        {
+                            CmdString = "UPDATE PhoneInfo SET Number = '" + PhoneNumber + "' WHERE ID = (SELECT PhoneID FROM Employee WHERE ID = " + ID + ")";
+                        }
+
+
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
+
+                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
+                            "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+
+                    case 4:
+                        CmdString = "UPDATE Employee SET Title = 'Terminated' WHERE Employee.id = '" + ID + "'";
+
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
+
+                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
+                            "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+                }
+            }
+            catch(MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
