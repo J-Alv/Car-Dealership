@@ -290,35 +290,6 @@ namespace Dealership
         {
             switch (cars_ByComboBox.SelectedIndex)
             {
-                case -1:
-
-                    cars_VINLbl.Visible = false;
-                    cars_VINTxtB.Visible = false;
-
-                    cars_makeLbl.Visible = false;
-                    cars_makeTxtB.Visible = false;
-
-                    cars_modelLbl.Visible = false;
-                    cars_modelTxtB.Visible = false;
-
-                    cars_YearLbl.Visible = false;
-                    cars_YearTxtB.Visible = false;
-
-                    cars_ColorLbl.Visible = false;
-                    cars_ColorTxtB.Visible = false;
-
-                    cars_MilageLbl.Visible = false;
-                    cars_MileageTxtB.Visible = false;
-
-                    cars_usedLbl.Visible = false;
-
-                    cars_YesCheckBox.Visible = false;
-                    cars_NoCheckBox.Visible = false;
-
-                    cars_ByLbl.Visible = true;
-                    cars_ByComboBox.Visible = true;
-                    break;
-
                 case 0:
                     cars_VINLbl.Visible = true;
                     cars_VINTxtB.Visible = true;
