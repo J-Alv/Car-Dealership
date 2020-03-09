@@ -26,6 +26,10 @@ namespace Dealership
             cars_comboBox.Items.Add("Add Car");
             cars_comboBox.Items.Add("Search Car");
             cars_comboBox.SelectedIndex = 0;
+
+            cars_ByComboBox.Items.Add("VIN");
+            cars_ByComboBox.Items.Add("Make and Model");
+ 
         }
 
         private void cust_ListAllButton_Click(object sender, EventArgs e)
@@ -130,9 +134,18 @@ namespace Dealership
                         conn.Close();
                         break;
                     case 2:
-                        CmdString = "SELECT * FROM Car WHERE VIN = '" + VIN + "' OR MAKE = '" + Make
-                            + "' OR Model = '" + Model + "' OR Year = '" + Year + "' OR Color = '"
-                            + Color + "' OR Mileage = '" + Mileage + "' OR Used = " + Used;
+                        switch (cars_ByComboBox.SelectedIndex)
+                        {
+                            case 0:
+                                CmdString = "SELECT * FROM Car " +
+                                "WHERE VIN = '" + VIN + "'";
+                                break;
+                            case 1:
+                                CmdString = "SELECT * FROM Car " +
+                                "WHERE Make = '" + Make + "'" +
+                                "AND Model = '" + Model + "'";
+                                break;
+                        }
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -150,15 +163,103 @@ namespace Dealership
         private void cars_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch(cars_comboBox.SelectedIndex)
-            {
+            { 
                 case 0:
-                    car_SearchBtn.Text = "Show All Cars";
+                    cars_VINLbl.Text = "VIN";
+                    car_SearchBtn.Text = "Show Inventory";
+                    cars_makeLbl.Text = "Make";
+                    cars_modelLbl.Text = "Model";
+                  
+                    cars_VINLbl.Visible = false;
+                    cars_VINTxtB.Visible = false;
+
+                    cars_makeLbl.Visible = false;
+                    cars_makeTxtB.Visible = false;
+
+                    cars_modelLbl.Visible = false;
+                    cars_modelTxtB.Visible = false;
+
+                    cars_YearLbl.Visible = false;
+                    cars_YearTxtB.Visible = false;
+
+                    cars_ColorLbl.Visible = false;
+                    cars_ColorTxtB.Visible = false;
+
+                    cars_MilageLbl.Visible = false;
+                    cars_MileageTxtB.Visible = false;
+
+                    cars_usedLbl.Visible = false;
+
+                    cars_YesCheckBox.Visible = false;
+                    cars_NoCheckBox.Visible = false;
+
+                    cars_ByLbl.Visible = false;
+                    cars_ByComboBox.Visible = false;
                     break;
                 case 1:
                     car_SearchBtn.Text = "Add Car";
+                    cars_VINLbl.Text = "VIN";
+                    cars_makeLbl.Text = "Make";
+                    cars_modelLbl.Text = "Model";
+
+                    cars_VINLbl.Visible = true;
+                    cars_VINTxtB.Visible = true;
+
+                    cars_makeLbl.Visible = true;
+                    cars_makeTxtB.Visible = true;
+
+                    cars_modelLbl.Visible = true;
+                    cars_modelTxtB.Visible = true;
+
+                    cars_YearLbl.Visible = true;
+                    cars_YearTxtB.Visible = true;
+
+                    cars_ColorLbl.Visible = true;
+                    cars_ColorTxtB.Visible = true;
+
+                    cars_MilageLbl.Visible = true;
+                    cars_MileageTxtB.Visible = true;
+
+                    cars_usedLbl.Visible = true;
+
+                    cars_YesCheckBox.Visible = true;
+                    cars_NoCheckBox.Visible = true;
+
+                    cars_ByLbl.Visible = false;
+                    cars_ByComboBox.Visible = false;
                     break;
                 case 2:
                     car_SearchBtn.Text = "Search";
+                    cars_VINLbl.Text = "* VIN";
+                    cars_makeLbl.Text = "* Make";
+                    cars_modelLbl.Text = "* Model";
+
+                    cars_VINLbl.Visible = false;
+                    cars_VINTxtB.Visible = false;
+
+                    cars_makeLbl.Visible = false;
+                    cars_makeTxtB.Visible = false;
+
+                    cars_modelLbl.Visible = false;
+                    cars_modelTxtB.Visible = false;
+
+                    cars_YearLbl.Visible = false;
+                    cars_YearTxtB.Visible = false;
+
+                    cars_ColorLbl.Visible = false;
+                    cars_ColorTxtB.Visible = false;
+
+                    cars_MilageLbl.Visible = false;
+                    cars_MileageTxtB.Visible = false;
+
+                    cars_usedLbl.Visible = false;
+
+                    cars_YesCheckBox.Visible = false;
+                    cars_NoCheckBox.Visible = false;
+
+                    cars_ByLbl.Visible = true;
+                    cars_ByComboBox.Visible = true;
+                    
                     break;
             }
         }
@@ -182,6 +283,98 @@ namespace Dealership
                 {
                     cars_NoCheckBox.Checked = false;
                 }
+            }
+        }
+
+        private void cars_ByComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cars_ByComboBox.SelectedIndex)
+            {
+                case -1:
+
+                    cars_VINLbl.Visible = false;
+                    cars_VINTxtB.Visible = false;
+
+                    cars_makeLbl.Visible = false;
+                    cars_makeTxtB.Visible = false;
+
+                    cars_modelLbl.Visible = false;
+                    cars_modelTxtB.Visible = false;
+
+                    cars_YearLbl.Visible = false;
+                    cars_YearTxtB.Visible = false;
+
+                    cars_ColorLbl.Visible = false;
+                    cars_ColorTxtB.Visible = false;
+
+                    cars_MilageLbl.Visible = false;
+                    cars_MileageTxtB.Visible = false;
+
+                    cars_usedLbl.Visible = false;
+
+                    cars_YesCheckBox.Visible = false;
+                    cars_NoCheckBox.Visible = false;
+
+                    cars_ByLbl.Visible = true;
+                    cars_ByComboBox.Visible = true;
+                    break;
+
+                case 0:
+                    cars_VINLbl.Visible = true;
+                    cars_VINTxtB.Visible = true;
+
+                    cars_makeLbl.Visible = false;
+                    cars_makeTxtB.Visible = false;
+
+                    cars_modelLbl.Visible = false;
+                    cars_modelTxtB.Visible = false;
+
+                    cars_YearLbl.Visible = false;
+                    cars_YearTxtB.Visible = false;
+
+                    cars_ColorLbl.Visible = false;
+                    cars_ColorTxtB.Visible = false;
+
+                    cars_MilageLbl.Visible = false;
+                    cars_MileageTxtB.Visible = false;
+
+                    cars_usedLbl.Visible = false;
+
+                    cars_YesCheckBox.Visible = false;
+                    cars_NoCheckBox.Visible = false;
+
+                    cars_ByLbl.Visible = true;
+                    cars_ByComboBox.Visible = true;
+                    break;
+
+                case 1:
+                    cars_VINLbl.Visible = false;
+                    cars_VINTxtB.Visible = false;
+
+                    cars_makeLbl.Visible = true;
+                    cars_makeTxtB.Visible = true;
+
+                    cars_modelLbl.Visible = true;
+                    cars_modelTxtB.Visible = true;
+
+                    cars_YearLbl.Visible = false;
+                    cars_YearTxtB.Visible = false;
+
+                    cars_ColorLbl.Visible = false;
+                    cars_ColorTxtB.Visible = false;
+
+                    cars_MilageLbl.Visible = false;
+                    cars_MileageTxtB.Visible = false;
+
+                    cars_usedLbl.Visible = false;
+
+                    cars_YesCheckBox.Visible = false;
+                    cars_NoCheckBox.Visible = false;
+
+                    cars_ByLbl.Visible = true;
+                    cars_ByComboBox.Visible = true;
+
+                    break;
             }
         }
     }

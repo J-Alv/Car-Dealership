@@ -71,7 +71,7 @@
             this.cars_YearTxtB = new System.Windows.Forms.TextBox();
             this.cars_YearLbl = new System.Windows.Forms.Label();
             this.cars_dataGridView = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
+            this.cars_usedLbl = new System.Windows.Forms.Label();
             this.cars_modelLbl = new System.Windows.Forms.Label();
             this.cars_modelTxtB = new System.Windows.Forms.TextBox();
             this.cars_makeTxtB = new System.Windows.Forms.TextBox();
@@ -93,6 +93,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.sales_VinNumberLabel = new System.Windows.Forms.Label();
             this.sales_VinNumberTextBox = new System.Windows.Forms.TextBox();
+            this.cars_ByLbl = new System.Windows.Forms.Label();
+            this.cars_ByComboBox = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.metroTabControl.SuspendLayout();
             this.customerTab.SuspendLayout();
@@ -112,7 +114,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(950, 52);
+            this.panel1.Size = new System.Drawing.Size(1096, 52);
             this.panel1.TabIndex = 0;
             // 
             // titleLbl
@@ -138,7 +140,7 @@
             this.metroTabControl.Location = new System.Drawing.Point(0, 52);
             this.metroTabControl.Name = "metroTabControl";
             this.metroTabControl.SelectedIndex = 2;
-            this.metroTabControl.Size = new System.Drawing.Size(950, 436);
+            this.metroTabControl.Size = new System.Drawing.Size(1096, 493);
             this.metroTabControl.TabIndex = 1;
             this.metroTabControl.UseSelectable = true;
             // 
@@ -341,7 +343,7 @@
             this.salesHistory_Tab.HorizontalScrollbarSize = 10;
             this.salesHistory_Tab.Location = new System.Drawing.Point(4, 38);
             this.salesHistory_Tab.Name = "salesHistory_Tab";
-            this.salesHistory_Tab.Size = new System.Drawing.Size(942, 394);
+            this.salesHistory_Tab.Size = new System.Drawing.Size(1088, 451);
             this.salesHistory_Tab.TabIndex = 1;
             this.salesHistory_Tab.Text = "Sales History";
             this.salesHistory_Tab.VerticalScrollbarBarColor = true;
@@ -455,6 +457,8 @@
             // 
             // carTab
             // 
+            this.carTab.Controls.Add(this.cars_ByComboBox);
+            this.carTab.Controls.Add(this.cars_ByLbl);
             this.carTab.Controls.Add(this.cars_MileageTxtB);
             this.carTab.Controls.Add(this.cars_MilageLbl);
             this.carTab.Controls.Add(this.cars_ColorLbl);
@@ -467,7 +471,7 @@
             this.carTab.Controls.Add(this.cars_YearTxtB);
             this.carTab.Controls.Add(this.cars_YearLbl);
             this.carTab.Controls.Add(this.cars_dataGridView);
-            this.carTab.Controls.Add(this.label2);
+            this.carTab.Controls.Add(this.cars_usedLbl);
             this.carTab.Controls.Add(this.cars_modelLbl);
             this.carTab.Controls.Add(this.cars_modelTxtB);
             this.carTab.Controls.Add(this.cars_makeTxtB);
@@ -480,7 +484,7 @@
             this.carTab.HorizontalScrollbarSize = 10;
             this.carTab.Location = new System.Drawing.Point(4, 38);
             this.carTab.Name = "carTab";
-            this.carTab.Size = new System.Drawing.Size(942, 394);
+            this.carTab.Size = new System.Drawing.Size(1088, 451);
             this.carTab.TabIndex = 2;
             this.carTab.Text = "Cars";
             this.carTab.VerticalScrollbarBarColor = true;
@@ -490,10 +494,10 @@
             // cars_MileageTxtB
             // 
             this.cars_MileageTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_MileageTxtB.Location = new System.Drawing.Point(183, 253);
+            this.cars_MileageTxtB.Location = new System.Drawing.Point(174, 250);
             this.cars_MileageTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_MileageTxtB.Name = "cars_MileageTxtB";
-            this.cars_MileageTxtB.Size = new System.Drawing.Size(192, 29);
+            this.cars_MileageTxtB.Size = new System.Drawing.Size(316, 29);
             this.cars_MileageTxtB.TabIndex = 33;
             // 
             // cars_MilageLbl
@@ -503,7 +507,7 @@
             this.cars_MilageLbl.BackColor = System.Drawing.Color.White;
             this.cars_MilageLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cars_MilageLbl.ForeColor = System.Drawing.Color.Black;
-            this.cars_MilageLbl.Location = new System.Drawing.Point(12, 256);
+            this.cars_MilageLbl.Location = new System.Drawing.Point(21, 253);
             this.cars_MilageLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cars_MilageLbl.Name = "cars_MilageLbl";
             this.cars_MilageLbl.Size = new System.Drawing.Size(77, 24);
@@ -515,7 +519,7 @@
             this.cars_ColorLbl.AutoSize = true;
             this.cars_ColorLbl.BackColor = System.Drawing.Color.White;
             this.cars_ColorLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_ColorLbl.Location = new System.Drawing.Point(12, 219);
+            this.cars_ColorLbl.Location = new System.Drawing.Point(21, 216);
             this.cars_ColorLbl.Name = "cars_ColorLbl";
             this.cars_ColorLbl.Size = new System.Drawing.Size(55, 24);
             this.cars_ColorLbl.TabIndex = 31;
@@ -524,16 +528,16 @@
             // cars_ColorTxtB
             // 
             this.cars_ColorTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_ColorTxtB.Location = new System.Drawing.Point(183, 219);
+            this.cars_ColorTxtB.Location = new System.Drawing.Point(174, 216);
             this.cars_ColorTxtB.Name = "cars_ColorTxtB";
-            this.cars_ColorTxtB.Size = new System.Drawing.Size(192, 29);
+            this.cars_ColorTxtB.Size = new System.Drawing.Size(316, 29);
             this.cars_ColorTxtB.TabIndex = 30;
             // 
             // cars_ModeLbl
             // 
             this.cars_ModeLbl.AutoSize = true;
             this.cars_ModeLbl.BackColor = System.Drawing.Color.White;
-            this.cars_ModeLbl.Location = new System.Drawing.Point(12, 17);
+            this.cars_ModeLbl.Location = new System.Drawing.Point(21, 20);
             this.cars_ModeLbl.Name = "cars_ModeLbl";
             this.cars_ModeLbl.Size = new System.Drawing.Size(59, 24);
             this.cars_ModeLbl.TabIndex = 29;
@@ -542,7 +546,7 @@
             // cars_comboBox
             // 
             this.cars_comboBox.FormattingEnabled = true;
-            this.cars_comboBox.Location = new System.Drawing.Point(77, 14);
+            this.cars_comboBox.Location = new System.Drawing.Point(86, 17);
             this.cars_comboBox.Name = "cars_comboBox";
             this.cars_comboBox.Size = new System.Drawing.Size(158, 32);
             this.cars_comboBox.TabIndex = 28;
@@ -551,9 +555,9 @@
             // car_SearchBtn
             // 
             this.car_SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.car_SearchBtn.Location = new System.Drawing.Point(8, 335);
+            this.car_SearchBtn.Location = new System.Drawing.Point(25, 353);
             this.car_SearchBtn.Name = "car_SearchBtn";
-            this.car_SearchBtn.Size = new System.Drawing.Size(141, 51);
+            this.car_SearchBtn.Size = new System.Drawing.Size(141, 63);
             this.car_SearchBtn.TabIndex = 27;
             this.car_SearchBtn.Text = "Search";
             this.car_SearchBtn.UseVisualStyleBackColor = true;
@@ -563,7 +567,7 @@
             // 
             this.cars_NoCheckBox.AutoSize = true;
             this.cars_NoCheckBox.BackColor = System.Drawing.Color.White;
-            this.cars_NoCheckBox.Location = new System.Drawing.Point(287, 291);
+            this.cars_NoCheckBox.Location = new System.Drawing.Point(339, 288);
             this.cars_NoCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.cars_NoCheckBox.Name = "cars_NoCheckBox";
             this.cars_NoCheckBox.Size = new System.Drawing.Size(54, 28);
@@ -576,7 +580,7 @@
             // 
             this.cars_YesCheckBox.AutoSize = true;
             this.cars_YesCheckBox.BackColor = System.Drawing.Color.White;
-            this.cars_YesCheckBox.Location = new System.Drawing.Point(222, 291);
+            this.cars_YesCheckBox.Location = new System.Drawing.Point(274, 288);
             this.cars_YesCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.cars_YesCheckBox.Name = "cars_YesCheckBox";
             this.cars_YesCheckBox.Size = new System.Drawing.Size(61, 28);
@@ -588,10 +592,10 @@
             // cars_YearTxtB
             // 
             this.cars_YearTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_YearTxtB.Location = new System.Drawing.Point(183, 185);
+            this.cars_YearTxtB.Location = new System.Drawing.Point(174, 182);
             this.cars_YearTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_YearTxtB.Name = "cars_YearTxtB";
-            this.cars_YearTxtB.Size = new System.Drawing.Size(192, 29);
+            this.cars_YearTxtB.Size = new System.Drawing.Size(316, 29);
             this.cars_YearTxtB.TabIndex = 23;
             // 
             // cars_YearLbl
@@ -599,7 +603,7 @@
             this.cars_YearLbl.AutoSize = true;
             this.cars_YearLbl.BackColor = System.Drawing.Color.White;
             this.cars_YearLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_YearLbl.Location = new System.Drawing.Point(12, 189);
+            this.cars_YearLbl.Location = new System.Drawing.Point(21, 186);
             this.cars_YearLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cars_YearLbl.Name = "cars_YearLbl";
             this.cars_YearLbl.Size = new System.Drawing.Size(49, 24);
@@ -609,32 +613,32 @@
             // cars_dataGridView
             // 
             this.cars_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cars_dataGridView.Location = new System.Drawing.Point(385, 14);
+            this.cars_dataGridView.Location = new System.Drawing.Point(534, 14);
             this.cars_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.cars_dataGridView.Name = "cars_dataGridView";
             this.cars_dataGridView.RowHeadersWidth = 51;
             this.cars_dataGridView.RowTemplate.Height = 24;
-            this.cars_dataGridView.Size = new System.Drawing.Size(552, 374);
+            this.cars_dataGridView.Size = new System.Drawing.Size(552, 430);
             this.cars_dataGridView.TabIndex = 21;
             // 
-            // label2
+            // cars_usedLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 295);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 24);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Used?";
+            this.cars_usedLbl.AutoSize = true;
+            this.cars_usedLbl.BackColor = System.Drawing.Color.White;
+            this.cars_usedLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cars_usedLbl.Location = new System.Drawing.Point(23, 292);
+            this.cars_usedLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cars_usedLbl.Name = "cars_usedLbl";
+            this.cars_usedLbl.Size = new System.Drawing.Size(64, 24);
+            this.cars_usedLbl.TabIndex = 19;
+            this.cars_usedLbl.Text = "Used?";
             // 
             // cars_modelLbl
             // 
             this.cars_modelLbl.AutoSize = true;
             this.cars_modelLbl.BackColor = System.Drawing.Color.White;
             this.cars_modelLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_modelLbl.Location = new System.Drawing.Point(12, 156);
+            this.cars_modelLbl.Location = new System.Drawing.Point(21, 153);
             this.cars_modelLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cars_modelLbl.Name = "cars_modelLbl";
             this.cars_modelLbl.Size = new System.Drawing.Size(63, 24);
@@ -644,19 +648,19 @@
             // cars_modelTxtB
             // 
             this.cars_modelTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_modelTxtB.Location = new System.Drawing.Point(183, 152);
+            this.cars_modelTxtB.Location = new System.Drawing.Point(174, 149);
             this.cars_modelTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_modelTxtB.Name = "cars_modelTxtB";
-            this.cars_modelTxtB.Size = new System.Drawing.Size(192, 29);
+            this.cars_modelTxtB.Size = new System.Drawing.Size(316, 29);
             this.cars_modelTxtB.TabIndex = 17;
             // 
             // cars_makeTxtB
             // 
             this.cars_makeTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_makeTxtB.Location = new System.Drawing.Point(183, 119);
+            this.cars_makeTxtB.Location = new System.Drawing.Point(174, 116);
             this.cars_makeTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_makeTxtB.Name = "cars_makeTxtB";
-            this.cars_makeTxtB.Size = new System.Drawing.Size(192, 29);
+            this.cars_makeTxtB.Size = new System.Drawing.Size(316, 29);
             this.cars_makeTxtB.TabIndex = 16;
             // 
             // cars_makeLbl
@@ -666,7 +670,7 @@
             this.cars_makeLbl.BackColor = System.Drawing.Color.White;
             this.cars_makeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cars_makeLbl.ForeColor = System.Drawing.Color.Black;
-            this.cars_makeLbl.Location = new System.Drawing.Point(12, 122);
+            this.cars_makeLbl.Location = new System.Drawing.Point(21, 119);
             this.cars_makeLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cars_makeLbl.Name = "cars_makeLbl";
             this.cars_makeLbl.Size = new System.Drawing.Size(56, 24);
@@ -678,7 +682,7 @@
             this.cars_VINLbl.AutoSize = true;
             this.cars_VINLbl.BackColor = System.Drawing.Color.White;
             this.cars_VINLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_VINLbl.Location = new System.Drawing.Point(12, 85);
+            this.cars_VINLbl.Location = new System.Drawing.Point(21, 82);
             this.cars_VINLbl.Name = "cars_VINLbl";
             this.cars_VINLbl.Size = new System.Drawing.Size(115, 24);
             this.cars_VINLbl.TabIndex = 14;
@@ -687,9 +691,9 @@
             // cars_VINTxtB
             // 
             this.cars_VINTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_VINTxtB.Location = new System.Drawing.Point(183, 85);
+            this.cars_VINTxtB.Location = new System.Drawing.Point(174, 82);
             this.cars_VINTxtB.Name = "cars_VINTxtB";
-            this.cars_VINTxtB.Size = new System.Drawing.Size(192, 29);
+            this.cars_VINTxtB.Size = new System.Drawing.Size(316, 29);
             this.cars_VINTxtB.TabIndex = 13;
             // 
             // employeeTab
@@ -699,7 +703,7 @@
             this.employeeTab.HorizontalScrollbarSize = 10;
             this.employeeTab.Location = new System.Drawing.Point(4, 38);
             this.employeeTab.Name = "employeeTab";
-            this.employeeTab.Size = new System.Drawing.Size(942, 394);
+            this.employeeTab.Size = new System.Drawing.Size(1088, 451);
             this.employeeTab.TabIndex = 3;
             this.employeeTab.Text = "Employees";
             this.employeeTab.VerticalScrollbarBarColor = true;
@@ -875,11 +879,31 @@
             this.sales_VinNumberTextBox.Size = new System.Drawing.Size(192, 29);
             this.sales_VinNumberTextBox.TabIndex = 27;
             // 
+            // cars_ByLbl
+            // 
+            this.cars_ByLbl.AutoSize = true;
+            this.cars_ByLbl.BackColor = System.Drawing.Color.White;
+            this.cars_ByLbl.Location = new System.Drawing.Point(294, 20);
+            this.cars_ByLbl.Name = "cars_ByLbl";
+            this.cars_ByLbl.Size = new System.Drawing.Size(41, 24);
+            this.cars_ByLbl.TabIndex = 34;
+            this.cars_ByLbl.Text = "By: ";
+            // 
+            // cars_ByComboBox
+            // 
+            this.cars_ByComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cars_ByComboBox.FormattingEnabled = true;
+            this.cars_ByComboBox.Location = new System.Drawing.Point(341, 17);
+            this.cars_ByComboBox.Name = "cars_ByComboBox";
+            this.cars_ByComboBox.Size = new System.Drawing.Size(164, 32);
+            this.cars_ByComboBox.TabIndex = 35;
+            this.cars_ByComboBox.SelectedIndexChanged += new System.EventHandler(this.cars_ByComboBox_SelectedIndexChanged);
+            // 
             // Dealership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 488);
+            this.ClientSize = new System.Drawing.Size(1096, 545);
             this.Controls.Add(this.metroTabControl);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -940,7 +964,7 @@
         private System.Windows.Forms.TextBox cars_YearTxtB;
         private System.Windows.Forms.Label cars_YearLbl;
         private System.Windows.Forms.DataGridView cars_dataGridView;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label cars_usedLbl;
         private System.Windows.Forms.Label cars_modelLbl;
         private System.Windows.Forms.TextBox cars_modelTxtB;
         private System.Windows.Forms.TextBox cars_makeTxtB;
@@ -971,6 +995,8 @@
         private System.Windows.Forms.Label cars_MilageLbl;
         private System.Windows.Forms.Label cars_ColorLbl;
         private System.Windows.Forms.TextBox cars_ColorTxtB;
+        private System.Windows.Forms.Label cars_ByLbl;
+        private System.Windows.Forms.ComboBox cars_ByComboBox;
     }
 }
 
