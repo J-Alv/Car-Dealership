@@ -7,11 +7,7 @@ namespace Dealership
 {
     public partial class Dealership : Form
     {
-        //Test example comment
-        //Another one
-        // and another one
         MySqlConnection conn;
-        // OLD SERVER string connString = "SERVER=remotemysql.com;PORT=3306;DATABASE=3tF0bDdaYH;UID=3tF0bDdaYH;PASSWORD=WaMppdwyis";
         string connString = "SERVER=sql3.freemysqlhosting.net;PORT=3306;DATABASE=sql3326055;UID=sql3326055;PASSWORD=F23ItuHar5";
         public Dealership()
         {
@@ -373,7 +369,7 @@ namespace Dealership
                 switch (emp_comboBox.SelectedIndex)
                 {
                     case 0:
-                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
+                        CmdString = "SELECT Employee.ID, FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
                             "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -382,7 +378,66 @@ namespace Dealership
                         break;
 
                     case 1:
-                        CmdString = "";
+                        CmdString = "SELECT Employee.ID, FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title" +
+                            " FROM Employee JOIN PhoneInfo ON (Employee.PhoneID = PhoneInfo.ID)";
+                        if (ID != "")
+                        {
+                            CmdString += "WHERE Employee.ID = " + ID;
+                        }
+                        if (FirstName != "")
+                        {
+                            if (ID != "")
+                                CmdString += " AND FirstName = '" + FirstName + "'";
+                            else
+                                CmdString += "WHERE FirstName = '" + FirstName + "'";
+                        }
+                        if (MiddleName != "")
+                        {
+                            if (FirstName != "" || ID != "")
+                                CmdString += " AND MiddleName = '" + MiddleName + "'";
+                            else
+                                CmdString += "WHERE MiddleName = " + MiddleName + "'";
+                        }
+                        if (LastName != "")
+                        {
+                            if (FirstName != "" || MiddleName != "" || ID != "")
+                                CmdString += " AND LastName = '" + LastName + "'";
+                            else
+                                CmdString += "WHERE LastName = '" + LastName + "'";
+                        }
+                        if (SupervisorID != "")
+                        {
+                            if (FirstName != "" || MiddleName != "" || LastName != "" || ID != "")
+                                CmdString += " AND SupervisorID = " + SupervisorID;
+                            else
+                                CmdString += "WHERE SupervisorID = " + SupervisorID;
+                        }
+
+                        if (PhoneNumber != "")
+                        {
+                            if (FirstName != "" || MiddleName != "" || LastName != "" || ID != "" || SupervisorID != "")
+                            {
+                                CmdString += " AND Number = '" + PhoneNumber + "'";
+                            }
+                            else                            
+                                CmdString += "WHERE Number = '" + PhoneNumber + "'";                       
+                        }
+                        if (Email != "")
+                        {
+                            if (FirstName != "" || MiddleName != "" || LastName != "" || SupervisorID != "" || ID != "" || PhoneNumber != "")
+                                CmdString += " AND Email = '" + Email + "'";
+                            else
+                                CmdString += "WHERE Email = '" + Email + "'";
+                        }
+                        if (Title != "")
+                        {
+                            if (FirstName != "" || MiddleName != "" || LastName != "" || SupervisorID != "" || Email != "" || ID != "" || PhoneNumber != "")
+
+                                CmdString += " AND Title = '" + Title + "'";
+                            else
+                                CmdString += "WHERE Title = '" + Title + "'";
+                        }
+
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
                         emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
@@ -390,6 +445,48 @@ namespace Dealership
                         break;
 
                     case 2:
+                        CmdString = "INSERT INTO PhoneInfo (Number, TypeID) VALUES ('" + PhoneNumber + "' , 'C')";
+
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
+
+                        CmdString = "INSERT INTO Employee (FirstName, MiddleName, LastName, SupervisorID, PhoneID, Email, Title) VALUES" +
+                            " ('" + FirstName + "'";
+                        if (MiddleName != "")
+                        {
+                            CmdString += ",'" + MiddleName + "'";
+                        }
+                        else
+                        {
+                            CmdString += ", NULL";
+                        }
+
+                        CmdString += ", '" + LastName + "'";
+
+                        if (SupervisorID != "")
+                        {
+                            CmdString += ", " + SupervisorID;
+                        }
+                        else
+                        {
+                            CmdString += ", NULL";
+                        }
+
+                        CmdString += ", last_insert_id() "
+                        + ",'" + Email + "'"
+                        + ", '" + Title + "')";
+
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
+
+
+                        CmdString = "SELECT Employee.ID, FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
+                        "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
                         break;
 
                     case 3:
@@ -445,7 +542,7 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
+                        CmdString = "SELECT Employee.ID, FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
                             "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -470,7 +567,7 @@ namespace Dealership
                         break;
                 }
             }
-            catch(MySql.Data.MySqlClient.MySqlException ex)
+            catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }

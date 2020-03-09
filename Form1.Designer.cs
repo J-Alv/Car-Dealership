@@ -781,7 +781,7 @@
             this.emp_EmailLbl.BackColor = System.Drawing.Color.White;
             this.emp_EmailLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp_EmailLbl.ForeColor = System.Drawing.Color.Black;
-            this.emp_EmailLbl.Location = new System.Drawing.Point(12, 305);
+            this.emp_EmailLbl.Location = new System.Drawing.Point(12, 292);
             this.emp_EmailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_EmailLbl.Name = "emp_EmailLbl";
             this.emp_EmailLbl.Size = new System.Drawing.Size(57, 24);
@@ -802,7 +802,7 @@
             // emp_TitleTxtB
             // 
             this.emp_TitleTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_TitleTxtB.Location = new System.Drawing.Point(165, 333);
+            this.emp_TitleTxtB.Location = new System.Drawing.Point(165, 325);
             this.emp_TitleTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_TitleTxtB.Name = "emp_TitleTxtB";
             this.emp_TitleTxtB.Size = new System.Drawing.Size(316, 29);
@@ -811,7 +811,7 @@
             // emp_EmailTxtB
             // 
             this.emp_EmailTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_EmailTxtB.Location = new System.Drawing.Point(165, 300);
+            this.emp_EmailTxtB.Location = new System.Drawing.Point(165, 292);
             this.emp_EmailTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_EmailTxtB.Name = "emp_EmailTxtB";
             this.emp_EmailTxtB.Size = new System.Drawing.Size(316, 29);
@@ -824,7 +824,7 @@
             this.emp_TitleLbl.BackColor = System.Drawing.Color.White;
             this.emp_TitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp_TitleLbl.ForeColor = System.Drawing.Color.Black;
-            this.emp_TitleLbl.Location = new System.Drawing.Point(12, 338);
+            this.emp_TitleLbl.Location = new System.Drawing.Point(12, 328);
             this.emp_TitleLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_TitleLbl.Name = "emp_TitleLbl";
             this.emp_TitleLbl.Size = new System.Drawing.Size(45, 24);
@@ -836,7 +836,7 @@
             this.emp_PhoneLbl.AutoSize = true;
             this.emp_PhoneLbl.BackColor = System.Drawing.Color.White;
             this.emp_PhoneLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_PhoneLbl.Location = new System.Drawing.Point(12, 228);
+            this.emp_PhoneLbl.Location = new System.Drawing.Point(12, 225);
             this.emp_PhoneLbl.Name = "emp_PhoneLbl";
             this.emp_PhoneLbl.Size = new System.Drawing.Size(140, 24);
             this.emp_PhoneLbl.TabIndex = 52;
@@ -845,7 +845,7 @@
             // emp_PhoneTxtB
             // 
             this.emp_PhoneTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_PhoneTxtB.Location = new System.Drawing.Point(165, 228);
+            this.emp_PhoneTxtB.Location = new System.Drawing.Point(165, 225);
             this.emp_PhoneTxtB.Name = "emp_PhoneTxtB";
             this.emp_PhoneTxtB.Size = new System.Drawing.Size(316, 29);
             this.emp_PhoneTxtB.TabIndex = 51;
@@ -873,7 +873,7 @@
             // emp_Button
             // 
             this.emp_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_Button.Location = new System.Drawing.Point(4, 380);
+            this.emp_Button.Location = new System.Drawing.Point(8, 377);
             this.emp_Button.Name = "emp_Button";
             this.emp_Button.Size = new System.Drawing.Size(141, 63);
             this.emp_Button.TabIndex = 48;
@@ -897,7 +897,7 @@
             this.emp_LastNameLbl.AutoSize = true;
             this.emp_LastNameLbl.BackColor = System.Drawing.Color.White;
             this.emp_LastNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_LastNameLbl.Location = new System.Drawing.Point(12, 195);
+            this.emp_LastNameLbl.Location = new System.Drawing.Point(12, 191);
             this.emp_LastNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_LastNameLbl.Name = "emp_LastNameLbl";
             this.emp_LastNameLbl.Size = new System.Drawing.Size(99, 24);
@@ -929,7 +929,7 @@
             this.emp_MiddleNameLbl.BackColor = System.Drawing.Color.White;
             this.emp_MiddleNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp_MiddleNameLbl.ForeColor = System.Drawing.Color.Black;
-            this.emp_MiddleNameLbl.Location = new System.Drawing.Point(12, 161);
+            this.emp_MiddleNameLbl.Location = new System.Drawing.Point(12, 158);
             this.emp_MiddleNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_MiddleNameLbl.Name = "emp_MiddleNameLbl";
             this.emp_MiddleNameLbl.Size = new System.Drawing.Size(123, 24);
@@ -1146,7 +1146,7 @@
             // emp_SupervisorIDTxtB
             // 
             this.emp_SupervisorIDTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_SupervisorIDTxtB.Location = new System.Drawing.Point(165, 267);
+            this.emp_SupervisorIDTxtB.Location = new System.Drawing.Point(165, 259);
             this.emp_SupervisorIDTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_SupervisorIDTxtB.Name = "emp_SupervisorIDTxtB";
             this.emp_SupervisorIDTxtB.Size = new System.Drawing.Size(316, 29);
@@ -1159,7 +1159,7 @@
             this.emp_SupervisorLbl.BackColor = System.Drawing.Color.White;
             this.emp_SupervisorLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp_SupervisorLbl.ForeColor = System.Drawing.Color.Black;
-            this.emp_SupervisorLbl.Location = new System.Drawing.Point(12, 272);
+            this.emp_SupervisorLbl.Location = new System.Drawing.Point(12, 259);
             this.emp_SupervisorLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_SupervisorLbl.Name = "emp_SupervisorLbl";
             this.emp_SupervisorLbl.Size = new System.Drawing.Size(122, 24);
