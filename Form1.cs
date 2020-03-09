@@ -35,7 +35,8 @@ namespace Dealership
             {
                 conn = new MySqlConnection(connString);
                 conn.Open();
-                string CmdString = "SELECT * FROM Customer";
+                string CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email FROM Customer " +
+                    "JOIN PhoneInfo on (PhoneInfo.ID=Customer.PhoneID)";
                 MySqlCommand cmd = null;
                 cmd = new MySqlCommand(CmdString, conn);
                 cmd.ExecuteNonQuery();
@@ -102,7 +103,7 @@ namespace Dealership
                 switch (cars_comboBox.SelectedIndex)
                 {
                     case 0:
-                        CmdString = "SELECT * FROM Car";
+                        CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car";
                         sda = new MySqlDataAdapter(CmdString, conn);
 
                         sda.Fill(ds);
@@ -134,11 +135,11 @@ namespace Dealership
                         switch (cars_ByComboBox.SelectedIndex)
                         {
                             case 0:
-                                CmdString = "SELECT * FROM Car " +
+                                CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car " +
                                 "WHERE VIN = '" + VIN + "'";
                                 break;
                             case 1:
-                                CmdString = "SELECT * FROM Car " +
+                                CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car " +
                                 "WHERE Make = '" + Make + "'" +
                                 "AND Model = '" + Model + "'";
                                 break;
@@ -369,7 +370,7 @@ namespace Dealership
                 switch (emp_comboBox.SelectedIndex)
                 {
                     case 0:
-                        CmdString = "SELECT Employee.ID, FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
+                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
                             "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -378,7 +379,7 @@ namespace Dealership
                         break;
 
                     case 1:
-                        CmdString = "SELECT Employee.ID, FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title" +
+                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title" +
                             " FROM Employee JOIN PhoneInfo ON (Employee.PhoneID = PhoneInfo.ID)";
                         if (ID != "")
                         {
@@ -480,7 +481,7 @@ namespace Dealership
                         cmd.ExecuteNonQuery();
 
 
-                        CmdString = "SELECT Employee.ID, FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
+                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
                         "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -542,7 +543,7 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT Employee.ID, FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
+                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
                             "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
