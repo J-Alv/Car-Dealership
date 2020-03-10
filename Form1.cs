@@ -36,7 +36,7 @@ namespace Dealership
                 conn = new MySqlConnection(connString);
                 conn.Open();
                 string CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email FROM Customer " +
-                    "JOIN PhoneInfo on (PhoneInfo.ID=Customer.PhoneID)";
+                    "JOIN PhoneInfo on (PhoneInfo.CustomerID=Customer.ID)";
                 MySqlCommand cmd = null;
                 cmd = new MySqlCommand(CmdString, conn);
                 cmd.ExecuteNonQuery();
@@ -64,7 +64,7 @@ namespace Dealership
             {
                 conn = new MySqlConnection(connString);
                 conn.Open();
-                string CmdString = "NEED TO IMPLEMENT";
+                string CmdString = "INSERT INTO Customer(";
                 MySqlCommand cmd = null;
                 cmd = new MySqlCommand(CmdString, conn);
                 cmd.ExecuteNonQuery();
@@ -92,8 +92,11 @@ namespace Dealership
                 conn.Open();
 
                 string VIN = cars_VINTxtB.Text.ToString();
+                int VinLength = VIN.Length;
                 string Make = cars_makeTxtB.Text.ToString();
+                int MakeLength = Make.Length;
                 string Model = cars_modelTxtB.Text.ToString();
+                int ModelLength = Model.Length;
                 string Year = cars_YearTxtB.Text.ToString();
                 string Color = cars_ColorTxtB.Text.ToString();
                 string Mileage = cars_MileageTxtB.Text.ToString();
@@ -135,14 +138,51 @@ namespace Dealership
                         switch (cars_ByComboBox.SelectedIndex)
                         {
                             case 0:
-                                CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car " +
-                                "WHERE VIN = '" + VIN + "'";
+                                if (VinLength == 17)
+                                {
+                                    CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car " +
+                                    "WHERE VIN LIKE '" + VIN + "'";
+                                }else if (VinLength!=17)
+                                {
+                                    //MessageBox.Show("Wrong VIN Length");
+                                    CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car " +
+                                    "WHERE VIN LIKE '" + VIN + "%'";
+                                }else if (VinLength == 0)
+                                {
+                                 
+                                    CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car";
+                                }
                                 break;
                             case 1:
-                                CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car " +
-                                "WHERE Make = '" + Make + "'" +
-                                "AND Model = '" + Model + "'";
-                                break;
+                                if (MakeLength != 0 && ModelLength != 0)
+                                {
+                                    CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car " +
+                                    "WHERE Make LIKE '" + Make + "'" +
+                                    "AND Model LIKE '" + Model + "'";
+
+                                }
+                                else 
+                                 if (MakeLength != 0 && ModelLength == 0)
+                                {
+                                    CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car " +
+                                    "WHERE Make LIKE '" + Make + "'";
+
+                                    
+                                }
+                                else
+                                    if (MakeLength == 0 && ModelLength != 0)
+                                {
+                                    CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car " +
+                                    "WHERE Model LIKE '" + Model + "'";
+                                }
+                                else
+                                if (MakeLength == 0 && ModelLength == 0)
+                                {
+                                    CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car";
+                                    
+                                }
+                                
+                                    break;
                         }
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -228,9 +268,9 @@ namespace Dealership
                     break;
                 case 2:
                     car_SearchBtn.Text = "Search";
-                    cars_VINLbl.Text = "* VIN";
-                    cars_makeLbl.Text = "* Make";
-                    cars_modelLbl.Text = "* Model";
+                    cars_VINLbl.Text = " VIN";
+                    cars_makeLbl.Text = " Make";
+                    cars_modelLbl.Text = " Model";
 
                     cars_VINLbl.Visible = false;
                     cars_VINTxtB.Visible = false;
@@ -371,7 +411,7 @@ namespace Dealership
                 {
                     case 0:
                         CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)";
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
                         emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
@@ -380,7 +420,7 @@ namespace Dealership
 
                     case 1:
                         CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title" +
-                            " FROM Employee JOIN PhoneInfo ON (Employee.PhoneID = PhoneInfo.ID)";
+                            " FROM Employee JOIN PhoneInfo ON (Employee.ID = PhoneInfo.EmployeeID)";
                         if (ID != "")
                         {
                             CmdString += "WHERE Employee.ID = " + ID;
@@ -388,30 +428,30 @@ namespace Dealership
                         if (FirstName != "")
                         {
                             if (ID != "")
-                                CmdString += " AND FirstName = '" + FirstName + "'";
+                                CmdString += " AND FirstName LIKE '" + FirstName + "'";
                             else
-                                CmdString += "WHERE FirstName = '" + FirstName + "'";
+                                CmdString += "WHERE FirstName LIKE '" + FirstName + "'";
                         }
                         if (MiddleName != "")
                         {
                             if (FirstName != "" || ID != "")
-                                CmdString += " AND MiddleName = '" + MiddleName + "'";
+                                CmdString += " AND MiddleName LIKE '" + MiddleName + "'";
                             else
-                                CmdString += "WHERE MiddleName = " + MiddleName + "'";
+                                CmdString += "WHERE MiddleName LIKE " + MiddleName + "'";
                         }
                         if (LastName != "")
                         {
                             if (FirstName != "" || MiddleName != "" || ID != "")
-                                CmdString += " AND LastName = '" + LastName + "'";
+                                CmdString += " AND LastName LIKE '" + LastName + "'";
                             else
-                                CmdString += "WHERE LastName = '" + LastName + "'";
+                                CmdString += "WHERE LastName LIKE '" + LastName + "'";
                         }
                         if (SupervisorID != "")
                         {
                             if (FirstName != "" || MiddleName != "" || LastName != "" || ID != "")
-                                CmdString += " AND SupervisorID = " + SupervisorID;
+                                CmdString += " AND SupervisorID LIKE " + SupervisorID;
                             else
-                                CmdString += "WHERE SupervisorID = " + SupervisorID;
+                                CmdString += "WHERE SupervisorID LIKE " + SupervisorID;
                         }
 
                         if (PhoneNumber != "")
@@ -446,7 +486,7 @@ namespace Dealership
                         break;
 
                     case 2:
-                        CmdString = "INSERT INTO PhoneInfo (Number, TypeID) VALUES ('" + PhoneNumber + "' , 'C')";
+                        CmdString = "INSERT INTO PhoneInfo (Number, TypeID) VALUES ('" + PhoneNumber + "' , 'C')";// make a separate box for type
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
