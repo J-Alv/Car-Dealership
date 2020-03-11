@@ -31,21 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.titleLbl = new System.Windows.Forms.Label();
             this.metroTabControl = new MetroFramework.Controls.MetroTabControl();
-            this.customerTab = new MetroFramework.Controls.MetroTabPage();
-            this.cust_ListAllButton = new System.Windows.Forms.Button();
-            this.cust_UpdateButton = new System.Windows.Forms.Button();
-            this.cust_CreateButton = new System.Windows.Forms.Button();
-            this.cust_PhoneNbrTxtB = new System.Windows.Forms.TextBox();
-            this.cust_PhoneNbrLbl = new System.Windows.Forms.Label();
-            this.cust_dataGridView = new System.Windows.Forms.DataGridView();
-            this.cust_emailTxtB = new System.Windows.Forms.TextBox();
-            this.cust_emailLbl = new System.Windows.Forms.Label();
-            this.cust_lastNMLbl = new System.Windows.Forms.Label();
-            this.cust_lastNMTxtB = new System.Windows.Forms.TextBox();
-            this.cust_middleNMTxtB = new System.Windows.Forms.TextBox();
-            this.cust_middleNMLbl = new System.Windows.Forms.Label();
-            this.cust_firstNMLbl = new System.Windows.Forms.Label();
-            this.cust_firstNMTxtB = new System.Windows.Forms.TextBox();
             this.salesHistory_Tab = new MetroFramework.Controls.MetroTabPage();
             this.salesHistory_EmployeeCheckBox = new System.Windows.Forms.CheckBox();
             this.saleHistory_CustCheckBox = new System.Windows.Forms.CheckBox();
@@ -59,8 +44,8 @@
             this.salesHistory_FromDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.sale_dataGridView = new System.Windows.Forms.DataGridView();
             this.carTab = new MetroFramework.Controls.MetroTabPage();
-            this.cars_ByComboBox = new System.Windows.Forms.ComboBox();
-            this.cars_ByLbl = new System.Windows.Forms.Label();
+            this.cars_StatusComboBox = new System.Windows.Forms.ComboBox();
+            this.cars_StatusLbl = new System.Windows.Forms.Label();
             this.cars_MileageTxtB = new System.Windows.Forms.TextBox();
             this.cars_MilageLbl = new System.Windows.Forms.Label();
             this.cars_ColorLbl = new System.Windows.Forms.Label();
@@ -81,8 +66,9 @@
             this.cars_VINLbl = new System.Windows.Forms.Label();
             this.cars_VINTxtB = new System.Windows.Forms.TextBox();
             this.employeeTab = new MetroFramework.Controls.MetroTabPage();
+            this.emp_SupervisorTxtB = new System.Windows.Forms.TextBox();
+            this.emp_SupervisorLbl = new System.Windows.Forms.Label();
             this.emp_EmailLbl = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.emp_TitleTxtB = new System.Windows.Forms.TextBox();
             this.emp_EmailTxtB = new System.Windows.Forms.TextBox();
             this.emp_TitleLbl = new System.Windows.Forms.Label();
@@ -99,35 +85,31 @@
             this.emp_FirstNameLbl = new System.Windows.Forms.Label();
             this.emp_FirstNameTxtB = new System.Windows.Forms.TextBox();
             this.sales_Tab = new MetroFramework.Controls.MetroTabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.sales_VinNumberLabel = new System.Windows.Forms.Label();
-            this.sales_VinNumberTextBox = new System.Windows.Forms.TextBox();
-            this.emp_IDLbl = new System.Windows.Forms.Label();
-            this.emp_IDTxtB = new System.Windows.Forms.TextBox();
-            this.emp_SupervisorIDTxtB = new System.Windows.Forms.TextBox();
-            this.emp_SupervisorLbl = new System.Windows.Forms.Label();
+            this.cust_firstNMTxtB = new System.Windows.Forms.TextBox();
+            this.cust_firstNMLbl = new System.Windows.Forms.Label();
+            this.cust_middleNMTxtB = new System.Windows.Forms.TextBox();
+            this.cust_lastNMTxtB = new System.Windows.Forms.TextBox();
+            this.cust_lastNMLbl = new System.Windows.Forms.Label();
+            this.cust_emailLbl = new System.Windows.Forms.Label();
+            this.cust_dataGridView = new System.Windows.Forms.DataGridView();
+            this.cust_PhoneNbrLbl = new System.Windows.Forms.Label();
+            this.cust_PhoneNbrTxtB = new System.Windows.Forms.TextBox();
+            this.customerTab = new MetroFramework.Controls.MetroTabPage();
+            this.cust_emailTxtB = new System.Windows.Forms.TextBox();
+            this.cust_middleNMLbl = new System.Windows.Forms.Label();
+            this.cust_comboBox = new System.Windows.Forms.ComboBox();
+            this.cust_ActionLbl = new System.Windows.Forms.Label();
+            this.cust_Button = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.metroTabControl.SuspendLayout();
-            this.customerTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).BeginInit();
             this.salesHistory_Tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sale_dataGridView)).BeginInit();
             this.carTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cars_dataGridView)).BeginInit();
             this.employeeTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emp_dataGridView)).BeginInit();
-            this.sales_Tab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).BeginInit();
+            this.customerTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -162,190 +144,10 @@
             this.metroTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl.Location = new System.Drawing.Point(0, 52);
             this.metroTabControl.Name = "metroTabControl";
-            this.metroTabControl.SelectedIndex = 3;
+            this.metroTabControl.SelectedIndex = 0;
             this.metroTabControl.Size = new System.Drawing.Size(1096, 493);
             this.metroTabControl.TabIndex = 1;
             this.metroTabControl.UseSelectable = true;
-            // 
-            // customerTab
-            // 
-            this.customerTab.Controls.Add(this.cust_ListAllButton);
-            this.customerTab.Controls.Add(this.cust_UpdateButton);
-            this.customerTab.Controls.Add(this.cust_CreateButton);
-            this.customerTab.Controls.Add(this.cust_PhoneNbrTxtB);
-            this.customerTab.Controls.Add(this.cust_PhoneNbrLbl);
-            this.customerTab.Controls.Add(this.cust_dataGridView);
-            this.customerTab.Controls.Add(this.cust_emailTxtB);
-            this.customerTab.Controls.Add(this.cust_emailLbl);
-            this.customerTab.Controls.Add(this.cust_lastNMLbl);
-            this.customerTab.Controls.Add(this.cust_lastNMTxtB);
-            this.customerTab.Controls.Add(this.cust_middleNMTxtB);
-            this.customerTab.Controls.Add(this.cust_middleNMLbl);
-            this.customerTab.Controls.Add(this.cust_firstNMLbl);
-            this.customerTab.Controls.Add(this.cust_firstNMTxtB);
-            this.customerTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerTab.HorizontalScrollbarBarColor = true;
-            this.customerTab.HorizontalScrollbarHighlightOnWheel = false;
-            this.customerTab.HorizontalScrollbarSize = 10;
-            this.customerTab.Location = new System.Drawing.Point(4, 38);
-            this.customerTab.Name = "customerTab";
-            this.customerTab.Size = new System.Drawing.Size(1088, 451);
-            this.customerTab.TabIndex = 0;
-            this.customerTab.Text = "Customers";
-            this.customerTab.VerticalScrollbarBarColor = true;
-            this.customerTab.VerticalScrollbarHighlightOnWheel = false;
-            this.customerTab.VerticalScrollbarSize = 10;
-            // 
-            // cust_ListAllButton
-            // 
-            this.cust_ListAllButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_ListAllButton.Location = new System.Drawing.Point(246, 296);
-            this.cust_ListAllButton.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_ListAllButton.Name = "cust_ListAllButton";
-            this.cust_ListAllButton.Size = new System.Drawing.Size(101, 49);
-            this.cust_ListAllButton.TabIndex = 15;
-            this.cust_ListAllButton.Text = "List All Customers";
-            this.cust_ListAllButton.UseVisualStyleBackColor = true;
-            this.cust_ListAllButton.Click += new System.EventHandler(this.cust_ListAllButton_Click);
-            // 
-            // cust_UpdateButton
-            // 
-            this.cust_UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_UpdateButton.Location = new System.Drawing.Point(141, 296);
-            this.cust_UpdateButton.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_UpdateButton.Name = "cust_UpdateButton";
-            this.cust_UpdateButton.Size = new System.Drawing.Size(101, 49);
-            this.cust_UpdateButton.TabIndex = 14;
-            this.cust_UpdateButton.Text = "Update Customer";
-            this.cust_UpdateButton.UseVisualStyleBackColor = true;
-            // 
-            // cust_CreateButton
-            // 
-            this.cust_CreateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_CreateButton.Location = new System.Drawing.Point(35, 296);
-            this.cust_CreateButton.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_CreateButton.Name = "cust_CreateButton";
-            this.cust_CreateButton.Size = new System.Drawing.Size(102, 49);
-            this.cust_CreateButton.TabIndex = 13;
-            this.cust_CreateButton.Text = "Create New Customer";
-            this.cust_CreateButton.UseVisualStyleBackColor = true;
-            this.cust_CreateButton.Click += new System.EventHandler(this.cust_CreateButton_Click);
-            // 
-            // cust_PhoneNbrTxtB
-            // 
-            this.cust_PhoneNbrTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_PhoneNbrTxtB.Location = new System.Drawing.Point(179, 179);
-            this.cust_PhoneNbrTxtB.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_PhoneNbrTxtB.Name = "cust_PhoneNbrTxtB";
-            this.cust_PhoneNbrTxtB.Size = new System.Drawing.Size(192, 29);
-            this.cust_PhoneNbrTxtB.TabIndex = 12;
-            // 
-            // cust_PhoneNbrLbl
-            // 
-            this.cust_PhoneNbrLbl.AutoSize = true;
-            this.cust_PhoneNbrLbl.BackColor = System.Drawing.Color.White;
-            this.cust_PhoneNbrLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_PhoneNbrLbl.Location = new System.Drawing.Point(8, 183);
-            this.cust_PhoneNbrLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.cust_PhoneNbrLbl.Name = "cust_PhoneNbrLbl";
-            this.cust_PhoneNbrLbl.Size = new System.Drawing.Size(140, 24);
-            this.cust_PhoneNbrLbl.TabIndex = 11;
-            this.cust_PhoneNbrLbl.Text = "Phone Number";
-            // 
-            // cust_dataGridView
-            // 
-            this.cust_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cust_dataGridView.Location = new System.Drawing.Point(386, 9);
-            this.cust_dataGridView.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_dataGridView.Name = "cust_dataGridView";
-            this.cust_dataGridView.RowHeadersWidth = 51;
-            this.cust_dataGridView.RowTemplate.Height = 24;
-            this.cust_dataGridView.Size = new System.Drawing.Size(552, 374);
-            this.cust_dataGridView.TabIndex = 10;
-            // 
-            // cust_emailTxtB
-            // 
-            this.cust_emailTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_emailTxtB.Location = new System.Drawing.Point(179, 234);
-            this.cust_emailTxtB.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_emailTxtB.Name = "cust_emailTxtB";
-            this.cust_emailTxtB.Size = new System.Drawing.Size(192, 29);
-            this.cust_emailTxtB.TabIndex = 9;
-            // 
-            // cust_emailLbl
-            // 
-            this.cust_emailLbl.AutoSize = true;
-            this.cust_emailLbl.BackColor = System.Drawing.Color.White;
-            this.cust_emailLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_emailLbl.Location = new System.Drawing.Point(8, 238);
-            this.cust_emailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.cust_emailLbl.Name = "cust_emailLbl";
-            this.cust_emailLbl.Size = new System.Drawing.Size(57, 24);
-            this.cust_emailLbl.TabIndex = 8;
-            this.cust_emailLbl.Text = "Email";
-            // 
-            // cust_lastNMLbl
-            // 
-            this.cust_lastNMLbl.AutoSize = true;
-            this.cust_lastNMLbl.BackColor = System.Drawing.Color.White;
-            this.cust_lastNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_lastNMLbl.Location = new System.Drawing.Point(8, 127);
-            this.cust_lastNMLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.cust_lastNMLbl.Name = "cust_lastNMLbl";
-            this.cust_lastNMLbl.Size = new System.Drawing.Size(99, 24);
-            this.cust_lastNMLbl.TabIndex = 7;
-            this.cust_lastNMLbl.Text = "Last Name";
-            // 
-            // cust_lastNMTxtB
-            // 
-            this.cust_lastNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_lastNMTxtB.Location = new System.Drawing.Point(179, 123);
-            this.cust_lastNMTxtB.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_lastNMTxtB.Name = "cust_lastNMTxtB";
-            this.cust_lastNMTxtB.Size = new System.Drawing.Size(192, 29);
-            this.cust_lastNMTxtB.TabIndex = 6;
-            // 
-            // cust_middleNMTxtB
-            // 
-            this.cust_middleNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_middleNMTxtB.Location = new System.Drawing.Point(179, 66);
-            this.cust_middleNMTxtB.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_middleNMTxtB.Name = "cust_middleNMTxtB";
-            this.cust_middleNMTxtB.Size = new System.Drawing.Size(192, 29);
-            this.cust_middleNMTxtB.TabIndex = 5;
-            // 
-            // cust_middleNMLbl
-            // 
-            this.cust_middleNMLbl.AutoEllipsis = true;
-            this.cust_middleNMLbl.AutoSize = true;
-            this.cust_middleNMLbl.BackColor = System.Drawing.Color.White;
-            this.cust_middleNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_middleNMLbl.ForeColor = System.Drawing.Color.Black;
-            this.cust_middleNMLbl.Location = new System.Drawing.Point(8, 69);
-            this.cust_middleNMLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.cust_middleNMLbl.Name = "cust_middleNMLbl";
-            this.cust_middleNMLbl.Size = new System.Drawing.Size(123, 24);
-            this.cust_middleNMLbl.TabIndex = 4;
-            this.cust_middleNMLbl.Text = "Middle Name";
-            // 
-            // cust_firstNMLbl
-            // 
-            this.cust_firstNMLbl.AutoSize = true;
-            this.cust_firstNMLbl.BackColor = System.Drawing.Color.White;
-            this.cust_firstNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_firstNMLbl.Location = new System.Drawing.Point(8, 9);
-            this.cust_firstNMLbl.Name = "cust_firstNMLbl";
-            this.cust_firstNMLbl.Size = new System.Drawing.Size(101, 24);
-            this.cust_firstNMLbl.TabIndex = 3;
-            this.cust_firstNMLbl.Text = "First Name";
-            // 
-            // cust_firstNMTxtB
-            // 
-            this.cust_firstNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_firstNMTxtB.Location = new System.Drawing.Point(179, 9);
-            this.cust_firstNMTxtB.Name = "cust_firstNMTxtB";
-            this.cust_firstNMTxtB.Size = new System.Drawing.Size(192, 29);
-            this.cust_firstNMTxtB.TabIndex = 2;
             // 
             // salesHistory_Tab
             // 
@@ -411,7 +213,7 @@
             this.salesHistory_LastNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesHistory_LastNameTxtB.Location = new System.Drawing.Point(12, 291);
             this.salesHistory_LastNameTxtB.Name = "salesHistory_LastNameTxtB";
-            this.salesHistory_LastNameTxtB.Size = new System.Drawing.Size(201, 29);
+            this.salesHistory_LastNameTxtB.Size = new System.Drawing.Size(316, 29);
             this.salesHistory_LastNameTxtB.TabIndex = 28;
             // 
             // salesHistory_FirstNameLbl
@@ -430,7 +232,7 @@
             this.salesHistory_FirstNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesHistory_FirstNameTxtB.Location = new System.Drawing.Point(12, 227);
             this.salesHistory_FirstNameTxtB.Name = "salesHistory_FirstNameTxtB";
-            this.salesHistory_FirstNameTxtB.Size = new System.Drawing.Size(201, 29);
+            this.salesHistory_FirstNameTxtB.Size = new System.Drawing.Size(316, 29);
             this.salesHistory_FirstNameTxtB.TabIndex = 26;
             // 
             // salesHistory_ToDateTimePicker
@@ -470,18 +272,18 @@
             // sale_dataGridView
             // 
             this.sale_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.sale_dataGridView.Location = new System.Drawing.Point(385, 10);
+            this.sale_dataGridView.Location = new System.Drawing.Point(534, 4);
             this.sale_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.sale_dataGridView.Name = "sale_dataGridView";
             this.sale_dataGridView.RowHeadersWidth = 51;
             this.sale_dataGridView.RowTemplate.Height = 24;
-            this.sale_dataGridView.Size = new System.Drawing.Size(552, 374);
+            this.sale_dataGridView.Size = new System.Drawing.Size(552, 447);
             this.sale_dataGridView.TabIndex = 21;
             // 
             // carTab
             // 
-            this.carTab.Controls.Add(this.cars_ByComboBox);
-            this.carTab.Controls.Add(this.cars_ByLbl);
+            this.carTab.Controls.Add(this.cars_StatusComboBox);
+            this.carTab.Controls.Add(this.cars_StatusLbl);
             this.carTab.Controls.Add(this.cars_MileageTxtB);
             this.carTab.Controls.Add(this.cars_MilageLbl);
             this.carTab.Controls.Add(this.cars_ColorLbl);
@@ -514,25 +316,27 @@
             this.carTab.VerticalScrollbarHighlightOnWheel = false;
             this.carTab.VerticalScrollbarSize = 10;
             // 
-            // cars_ByComboBox
+            // cars_StatusComboBox
             // 
-            this.cars_ByComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_ByComboBox.FormattingEnabled = true;
-            this.cars_ByComboBox.Location = new System.Drawing.Point(341, 17);
-            this.cars_ByComboBox.Name = "cars_ByComboBox";
-            this.cars_ByComboBox.Size = new System.Drawing.Size(164, 32);
-            this.cars_ByComboBox.TabIndex = 35;
-            this.cars_ByComboBox.SelectedIndexChanged += new System.EventHandler(this.cars_ByComboBox_SelectedIndexChanged);
+            this.cars_StatusComboBox.FormattingEnabled = true;
+            this.cars_StatusComboBox.Location = new System.Drawing.Point(174, 285);
+            this.cars_StatusComboBox.Name = "cars_StatusComboBox";
+            this.cars_StatusComboBox.Size = new System.Drawing.Size(316, 32);
+            this.cars_StatusComboBox.TabIndex = 37;
             // 
-            // cars_ByLbl
+            // cars_StatusLbl
             // 
-            this.cars_ByLbl.AutoSize = true;
-            this.cars_ByLbl.BackColor = System.Drawing.Color.White;
-            this.cars_ByLbl.Location = new System.Drawing.Point(294, 20);
-            this.cars_ByLbl.Name = "cars_ByLbl";
-            this.cars_ByLbl.Size = new System.Drawing.Size(41, 24);
-            this.cars_ByLbl.TabIndex = 34;
-            this.cars_ByLbl.Text = "By: ";
+            this.cars_StatusLbl.AutoEllipsis = true;
+            this.cars_StatusLbl.AutoSize = true;
+            this.cars_StatusLbl.BackColor = System.Drawing.Color.White;
+            this.cars_StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cars_StatusLbl.ForeColor = System.Drawing.Color.Black;
+            this.cars_StatusLbl.Location = new System.Drawing.Point(21, 286);
+            this.cars_StatusLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cars_StatusLbl.Name = "cars_StatusLbl";
+            this.cars_StatusLbl.Size = new System.Drawing.Size(60, 24);
+            this.cars_StatusLbl.TabIndex = 36;
+            this.cars_StatusLbl.Text = "Status";
             // 
             // cars_MileageTxtB
             // 
@@ -598,7 +402,7 @@
             // car_SearchBtn
             // 
             this.car_SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.car_SearchBtn.Location = new System.Drawing.Point(25, 353);
+            this.car_SearchBtn.Location = new System.Drawing.Point(25, 380);
             this.car_SearchBtn.Name = "car_SearchBtn";
             this.car_SearchBtn.Size = new System.Drawing.Size(141, 63);
             this.car_SearchBtn.TabIndex = 27;
@@ -610,7 +414,7 @@
             // 
             this.cars_NoCheckBox.AutoSize = true;
             this.cars_NoCheckBox.BackColor = System.Drawing.Color.White;
-            this.cars_NoCheckBox.Location = new System.Drawing.Point(339, 288);
+            this.cars_NoCheckBox.Location = new System.Drawing.Point(337, 322);
             this.cars_NoCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.cars_NoCheckBox.Name = "cars_NoCheckBox";
             this.cars_NoCheckBox.Size = new System.Drawing.Size(54, 28);
@@ -623,7 +427,7 @@
             // 
             this.cars_YesCheckBox.AutoSize = true;
             this.cars_YesCheckBox.BackColor = System.Drawing.Color.White;
-            this.cars_YesCheckBox.Location = new System.Drawing.Point(274, 288);
+            this.cars_YesCheckBox.Location = new System.Drawing.Point(272, 322);
             this.cars_YesCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.cars_YesCheckBox.Name = "cars_YesCheckBox";
             this.cars_YesCheckBox.Size = new System.Drawing.Size(61, 28);
@@ -656,12 +460,12 @@
             // cars_dataGridView
             // 
             this.cars_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cars_dataGridView.Location = new System.Drawing.Point(534, 14);
+            this.cars_dataGridView.Location = new System.Drawing.Point(534, 2);
             this.cars_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.cars_dataGridView.Name = "cars_dataGridView";
             this.cars_dataGridView.RowHeadersWidth = 51;
             this.cars_dataGridView.RowTemplate.Height = 24;
-            this.cars_dataGridView.Size = new System.Drawing.Size(552, 430);
+            this.cars_dataGridView.Size = new System.Drawing.Size(552, 447);
             this.cars_dataGridView.TabIndex = 21;
             // 
             // cars_usedLbl
@@ -669,7 +473,7 @@
             this.cars_usedLbl.AutoSize = true;
             this.cars_usedLbl.BackColor = System.Drawing.Color.White;
             this.cars_usedLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_usedLbl.Location = new System.Drawing.Point(23, 292);
+            this.cars_usedLbl.Location = new System.Drawing.Point(21, 322);
             this.cars_usedLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cars_usedLbl.Name = "cars_usedLbl";
             this.cars_usedLbl.Size = new System.Drawing.Size(64, 24);
@@ -741,12 +545,9 @@
             // 
             // employeeTab
             // 
-            this.employeeTab.Controls.Add(this.emp_SupervisorIDTxtB);
+            this.employeeTab.Controls.Add(this.emp_SupervisorTxtB);
             this.employeeTab.Controls.Add(this.emp_SupervisorLbl);
-            this.employeeTab.Controls.Add(this.emp_IDLbl);
-            this.employeeTab.Controls.Add(this.emp_IDTxtB);
             this.employeeTab.Controls.Add(this.emp_EmailLbl);
-            this.employeeTab.Controls.Add(this.label6);
             this.employeeTab.Controls.Add(this.emp_TitleTxtB);
             this.employeeTab.Controls.Add(this.emp_EmailTxtB);
             this.employeeTab.Controls.Add(this.emp_TitleLbl);
@@ -774,6 +575,29 @@
             this.employeeTab.VerticalScrollbarHighlightOnWheel = false;
             this.employeeTab.VerticalScrollbarSize = 10;
             // 
+            // emp_SupervisorTxtB
+            // 
+            this.emp_SupervisorTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emp_SupervisorTxtB.Location = new System.Drawing.Point(165, 242);
+            this.emp_SupervisorTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.emp_SupervisorTxtB.Name = "emp_SupervisorTxtB";
+            this.emp_SupervisorTxtB.Size = new System.Drawing.Size(316, 29);
+            this.emp_SupervisorTxtB.TabIndex = 61;
+            // 
+            // emp_SupervisorLbl
+            // 
+            this.emp_SupervisorLbl.AutoEllipsis = true;
+            this.emp_SupervisorLbl.AutoSize = true;
+            this.emp_SupervisorLbl.BackColor = System.Drawing.Color.White;
+            this.emp_SupervisorLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emp_SupervisorLbl.ForeColor = System.Drawing.Color.Black;
+            this.emp_SupervisorLbl.Location = new System.Drawing.Point(12, 242);
+            this.emp_SupervisorLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.emp_SupervisorLbl.Name = "emp_SupervisorLbl";
+            this.emp_SupervisorLbl.Size = new System.Drawing.Size(100, 24);
+            this.emp_SupervisorLbl.TabIndex = 60;
+            this.emp_SupervisorLbl.Text = "Supervisor";
+            // 
             // emp_EmailLbl
             // 
             this.emp_EmailLbl.AutoEllipsis = true;
@@ -781,28 +605,17 @@
             this.emp_EmailLbl.BackColor = System.Drawing.Color.White;
             this.emp_EmailLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp_EmailLbl.ForeColor = System.Drawing.Color.Black;
-            this.emp_EmailLbl.Location = new System.Drawing.Point(12, 292);
+            this.emp_EmailLbl.Location = new System.Drawing.Point(12, 275);
             this.emp_EmailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_EmailLbl.Name = "emp_EmailLbl";
             this.emp_EmailLbl.Size = new System.Drawing.Size(57, 24);
             this.emp_EmailLbl.TabIndex = 57;
             this.emp_EmailLbl.Text = "Email";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 263);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 24);
-            this.label6.TabIndex = 56;
-            // 
             // emp_TitleTxtB
             // 
             this.emp_TitleTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_TitleTxtB.Location = new System.Drawing.Point(165, 325);
+            this.emp_TitleTxtB.Location = new System.Drawing.Point(165, 308);
             this.emp_TitleTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_TitleTxtB.Name = "emp_TitleTxtB";
             this.emp_TitleTxtB.Size = new System.Drawing.Size(316, 29);
@@ -811,7 +624,7 @@
             // emp_EmailTxtB
             // 
             this.emp_EmailTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_EmailTxtB.Location = new System.Drawing.Point(165, 292);
+            this.emp_EmailTxtB.Location = new System.Drawing.Point(165, 275);
             this.emp_EmailTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_EmailTxtB.Name = "emp_EmailTxtB";
             this.emp_EmailTxtB.Size = new System.Drawing.Size(316, 29);
@@ -824,7 +637,7 @@
             this.emp_TitleLbl.BackColor = System.Drawing.Color.White;
             this.emp_TitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp_TitleLbl.ForeColor = System.Drawing.Color.Black;
-            this.emp_TitleLbl.Location = new System.Drawing.Point(12, 328);
+            this.emp_TitleLbl.Location = new System.Drawing.Point(12, 311);
             this.emp_TitleLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_TitleLbl.Name = "emp_TitleLbl";
             this.emp_TitleLbl.Size = new System.Drawing.Size(45, 24);
@@ -836,7 +649,7 @@
             this.emp_PhoneLbl.AutoSize = true;
             this.emp_PhoneLbl.BackColor = System.Drawing.Color.White;
             this.emp_PhoneLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_PhoneLbl.Location = new System.Drawing.Point(12, 225);
+            this.emp_PhoneLbl.Location = new System.Drawing.Point(12, 208);
             this.emp_PhoneLbl.Name = "emp_PhoneLbl";
             this.emp_PhoneLbl.Size = new System.Drawing.Size(140, 24);
             this.emp_PhoneLbl.TabIndex = 52;
@@ -845,7 +658,7 @@
             // emp_PhoneTxtB
             // 
             this.emp_PhoneTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_PhoneTxtB.Location = new System.Drawing.Point(165, 225);
+            this.emp_PhoneTxtB.Location = new System.Drawing.Point(165, 208);
             this.emp_PhoneTxtB.Name = "emp_PhoneTxtB";
             this.emp_PhoneTxtB.Size = new System.Drawing.Size(316, 29);
             this.emp_PhoneTxtB.TabIndex = 51;
@@ -869,6 +682,7 @@
             this.emp_comboBox.Name = "emp_comboBox";
             this.emp_comboBox.Size = new System.Drawing.Size(199, 32);
             this.emp_comboBox.TabIndex = 49;
+            this.emp_comboBox.SelectedIndexChanged += new System.EventHandler(this.emp_comboBox_SelectedIndexChanged);
             // 
             // emp_Button
             // 
@@ -883,13 +697,14 @@
             // 
             // emp_dataGridView
             // 
+            this.emp_dataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.emp_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.emp_dataGridView.Location = new System.Drawing.Point(525, 10);
+            this.emp_dataGridView.Location = new System.Drawing.Point(534, 4);
             this.emp_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.emp_dataGridView.Name = "emp_dataGridView";
             this.emp_dataGridView.RowHeadersWidth = 51;
             this.emp_dataGridView.RowTemplate.Height = 24;
-            this.emp_dataGridView.Size = new System.Drawing.Size(552, 430);
+            this.emp_dataGridView.Size = new System.Drawing.Size(552, 447);
             this.emp_dataGridView.TabIndex = 43;
             // 
             // emp_LastNameLbl
@@ -897,7 +712,7 @@
             this.emp_LastNameLbl.AutoSize = true;
             this.emp_LastNameLbl.BackColor = System.Drawing.Color.White;
             this.emp_LastNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_LastNameLbl.Location = new System.Drawing.Point(12, 191);
+            this.emp_LastNameLbl.Location = new System.Drawing.Point(12, 174);
             this.emp_LastNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_LastNameLbl.Name = "emp_LastNameLbl";
             this.emp_LastNameLbl.Size = new System.Drawing.Size(99, 24);
@@ -907,7 +722,7 @@
             // emp_LastNameTxtB
             // 
             this.emp_LastNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_LastNameTxtB.Location = new System.Drawing.Point(165, 191);
+            this.emp_LastNameTxtB.Location = new System.Drawing.Point(165, 174);
             this.emp_LastNameTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_LastNameTxtB.Name = "emp_LastNameTxtB";
             this.emp_LastNameTxtB.Size = new System.Drawing.Size(316, 29);
@@ -916,7 +731,7 @@
             // emp_MiddleNameTxtB
             // 
             this.emp_MiddleNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_MiddleNameTxtB.Location = new System.Drawing.Point(165, 158);
+            this.emp_MiddleNameTxtB.Location = new System.Drawing.Point(165, 141);
             this.emp_MiddleNameTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_MiddleNameTxtB.Name = "emp_MiddleNameTxtB";
             this.emp_MiddleNameTxtB.Size = new System.Drawing.Size(316, 29);
@@ -929,7 +744,7 @@
             this.emp_MiddleNameLbl.BackColor = System.Drawing.Color.White;
             this.emp_MiddleNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp_MiddleNameLbl.ForeColor = System.Drawing.Color.Black;
-            this.emp_MiddleNameLbl.Location = new System.Drawing.Point(12, 158);
+            this.emp_MiddleNameLbl.Location = new System.Drawing.Point(12, 141);
             this.emp_MiddleNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_MiddleNameLbl.Name = "emp_MiddleNameLbl";
             this.emp_MiddleNameLbl.Size = new System.Drawing.Size(123, 24);
@@ -941,7 +756,7 @@
             this.emp_FirstNameLbl.AutoSize = true;
             this.emp_FirstNameLbl.BackColor = System.Drawing.Color.White;
             this.emp_FirstNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_FirstNameLbl.Location = new System.Drawing.Point(12, 124);
+            this.emp_FirstNameLbl.Location = new System.Drawing.Point(12, 107);
             this.emp_FirstNameLbl.Name = "emp_FirstNameLbl";
             this.emp_FirstNameLbl.Size = new System.Drawing.Size(101, 24);
             this.emp_FirstNameLbl.TabIndex = 37;
@@ -950,26 +765,13 @@
             // emp_FirstNameTxtB
             // 
             this.emp_FirstNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_FirstNameTxtB.Location = new System.Drawing.Point(165, 124);
+            this.emp_FirstNameTxtB.Location = new System.Drawing.Point(165, 107);
             this.emp_FirstNameTxtB.Name = "emp_FirstNameTxtB";
             this.emp_FirstNameTxtB.Size = new System.Drawing.Size(316, 29);
             this.emp_FirstNameTxtB.TabIndex = 36;
             // 
             // sales_Tab
             // 
-            this.sales_Tab.Controls.Add(this.button1);
-            this.sales_Tab.Controls.Add(this.checkBox1);
-            this.sales_Tab.Controls.Add(this.checkBox2);
-            this.sales_Tab.Controls.Add(this.textBox1);
-            this.sales_Tab.Controls.Add(this.label1);
-            this.sales_Tab.Controls.Add(this.dataGridView1);
-            this.sales_Tab.Controls.Add(this.label3);
-            this.sales_Tab.Controls.Add(this.label4);
-            this.sales_Tab.Controls.Add(this.textBox2);
-            this.sales_Tab.Controls.Add(this.textBox3);
-            this.sales_Tab.Controls.Add(this.label5);
-            this.sales_Tab.Controls.Add(this.sales_VinNumberLabel);
-            this.sales_Tab.Controls.Add(this.sales_VinNumberTextBox);
             this.sales_Tab.HorizontalScrollbarBarColor = true;
             this.sales_Tab.HorizontalScrollbarHighlightOnWheel = false;
             this.sales_Tab.HorizontalScrollbarSize = 6;
@@ -983,188 +785,182 @@
             this.sales_Tab.VerticalScrollbarHighlightOnWheel = false;
             this.sales_Tab.VerticalScrollbarSize = 7;
             // 
-            // button1
+            // cust_firstNMTxtB
             // 
-            this.button1.Location = new System.Drawing.Point(135, 317);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 32);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "TestQ";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cust_firstNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_firstNMTxtB.Location = new System.Drawing.Point(174, 98);
+            this.cust_firstNMTxtB.Name = "cust_firstNMTxtB";
+            this.cust_firstNMTxtB.Size = new System.Drawing.Size(316, 29);
+            this.cust_firstNMTxtB.TabIndex = 2;
             // 
-            // checkBox1
+            // cust_firstNMLbl
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(278, 246);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(40, 17);
-            this.checkBox1.TabIndex = 38;
-            this.checkBox1.Text = "No";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.cust_firstNMLbl.AutoSize = true;
+            this.cust_firstNMLbl.BackColor = System.Drawing.Color.White;
+            this.cust_firstNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_firstNMLbl.Location = new System.Drawing.Point(3, 98);
+            this.cust_firstNMLbl.Name = "cust_firstNMLbl";
+            this.cust_firstNMLbl.Size = new System.Drawing.Size(101, 24);
+            this.cust_firstNMLbl.TabIndex = 3;
+            this.cust_firstNMLbl.Text = "First Name";
             // 
-            // checkBox2
+            // cust_middleNMTxtB
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.BackColor = System.Drawing.Color.White;
-            this.checkBox2.Location = new System.Drawing.Point(216, 246);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(44, 17);
-            this.checkBox2.TabIndex = 37;
-            this.checkBox2.Text = "Yes";
-            this.checkBox2.UseVisualStyleBackColor = false;
+            this.cust_middleNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_middleNMTxtB.Location = new System.Drawing.Point(174, 132);
+            this.cust_middleNMTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_middleNMTxtB.Name = "cust_middleNMTxtB";
+            this.cust_middleNMTxtB.Size = new System.Drawing.Size(316, 29);
+            this.cust_middleNMTxtB.TabIndex = 5;
             // 
-            // textBox1
+            // cust_lastNMTxtB
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(178, 187);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(192, 29);
-            this.textBox1.TabIndex = 36;
+            this.cust_lastNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_lastNMTxtB.Location = new System.Drawing.Point(174, 165);
+            this.cust_lastNMTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_lastNMTxtB.Name = "cust_lastNMTxtB";
+            this.cust_lastNMTxtB.Size = new System.Drawing.Size(316, 29);
+            this.cust_lastNMTxtB.TabIndex = 6;
             // 
-            // label1
+            // cust_lastNMLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 191);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 24);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Year";
+            this.cust_lastNMLbl.AutoSize = true;
+            this.cust_lastNMLbl.BackColor = System.Drawing.Color.White;
+            this.cust_lastNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_lastNMLbl.Location = new System.Drawing.Point(5, 165);
+            this.cust_lastNMLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cust_lastNMLbl.Name = "cust_lastNMLbl";
+            this.cust_lastNMLbl.Size = new System.Drawing.Size(99, 24);
+            this.cust_lastNMLbl.TabIndex = 7;
+            this.cust_lastNMLbl.Text = "Last Name";
             // 
-            // dataGridView1
+            // cust_emailLbl
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(385, 18);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(552, 374);
-            this.dataGridView1.TabIndex = 34;
+            this.cust_emailLbl.AutoSize = true;
+            this.cust_emailLbl.BackColor = System.Drawing.Color.White;
+            this.cust_emailLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_emailLbl.Location = new System.Drawing.Point(5, 231);
+            this.cust_emailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cust_emailLbl.Name = "cust_emailLbl";
+            this.cust_emailLbl.Size = new System.Drawing.Size(57, 24);
+            this.cust_emailLbl.TabIndex = 8;
+            this.cust_emailLbl.Text = "Email";
             // 
-            // label3
+            // cust_dataGridView
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 246);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 24);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "Used?";
+            this.cust_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cust_dataGridView.Location = new System.Drawing.Point(534, 2);
+            this.cust_dataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_dataGridView.Name = "cust_dataGridView";
+            this.cust_dataGridView.RowHeadersWidth = 51;
+            this.cust_dataGridView.RowTemplate.Height = 24;
+            this.cust_dataGridView.Size = new System.Drawing.Size(552, 447);
+            this.cust_dataGridView.TabIndex = 10;
             // 
-            // label4
+            // cust_PhoneNbrLbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 135);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 24);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "CustomerID";
+            this.cust_PhoneNbrLbl.AutoSize = true;
+            this.cust_PhoneNbrLbl.BackColor = System.Drawing.Color.White;
+            this.cust_PhoneNbrLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_PhoneNbrLbl.Location = new System.Drawing.Point(5, 198);
+            this.cust_PhoneNbrLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cust_PhoneNbrLbl.Name = "cust_PhoneNbrLbl";
+            this.cust_PhoneNbrLbl.Size = new System.Drawing.Size(140, 24);
+            this.cust_PhoneNbrLbl.TabIndex = 11;
+            this.cust_PhoneNbrLbl.Text = "Phone Number";
             // 
-            // textBox2
+            // cust_PhoneNbrTxtB
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(178, 131);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(192, 29);
-            this.textBox2.TabIndex = 31;
+            this.cust_PhoneNbrTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_PhoneNbrTxtB.Location = new System.Drawing.Point(174, 198);
+            this.cust_PhoneNbrTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_PhoneNbrTxtB.Name = "cust_PhoneNbrTxtB";
+            this.cust_PhoneNbrTxtB.Size = new System.Drawing.Size(316, 29);
+            this.cust_PhoneNbrTxtB.TabIndex = 12;
             // 
-            // textBox3
+            // customerTab
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(178, 74);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(192, 29);
-            this.textBox3.TabIndex = 30;
+            this.customerTab.Controls.Add(this.cust_Button);
+            this.customerTab.Controls.Add(this.cust_ActionLbl);
+            this.customerTab.Controls.Add(this.cust_comboBox);
+            this.customerTab.Controls.Add(this.cust_PhoneNbrTxtB);
+            this.customerTab.Controls.Add(this.cust_PhoneNbrLbl);
+            this.customerTab.Controls.Add(this.cust_dataGridView);
+            this.customerTab.Controls.Add(this.cust_emailTxtB);
+            this.customerTab.Controls.Add(this.cust_emailLbl);
+            this.customerTab.Controls.Add(this.cust_lastNMLbl);
+            this.customerTab.Controls.Add(this.cust_lastNMTxtB);
+            this.customerTab.Controls.Add(this.cust_middleNMTxtB);
+            this.customerTab.Controls.Add(this.cust_middleNMLbl);
+            this.customerTab.Controls.Add(this.cust_firstNMLbl);
+            this.customerTab.Controls.Add(this.cust_firstNMTxtB);
+            this.customerTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerTab.HorizontalScrollbarBarColor = true;
+            this.customerTab.HorizontalScrollbarHighlightOnWheel = false;
+            this.customerTab.HorizontalScrollbarSize = 10;
+            this.customerTab.Location = new System.Drawing.Point(4, 38);
+            this.customerTab.Name = "customerTab";
+            this.customerTab.Size = new System.Drawing.Size(1088, 451);
+            this.customerTab.TabIndex = 0;
+            this.customerTab.Text = "Customers";
+            this.customerTab.VerticalScrollbarBarColor = true;
+            this.customerTab.VerticalScrollbarHighlightOnWheel = false;
+            this.customerTab.VerticalScrollbarSize = 10;
             // 
-            // label5
+            // cust_emailTxtB
             // 
-            this.label5.AutoEllipsis = true;
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(7, 77);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 24);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "EmployeeID";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.cust_emailTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_emailTxtB.Location = new System.Drawing.Point(174, 231);
+            this.cust_emailTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_emailTxtB.Name = "cust_emailTxtB";
+            this.cust_emailTxtB.Size = new System.Drawing.Size(316, 29);
+            this.cust_emailTxtB.TabIndex = 9;
             // 
-            // sales_VinNumberLabel
+            // cust_middleNMLbl
             // 
-            this.sales_VinNumberLabel.AutoSize = true;
-            this.sales_VinNumberLabel.BackColor = System.Drawing.Color.White;
-            this.sales_VinNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_VinNumberLabel.Location = new System.Drawing.Point(7, 18);
-            this.sales_VinNumberLabel.Name = "sales_VinNumberLabel";
-            this.sales_VinNumberLabel.Size = new System.Drawing.Size(115, 24);
-            this.sales_VinNumberLabel.TabIndex = 28;
-            this.sales_VinNumberLabel.Text = "VIN Number";
+            this.cust_middleNMLbl.AutoEllipsis = true;
+            this.cust_middleNMLbl.AutoSize = true;
+            this.cust_middleNMLbl.BackColor = System.Drawing.Color.White;
+            this.cust_middleNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_middleNMLbl.ForeColor = System.Drawing.Color.Black;
+            this.cust_middleNMLbl.Location = new System.Drawing.Point(3, 132);
+            this.cust_middleNMLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cust_middleNMLbl.Name = "cust_middleNMLbl";
+            this.cust_middleNMLbl.Size = new System.Drawing.Size(123, 24);
+            this.cust_middleNMLbl.TabIndex = 4;
+            this.cust_middleNMLbl.Text = "Middle Name";
             // 
-            // sales_VinNumberTextBox
+            // cust_comboBox
             // 
-            this.sales_VinNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_VinNumberTextBox.Location = new System.Drawing.Point(178, 18);
-            this.sales_VinNumberTextBox.Name = "sales_VinNumberTextBox";
-            this.sales_VinNumberTextBox.Size = new System.Drawing.Size(192, 29);
-            this.sales_VinNumberTextBox.TabIndex = 27;
+            this.cust_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_comboBox.FormattingEnabled = true;
+            this.cust_comboBox.Location = new System.Drawing.Point(174, 31);
+            this.cust_comboBox.Name = "cust_comboBox";
+            this.cust_comboBox.Size = new System.Drawing.Size(165, 32);
+            this.cust_comboBox.TabIndex = 13;
+            this.cust_comboBox.SelectedIndexChanged += new System.EventHandler(this.cust_comboBox_SelectedIndexChanged);
             // 
-            // emp_IDLbl
+            // cust_ActionLbl
             // 
-            this.emp_IDLbl.AutoSize = true;
-            this.emp_IDLbl.BackColor = System.Drawing.Color.White;
-            this.emp_IDLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_IDLbl.Location = new System.Drawing.Point(12, 89);
-            this.emp_IDLbl.Name = "emp_IDLbl";
-            this.emp_IDLbl.Size = new System.Drawing.Size(101, 24);
-            this.emp_IDLbl.TabIndex = 59;
-            this.emp_IDLbl.Text = "ID Number";
+            this.cust_ActionLbl.AutoSize = true;
+            this.cust_ActionLbl.BackColor = System.Drawing.Color.White;
+            this.cust_ActionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_ActionLbl.Location = new System.Drawing.Point(8, 34);
+            this.cust_ActionLbl.Name = "cust_ActionLbl";
+            this.cust_ActionLbl.Size = new System.Drawing.Size(68, 24);
+            this.cust_ActionLbl.TabIndex = 14;
+            this.cust_ActionLbl.Text = "Action:";
             // 
-            // emp_IDTxtB
+            // cust_Button
             // 
-            this.emp_IDTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_IDTxtB.Location = new System.Drawing.Point(165, 89);
-            this.emp_IDTxtB.Name = "emp_IDTxtB";
-            this.emp_IDTxtB.Size = new System.Drawing.Size(316, 29);
-            this.emp_IDTxtB.TabIndex = 58;
-            // 
-            // emp_SupervisorIDTxtB
-            // 
-            this.emp_SupervisorIDTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_SupervisorIDTxtB.Location = new System.Drawing.Point(165, 259);
-            this.emp_SupervisorIDTxtB.Margin = new System.Windows.Forms.Padding(2);
-            this.emp_SupervisorIDTxtB.Name = "emp_SupervisorIDTxtB";
-            this.emp_SupervisorIDTxtB.Size = new System.Drawing.Size(316, 29);
-            this.emp_SupervisorIDTxtB.TabIndex = 61;
-            // 
-            // emp_SupervisorLbl
-            // 
-            this.emp_SupervisorLbl.AutoEllipsis = true;
-            this.emp_SupervisorLbl.AutoSize = true;
-            this.emp_SupervisorLbl.BackColor = System.Drawing.Color.White;
-            this.emp_SupervisorLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_SupervisorLbl.ForeColor = System.Drawing.Color.Black;
-            this.emp_SupervisorLbl.Location = new System.Drawing.Point(12, 259);
-            this.emp_SupervisorLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.emp_SupervisorLbl.Name = "emp_SupervisorLbl";
-            this.emp_SupervisorLbl.Size = new System.Drawing.Size(122, 24);
-            this.emp_SupervisorLbl.TabIndex = 60;
-            this.emp_SupervisorLbl.Text = "Supervisor ID";
+            this.cust_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_Button.Location = new System.Drawing.Point(9, 296);
+            this.cust_Button.Name = "cust_Button";
+            this.cust_Button.Size = new System.Drawing.Size(136, 57);
+            this.cust_Button.TabIndex = 15;
+            this.cust_Button.Text = "Show Customers";
+            this.cust_Button.UseVisualStyleBackColor = true;
+            this.cust_Button.Click += new System.EventHandler(this.cust_Button_Click);
             // 
             // Dealership
             // 
@@ -1179,9 +975,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.metroTabControl.ResumeLayout(false);
-            this.customerTab.ResumeLayout(false);
-            this.customerTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).EndInit();
             this.salesHistory_Tab.ResumeLayout(false);
             this.salesHistory_Tab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sale_dataGridView)).EndInit();
@@ -1191,9 +984,9 @@
             this.employeeTab.ResumeLayout(false);
             this.employeeTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emp_dataGridView)).EndInit();
-            this.sales_Tab.ResumeLayout(false);
-            this.sales_Tab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).EndInit();
+            this.customerTab.ResumeLayout(false);
+            this.customerTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1203,21 +996,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label titleLbl;
         private MetroFramework.Controls.MetroTabControl metroTabControl;
-        private MetroFramework.Controls.MetroTabPage customerTab;
         private MetroFramework.Controls.MetroTabPage salesHistory_Tab;
         private MetroFramework.Controls.MetroTabPage carTab;
         private MetroFramework.Controls.MetroTabPage employeeTab;
-        private System.Windows.Forms.Label cust_firstNMLbl;
-        private System.Windows.Forms.TextBox cust_firstNMTxtB;
-        private System.Windows.Forms.Label cust_lastNMLbl;
-        private System.Windows.Forms.TextBox cust_lastNMTxtB;
-        private System.Windows.Forms.TextBox cust_middleNMTxtB;
-        private System.Windows.Forms.Label cust_middleNMLbl;
-        private System.Windows.Forms.Label cust_emailLbl;
-        private System.Windows.Forms.TextBox cust_emailTxtB;
-        private System.Windows.Forms.DataGridView cust_dataGridView;
-        private System.Windows.Forms.TextBox cust_PhoneNbrTxtB;
-        private System.Windows.Forms.Label cust_PhoneNbrLbl;
         private System.Windows.Forms.DateTimePicker salesHistory_FromDateTimePicker;
         private System.Windows.Forms.DataGridView sale_dataGridView;
         private System.Windows.Forms.Label salesHistory_DateLbl;
@@ -1241,23 +1022,7 @@
         private System.Windows.Forms.Label cars_makeLbl;
         private System.Windows.Forms.Label cars_VINLbl;
         private System.Windows.Forms.TextBox cars_VINTxtB;
-        private System.Windows.Forms.Button cust_ListAllButton;
-        private System.Windows.Forms.Button cust_UpdateButton;
-        private System.Windows.Forms.Button cust_CreateButton;
         private MetroFramework.Controls.MetroTabPage sales_Tab;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label sales_VinNumberLabel;
-        private System.Windows.Forms.TextBox sales_VinNumberTextBox;
         private System.Windows.Forms.Button car_SearchBtn;
         private System.Windows.Forms.ComboBox cars_comboBox;
         private System.Windows.Forms.Label cars_ModeLbl;
@@ -1265,8 +1030,6 @@
         private System.Windows.Forms.Label cars_MilageLbl;
         private System.Windows.Forms.Label cars_ColorLbl;
         private System.Windows.Forms.TextBox cars_ColorTxtB;
-        private System.Windows.Forms.Label cars_ByLbl;
-        private System.Windows.Forms.ComboBox cars_ByComboBox;
         private System.Windows.Forms.Button emp_Button;
         private System.Windows.Forms.DataGridView emp_dataGridView;
         private System.Windows.Forms.Label emp_LastNameLbl;
@@ -1276,7 +1039,6 @@
         private System.Windows.Forms.Label emp_FirstNameLbl;
         private System.Windows.Forms.TextBox emp_FirstNameTxtB;
         private System.Windows.Forms.Label emp_EmailLbl;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox emp_TitleTxtB;
         private System.Windows.Forms.TextBox emp_EmailTxtB;
         private System.Windows.Forms.Label emp_TitleLbl;
@@ -1284,10 +1046,25 @@
         private System.Windows.Forms.TextBox emp_PhoneTxtB;
         private System.Windows.Forms.Label emp_ActionLbl;
         private System.Windows.Forms.ComboBox emp_comboBox;
-        private System.Windows.Forms.Label emp_IDLbl;
-        private System.Windows.Forms.TextBox emp_IDTxtB;
-        private System.Windows.Forms.TextBox emp_SupervisorIDTxtB;
+        private System.Windows.Forms.TextBox emp_SupervisorTxtB;
         private System.Windows.Forms.Label emp_SupervisorLbl;
+        private System.Windows.Forms.Label cars_StatusLbl;
+        private System.Windows.Forms.ComboBox cars_StatusComboBox;
+        private MetroFramework.Controls.MetroTabPage customerTab;
+        private System.Windows.Forms.TextBox cust_PhoneNbrTxtB;
+        private System.Windows.Forms.Label cust_PhoneNbrLbl;
+        private System.Windows.Forms.DataGridView cust_dataGridView;
+        private System.Windows.Forms.TextBox cust_emailTxtB;
+        private System.Windows.Forms.Label cust_emailLbl;
+        private System.Windows.Forms.Label cust_lastNMLbl;
+        private System.Windows.Forms.TextBox cust_lastNMTxtB;
+        private System.Windows.Forms.TextBox cust_middleNMTxtB;
+        private System.Windows.Forms.Label cust_firstNMLbl;
+        private System.Windows.Forms.TextBox cust_firstNMTxtB;
+        private System.Windows.Forms.Label cust_middleNMLbl;
+        private System.Windows.Forms.Button cust_Button;
+        private System.Windows.Forms.Label cust_ActionLbl;
+        private System.Windows.Forms.ComboBox cust_comboBox;
     }
 }
 
