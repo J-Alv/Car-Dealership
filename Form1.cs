@@ -62,6 +62,8 @@ namespace Dealership
                 {
                     case 0:
                         //Show All
+
+                        break;
                        
                         break;
 
@@ -261,10 +263,7 @@ namespace Dealership
                             else
                                 CmdString += "Milage = " + Mileage;
                         }
-                        if(VIN != "")
-                            CmdString += "WHERE OLD.VIN = " + VIN;
-                        else
-                            CmdString += "WHERE VIN = " + VIN;
+                        CmdString += "WHERE VIN = " + VIN;
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
@@ -316,8 +315,14 @@ namespace Dealership
                 {
                     case 0:
                         //Show All
-                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)";
+                        //CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
+                        //    "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)";
+
+
+                       CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
+                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
+
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
                         emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
@@ -326,107 +331,59 @@ namespace Dealership
 
                     case 1:
                         //Search
-                        CmdString = "SELECT FirstName, MiddleName, LastName, (SELECT CONCAT(FirstName, ' ', LastName) FROM Employee WHERE ID IN (SELECT SupervisorID FROM Employee ";
+                       CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
+                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
                         if (FirstName != "")
                         {
-                            CmdString += "WHERE FirstName LIKE '" + FirstName + "'";
-                        }
-                        if (MiddleName != "")
-                        {
-                            if (FirstName != "")
-                                CmdString += " AND MiddleName LIKE '" + MiddleName + "'";
-                            else
-                                CmdString += "WHERE MiddleName LIKE '" + MiddleName + "'";
-                        }
-                        if (LastName != "")
-                        {
-                            if (FirstName != "" || MiddleName != "")
-                                CmdString += " AND LastName LIKE '" + LastName + "'";
-                            else
-                                CmdString += "WHERE LastName LIKE '" + LastName + "'";
-                        }
-                        if (Supervisor != "")
-                        {
-                            if (FirstName != "" || MiddleName != "" || LastName != "")
-                                CmdString += " AND SuppervisorID = (SELECT ID FROM Employee WHERE(SELECT CONCAT(FirstName, ' ', LastName) FROM Employee) LIKE '" + Supervisor + "')";
-                            else
-                                CmdString += "WHERE SupervisorID = (SELECT ID FROM Employee WHERE(SELECT CONCAT(FirstName, ' ', LastName) FROM Employee) LIKE '" + Supervisor + "')";
-                        }
-                        if (PhoneNumber != "")
-                        {
-                            if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "")
-                                CmdString += " AND Number LIKE '" + PhoneNumber + "'";
-                            else
-                                CmdString += "WHERE Number LIKE '" + PhoneNumber + "'";
-                        }
-                        if (Email != "")
-                        {
-                            if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "" || PhoneNumber != "")
-                                CmdString += " AND Email LIKE '" + Email + "'";
-                            else
-                                CmdString += "WHERE Email LIKE '" + Email + "'";
-                        }
-                        if (Title != "")
-                        {
-                            if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "" || Email != "" || PhoneNumber != "")
-
-                                CmdString += " AND Title LIKE '" + Title + "'";
-                            else
-                                CmdString += "WHERE Title LIKE '" + Title + "'";
-                        }
-
-                        CmdString += " )) AS Supervisor, Number, Email, Title FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID) ";
-
-                        if (FirstName != "")
-                        {
-                            CmdString += "WHERE FirstName LIKE '" + FirstName + "'";
+                            CmdString += "WHERE Employee.FirstName LIKE '" + FirstName + "%'";
                         }
 
                         if (MiddleName != "")
                         {
                             if (FirstName != "")
-                                CmdString += " AND MiddleName LIKE '" + MiddleName + "'";
+                                CmdString += " AND Employee.MiddleName LIKE '" + MiddleName + "%'";
                             else
-                                CmdString += "WHERE MiddleName LIKE '" + MiddleName + "'";
+                                CmdString += "WHERE Employee.MiddleName LIKE '" + MiddleName + "%'";
                         }
                         if (LastName != "")
                         {
                             if (FirstName != "" || MiddleName != "")
-                                CmdString += " AND LastName LIKE '" + LastName + "'";
+                                CmdString += " AND Employee.LastName LIKE '" + LastName + "%'";
                             else
-                                CmdString += "WHERE LastName LIKE '" + LastName + "'";
+                                CmdString += "WHERE Employee.LastName LIKE '" + LastName + "%'";
                         }
                         if (Supervisor != "")
                         {
 
                             if (FirstName != "" || MiddleName != "" || LastName != "")
-                                CmdString += " AND SuppervisorID = (SELECT ID FROM Employee WHERE(SELECT CONCAT(FirstName, ' ', LastName) FROM Employee) LIKE '" + Supervisor + "')";
+                                CmdString += " AND Employee.SuppervisorID = (SELECT ID FROM Employee WHERE FirstName LIKE '" + Supervisor + "%' OR LastName LIKE '" + Supervisor + "%' OR CONCAT(FirstName, ' ', LastName) LIKE '" + Supervisor + "')";
 
                             else
-                                CmdString += "WHERE SupervisorID = (SELECT ID FROM Employee WHERE(SELECT CONCAT(FirstName, ' ', LastName) FROM Employee) LIKE '" + Supervisor + "')";
+                                CmdString += "WHERE Employee.SupervisorID = (SELECT ID FROM Employee WHERE FirstName LIKE '" + Supervisor + "%' OR LastName LIKE '" + Supervisor + "%'  OR CONCAT(FirstName, ' ', LastName) LIKE '" + Supervisor + "')";
                         }
 
                         if (PhoneNumber != "")
                         {
                             if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "")
-                                CmdString += " AND Number LIKE '" + PhoneNumber + "'";
+                                CmdString += " AND Number LIKE '" + PhoneNumber + "%'";
                             else
-                                CmdString += "WHERE Number LIKE '" + PhoneNumber + "'";
+                                CmdString += "WHERE Number LIKE '" + PhoneNumber + "%'";
                         }
                         if (Email != "")
                         {
                             if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "" || PhoneNumber != "")
-                                CmdString += " AND Email LIKE '" + Email + "'";
+                                CmdString += " AND Employee.Email LIKE '" + Email + "%'";
                             else
-                                CmdString += "WHERE Email LIKE '" + Email + "'";
+                                CmdString += "WHERE Employee.Email LIKE '" + Email + "%'";
                         }
                         if (Title != "")
                         {
                             if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "" || Email != "" || PhoneNumber != "")
 
-                                CmdString += " AND Title LIKE '" + Title + "'";
+                                CmdString += " AND Employee.Title LIKE '" + Title + "%'";
                             else
-                                CmdString += "WHERE Title LIKE '" + Title + "'";
+                                CmdString += "WHERE Employee.Title LIKE '" + Title + "%'";
                         }
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -511,10 +468,8 @@ namespace Dealership
                             else
                                 CmdString += "Title = '" + Title + "'";
                         }
-                        if (Email != "")
-                            CmdString += "WHERE OLD.Email = " + Email;
-                        else
-                            CmdString += "WHERE Email = " + Email;
+
+                        CmdString += "WHERE Email = " + Email;
 
                         if (PhoneNumber != "")
                         {
