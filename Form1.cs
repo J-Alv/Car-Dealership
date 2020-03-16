@@ -39,9 +39,9 @@ namespace Dealership
             emp_comboBox.Items.Add("Delete Employee");
             emp_comboBox.SelectedIndex = 0;
 
-            sales_ComboBox.Items.Add("Show All Sales");
-            sales_ComboBox.Items.Add("Create Sale");
-            sales_ComboBox.Items.Add("Delete A Sale");
+            sales_comboBox.Items.Add("Show All Sales");
+            sales_comboBox.Items.Add("Create Sale");
+            sales_comboBox.Items.Add("Delete A Sale");
         }
 
         private void cust_Button_Click(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace Dealership
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
-                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        cust_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();             
                         break;
 
@@ -115,7 +115,7 @@ namespace Dealership
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
-                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        cust_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();
                         break;
 
@@ -192,7 +192,7 @@ namespace Dealership
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
-                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        cust_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();
                         break;
 
@@ -208,7 +208,7 @@ namespace Dealership
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
-                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        cust_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();
                         break;
                 }
