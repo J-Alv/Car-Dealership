@@ -456,8 +456,8 @@ namespace Dealership
 
                     case 1:
                         //Search
-                       CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales" +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
+                       CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID) " + 
                             "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
                         if (FirstName != "")
                         {
@@ -542,9 +542,9 @@ namespace Dealership
                         cmd.ExecuteNonQuery();
 
 
-                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
-                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title" +
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID) " + 
+                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -599,9 +599,9 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales " +
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
                             "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
-                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
+                            " LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) ";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -616,9 +616,9 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
-                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID) " + 
+                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -651,7 +651,8 @@ namespace Dealership
                 {
                     case 0:
                         //Show
-                        CmdString = "";
+                        CmdString = "SELECT Price, CONCAT(Customer.FirstName, ' ', Customer.LastName) AS Customer, CONCAT(Employee.FirstName, ' ', Employee.LastName) AS Salesperson, Date, VIN" +
+                            " FROM Sale JOIN Customer ON (Sale.CustomerID = Customer.ID) JOIN Employee ON (Sale.EmployeeID = Employee.ID) JOIN Car ON (Sale.CarID = Car.ID) ";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -660,7 +661,41 @@ namespace Dealership
                         break;
                     case 1:
                         //Add
-                        CmdString = "";
+                        CmdString = "SELECT Price, CONCAT(Customer.FirstName, ' ', Customer.LastName), CONCAT(Employee.FirstName, ' ', Employee.LastName), Date, VIN" +
+                        "FROM Sale JOIN Customer ON (Sale.CustomerID = Customer.ID) JOIN Employee ON (Sale.EmployeeID = Employee.ID) ";
+                        if (Price != "")
+                        {
+	                        CmdString += "WHERE Price <= " + Price;
+                        }
+
+                        if (CustomerName != "")
+                        {
+	                        if (Price != "")
+		                        CmdString += " AND CustomerID = (SELECT ID FROM Customer WHERE FirstName LIKE '" + CustomerName + "%' OR LastName LIKE '" + CustomerName + "%' OR CONCAT(FirstName, ' ', LastName) LIKE '" + CustomerName + "')";
+	                        else
+		                        CmdString += "WHERE CustomerID = (SELECT ID FROM Customer WHERE FirstName LIKE '" + CustomerName + "%' OR LastName LIKE '" + CustomerName + "%' OR CONCAT(FirstName, ' ', LastName) LIKE '" + CustomerName + "')";
+                        }
+                        if (EmployeeName != "")
+                        {
+	                        if (FirstName != "" || MiddleName != "")
+		                        CmdString += " AND EmployeeID = (SELECT ID FROM Employee WHERE FirstName LIKE '" + EmployeeName + "%' OR LastName LIKE '" + EmployeeName + "%' OR CONCAT(FirstName, ' ', LastName) LIKE '" + EmployeeName + "')";
+	                        else
+		                        CmdString += "WHERE EmployeeID = (SELECT ID FROM Employee WHERE FirstName LIKE '" + EmployeeName + "%' OR LastName LIKE '" + EmployeeName + "%' OR CONCAT(FirstName, ' ', LastName) LIKE '" + EmployeeName + "')";
+                        }
+                        if (Date != "")
+                        {
+	                        if (FirstName != "" || MiddleName != "" || LastName != "")
+		                        CmdString += " AND Date LIKE '" + Date + "%'";
+	                        else
+		                        CmdString += "WHERE Date LIKE '" + Date + "%'";
+                        }
+                        if (VIN != "")
+                        {
+	                        if (FirstName != "" || MiddleName != "" || LastName != "" || PhoneNumber != "")
+		                        CmdString += " AND CarID = (SELECT ID FROM Car WHERE VIN = '" + VIN + "')";
+	                        else
+		                        CmdString += "WHERE CarID = (SELECT ID FROM Car WHERE VIN = '" + VIN + "')";
+                        }
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
