@@ -65,7 +65,7 @@ namespace Dealership
                 {
                     case 0:
                         //Show All
-                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email " +
+                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email, Status " +
                             "FROM Customer JOIN PhoneInfo ON(Customer.ID = PhoneInfo.CustomerID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -76,7 +76,7 @@ namespace Dealership
 
                     case 1:
                         //Search
-                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email " +
+                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email, Status " +
                             "FROM Customer JOIN PhoneInfo ON(Customer.ID = PhoneInfo.CustomerID)";
 
                         if (FirstName != "")
@@ -112,6 +112,13 @@ namespace Dealership
                             else
                                 CmdString += "WHERE Email LIKE '" + Email + "%'";
                         }
+                        if (Status != "")
+                        {
+                            if (FirstName != "" || MiddleName != "" || LastName != "" || PhoneNumber != "" || Email != "")
+                                CmdString += " AND Status LIKE '" + Status + "%'";
+                            else
+                                CmdString += "WHERE Status LIKE '" + Status + "%'";
+                        }
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -128,7 +135,8 @@ namespace Dealership
                         else
                             CmdString += ", NULL";
                         CmdString += ", '" + LastName + "'"
-                        + ",'" + Email +  "')";
+                        + ",'" + Email +  "'"
+                        + ",'" + Status +  "')";
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
@@ -140,7 +148,7 @@ namespace Dealership
 
 
                         CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email " +
-                            "FROM Customer JOIN PhoneInfo ON(Customer.ID = PhoneInfo.CustomerID)";
+                            "FROM Customer JOIN PhoneInfo ON (Customer.ID = PhoneInfo.CustomerID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -169,26 +177,26 @@ namespace Dealership
                             else
                                 CmdString += "LastName = '" + LastName + "'";
                         }
-                        if (Email != "")
+                        if (Status != "")
                         {
-                            if (FirstName != "" || MiddleName != "" || LastName != "")
-                                CmdString += ", Email = '" + Email + "'";
+                            if (FirstName != "" || MiddleName != "")
+                                CmdString += ", Status = '" + Status + "'";
                             else
-                                CmdString += "Email = '" + Email + "'";
+                                CmdString += "Status = '" + Status + "'";
                         }
-                        CmdString += "WHERE Email = " + Email;
+                        CmdString += "WHERE Email = '" + Email + "'";
 
                         if (PhoneNumber != "")
                         {
                             CmdString = "UPDATE PhoneInfo SET Number = '" + PhoneNumber +
-                            "' WHERE EmployeeID = (SELECT ID FROM Employee WHERE Email = " + Email + ")";
+                            "' WHERE EmployeeID = (SELECT ID FROM Employee WHERE Email = '" + Email + "')";
                         }
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email " +
-                            "FROM Customer JOIN PhoneInfo ON(Customer.ID = PhoneInfo.CustomerID)";
+                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email, Status " +
+                            "FROM Customer JOIN PhoneInfo ON (Customer.ID = PhoneInfo.CustomerID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -198,7 +206,7 @@ namespace Dealership
 
                     case 4:
                         //Delete
-                        CmdString = "DELETE FROM Customer WHERE Email = '" + Email + "'";
+                        CmdString = "UPDATE Customer SET Status = 'Non Member' WHERE Email = '" + Email + "'";
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
@@ -353,41 +361,34 @@ namespace Dealership
                     case 3:
                         //Update
                          CmdString = "UPDATE Car SET ";
-                        if (VIN != "")
-                        {
-                            CmdString += "VIN = '" + VIN + "'";
-                        }
                         if (Make != "")
                         {
-                            if (VIN != "")
-                                CmdString += ", Make = '" + Make  + "'";
-                            else
-                                CmdString += "Make = " + Make  + "'";
+                            CmdString += ", Make = '" + Make  + "'";
                         }
                         if (Model != "")
                         {
-                            if (VIN != "" || Make != "")
+                            if (Make != "")
                                 CmdString += ", Model = '" + Model + "'";
                             else
                                 CmdString += "Model = '" + Model + "'";
                         }
                         if (Year != "")
                         {
-                            if (VIN != "" || Make != "" || Model != "")
+                            if (Make != "" || Model != "")
                                 CmdString += ", Year " + Year;
                             else
                                 CmdString += "Year = " + Year;
                         }
                         if (Color != "")
                         {
-                            if (VIN != "" || Make != "" || Model != "" || Year != "" )
+                            if (Make != "" || Model != "" || Year != "" )
                                 CmdString += ", Color = '" + Color + "'";
                             else
                                 CmdString += "Color = '" + Color + "'";
                         }
                         if (Mileage != "")
                         {
-                            if (VIN != "" || Make != "" || Model != "" || Year != "" )
+                            if (Make != "" || Model != "" || Year != "" )
                                 CmdString += ", Milage = " + Mileage;
                             else
                                 CmdString += "Milage = " + Mileage;
@@ -406,7 +407,7 @@ namespace Dealership
 
                     case 4:
                         //Delete
-                        CmdString = "DELETE FROM Car WHERE = '" + VIN + "')";
+                        CmdString = "UPDATE Car SET Status = 'Removed' WHERE = '" + VIN + "')";
 
                         CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car";
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -579,13 +580,6 @@ namespace Dealership
                             else
                                 CmdString += ", (SELECT ID FROM Employee WHERE CONCAT(FirstName, ' ', LastName) LIKE '" + Supervisor + "')";
                         }
-                        /*if (Email != "")
-                        {
-                            if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "")
-                                CmdString += ", Email = '" + Email + "'";
-                            else
-                                CmdString += "Email = '" + Email + "'";
-                        }*/
                         if (Title != "")
                         {
                             if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "")
