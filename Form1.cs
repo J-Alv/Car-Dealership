@@ -654,7 +654,8 @@ namespace Dealership
                 {
                     case 0:
                         //Show
-                        CmdString = "";
+                        CmdString = "SELECT Price AS '$Price', CONCAT(Customer.FirstName, ' ', Customer.LastName) AS Customer," +
+                            " CONCAT(Employee.FirstName, ' ', Employee.LastName) AS Employee, Date, VIN FROM Sale JOIN Car ON(CarID = Car.ID) JOIN Employee ON(Employeeid = Employee.id) JOIN Customer ON(Customer.id = CustomerID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -662,8 +663,9 @@ namespace Dealership
                         conn.Close();
                         break;
                     case 1:
-                        //Search
-                        CmdString = "";
+                        //Add
+                        CmdString = "INSERT INTO Sale(Price, CustomerID, EmployeeID, CarID)" +
+                                "SELECT " + Price + ", CustomerID, " + EmpEmail + "," + VIN + "FROM Customer WHERE Email = '" + CustEmail + "'";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -690,7 +692,7 @@ namespace Dealership
                         break;
                     case 4:
                         //Delete
-                        CmdString = "";
+                        CmdString = "DELETE FROM Sale WHERE VIN = '" + VIN + "'";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
