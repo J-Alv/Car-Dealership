@@ -46,18 +46,6 @@
             this.cust_middleNMLbl = new System.Windows.Forms.Label();
             this.cust_firstNMLbl = new System.Windows.Forms.Label();
             this.cust_firstNMTxtB = new System.Windows.Forms.TextBox();
-            this.salesHistory_Tab = new MetroFramework.Controls.MetroTabPage();
-            this.salesHistory_EmployeeCheckBox = new System.Windows.Forms.CheckBox();
-            this.saleHistory_CustCheckBox = new System.Windows.Forms.CheckBox();
-            this.salesHistory_LastNameLbl = new System.Windows.Forms.Label();
-            this.salesHistory_LastNameTxtB = new System.Windows.Forms.TextBox();
-            this.salesHistory_FirstNameLbl = new System.Windows.Forms.Label();
-            this.salesHistory_FirstNameTxtB = new System.Windows.Forms.TextBox();
-            this.salesHistory_ToDateTimePicker = new System.Windows.Forms.Label();
-            this.salesHistory_2DateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.salesHistory_DateLbl = new System.Windows.Forms.Label();
-            this.salesHistory_FromDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.sale_dataGridView = new System.Windows.Forms.DataGridView();
             this.carTab = new MetroFramework.Controls.MetroTabPage();
             this.cars_StatusComboBox = new System.Windows.Forms.ComboBox();
             this.cars_StatusLbl = new System.Windows.Forms.Label();
@@ -100,16 +88,26 @@
             this.emp_FirstNameLbl = new System.Windows.Forms.Label();
             this.emp_FirstNameTxtB = new System.Windows.Forms.TextBox();
             this.sales_Tab = new MetroFramework.Controls.MetroTabPage();
+            this.sales_ModeLbl = new System.Windows.Forms.Label();
+            this.sales_comboBox = new System.Windows.Forms.ComboBox();
+            this.sales_Button = new System.Windows.Forms.Button();
+            this.sales_dataGridView = new System.Windows.Forms.DataGridView();
+            this.sales_EmpLbl = new System.Windows.Forms.Label();
+            this.sales_EmpTxtB = new System.Windows.Forms.TextBox();
+            this.sales_CustTxtB = new System.Windows.Forms.TextBox();
+            this.sales_CustLbl = new System.Windows.Forms.Label();
+            this.sales_VINLbl = new System.Windows.Forms.Label();
+            this.sales_VINTxtB = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.metroTabControl.SuspendLayout();
             this.customerTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).BeginInit();
-            this.salesHistory_Tab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sale_dataGridView)).BeginInit();
             this.carTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cars_dataGridView)).BeginInit();
             this.employeeTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emp_dataGridView)).BeginInit();
+            this.sales_Tab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sales_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -137,7 +135,6 @@
             // metroTabControl
             // 
             this.metroTabControl.Controls.Add(this.customerTab);
-            this.metroTabControl.Controls.Add(this.salesHistory_Tab);
             this.metroTabControl.Controls.Add(this.carTab);
             this.metroTabControl.Controls.Add(this.employeeTab);
             this.metroTabControl.Controls.Add(this.sales_Tab);
@@ -326,138 +323,6 @@
             this.cust_firstNMTxtB.Name = "cust_firstNMTxtB";
             this.cust_firstNMTxtB.Size = new System.Drawing.Size(316, 29);
             this.cust_firstNMTxtB.TabIndex = 2;
-            // 
-            // salesHistory_Tab
-            // 
-            this.salesHistory_Tab.Controls.Add(this.salesHistory_EmployeeCheckBox);
-            this.salesHistory_Tab.Controls.Add(this.saleHistory_CustCheckBox);
-            this.salesHistory_Tab.Controls.Add(this.salesHistory_LastNameLbl);
-            this.salesHistory_Tab.Controls.Add(this.salesHistory_LastNameTxtB);
-            this.salesHistory_Tab.Controls.Add(this.salesHistory_FirstNameLbl);
-            this.salesHistory_Tab.Controls.Add(this.salesHistory_FirstNameTxtB);
-            this.salesHistory_Tab.Controls.Add(this.salesHistory_ToDateTimePicker);
-            this.salesHistory_Tab.Controls.Add(this.salesHistory_2DateTimePicker);
-            this.salesHistory_Tab.Controls.Add(this.salesHistory_DateLbl);
-            this.salesHistory_Tab.Controls.Add(this.salesHistory_FromDateTimePicker);
-            this.salesHistory_Tab.Controls.Add(this.sale_dataGridView);
-            this.salesHistory_Tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesHistory_Tab.HorizontalScrollbarBarColor = true;
-            this.salesHistory_Tab.HorizontalScrollbarHighlightOnWheel = false;
-            this.salesHistory_Tab.HorizontalScrollbarSize = 10;
-            this.salesHistory_Tab.Location = new System.Drawing.Point(4, 38);
-            this.salesHistory_Tab.Name = "salesHistory_Tab";
-            this.salesHistory_Tab.Size = new System.Drawing.Size(1088, 451);
-            this.salesHistory_Tab.TabIndex = 1;
-            this.salesHistory_Tab.Text = "Sales History";
-            this.salesHistory_Tab.VerticalScrollbarBarColor = true;
-            this.salesHistory_Tab.VerticalScrollbarHighlightOnWheel = false;
-            this.salesHistory_Tab.VerticalScrollbarSize = 10;
-            // 
-            // salesHistory_EmployeeCheckBox
-            // 
-            this.salesHistory_EmployeeCheckBox.AutoSize = true;
-            this.salesHistory_EmployeeCheckBox.BackColor = System.Drawing.Color.White;
-            this.salesHistory_EmployeeCheckBox.Location = new System.Drawing.Point(193, 135);
-            this.salesHistory_EmployeeCheckBox.Name = "salesHistory_EmployeeCheckBox";
-            this.salesHistory_EmployeeCheckBox.Size = new System.Drawing.Size(180, 28);
-            this.salesHistory_EmployeeCheckBox.TabIndex = 31;
-            this.salesHistory_EmployeeCheckBox.Text = "Employee Search";
-            this.salesHistory_EmployeeCheckBox.UseVisualStyleBackColor = false;
-            // 
-            // saleHistory_CustCheckBox
-            // 
-            this.saleHistory_CustCheckBox.AutoSize = true;
-            this.saleHistory_CustCheckBox.BackColor = System.Drawing.Color.White;
-            this.saleHistory_CustCheckBox.Location = new System.Drawing.Point(12, 135);
-            this.saleHistory_CustCheckBox.Name = "saleHistory_CustCheckBox";
-            this.saleHistory_CustCheckBox.Size = new System.Drawing.Size(175, 28);
-            this.saleHistory_CustCheckBox.TabIndex = 30;
-            this.saleHistory_CustCheckBox.Text = "Customer Search";
-            this.saleHistory_CustCheckBox.UseVisualStyleBackColor = false;
-            // 
-            // salesHistory_LastNameLbl
-            // 
-            this.salesHistory_LastNameLbl.AutoSize = true;
-            this.salesHistory_LastNameLbl.BackColor = System.Drawing.Color.White;
-            this.salesHistory_LastNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesHistory_LastNameLbl.Location = new System.Drawing.Point(8, 264);
-            this.salesHistory_LastNameLbl.Name = "salesHistory_LastNameLbl";
-            this.salesHistory_LastNameLbl.Size = new System.Drawing.Size(99, 24);
-            this.salesHistory_LastNameLbl.TabIndex = 29;
-            this.salesHistory_LastNameLbl.Text = "Last Name";
-            // 
-            // salesHistory_LastNameTxtB
-            // 
-            this.salesHistory_LastNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesHistory_LastNameTxtB.Location = new System.Drawing.Point(12, 291);
-            this.salesHistory_LastNameTxtB.Name = "salesHistory_LastNameTxtB";
-            this.salesHistory_LastNameTxtB.Size = new System.Drawing.Size(316, 29);
-            this.salesHistory_LastNameTxtB.TabIndex = 28;
-            // 
-            // salesHistory_FirstNameLbl
-            // 
-            this.salesHistory_FirstNameLbl.AutoSize = true;
-            this.salesHistory_FirstNameLbl.BackColor = System.Drawing.Color.White;
-            this.salesHistory_FirstNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesHistory_FirstNameLbl.Location = new System.Drawing.Point(8, 200);
-            this.salesHistory_FirstNameLbl.Name = "salesHistory_FirstNameLbl";
-            this.salesHistory_FirstNameLbl.Size = new System.Drawing.Size(101, 24);
-            this.salesHistory_FirstNameLbl.TabIndex = 27;
-            this.salesHistory_FirstNameLbl.Text = "First Name";
-            // 
-            // salesHistory_FirstNameTxtB
-            // 
-            this.salesHistory_FirstNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesHistory_FirstNameTxtB.Location = new System.Drawing.Point(12, 227);
-            this.salesHistory_FirstNameTxtB.Name = "salesHistory_FirstNameTxtB";
-            this.salesHistory_FirstNameTxtB.Size = new System.Drawing.Size(316, 29);
-            this.salesHistory_FirstNameTxtB.TabIndex = 26;
-            // 
-            // salesHistory_ToDateTimePicker
-            // 
-            this.salesHistory_ToDateTimePicker.AutoSize = true;
-            this.salesHistory_ToDateTimePicker.BackColor = System.Drawing.Color.White;
-            this.salesHistory_ToDateTimePicker.Location = new System.Drawing.Point(8, 73);
-            this.salesHistory_ToDateTimePicker.Name = "salesHistory_ToDateTimePicker";
-            this.salesHistory_ToDateTimePicker.Size = new System.Drawing.Size(33, 24);
-            this.salesHistory_ToDateTimePicker.TabIndex = 25;
-            this.salesHistory_ToDateTimePicker.Text = "To";
-            // 
-            // salesHistory_2DateTimePicker
-            // 
-            this.salesHistory_2DateTimePicker.Location = new System.Drawing.Point(72, 69);
-            this.salesHistory_2DateTimePicker.Name = "salesHistory_2DateTimePicker";
-            this.salesHistory_2DateTimePicker.Size = new System.Drawing.Size(308, 29);
-            this.salesHistory_2DateTimePicker.TabIndex = 24;
-            // 
-            // salesHistory_DateLbl
-            // 
-            this.salesHistory_DateLbl.AutoSize = true;
-            this.salesHistory_DateLbl.BackColor = System.Drawing.Color.White;
-            this.salesHistory_DateLbl.Location = new System.Drawing.Point(8, 14);
-            this.salesHistory_DateLbl.Name = "salesHistory_DateLbl";
-            this.salesHistory_DateLbl.Size = new System.Drawing.Size(55, 24);
-            this.salesHistory_DateLbl.TabIndex = 23;
-            this.salesHistory_DateLbl.Text = "From";
-            // 
-            // salesHistory_FromDateTimePicker
-            // 
-            this.salesHistory_FromDateTimePicker.Location = new System.Drawing.Point(72, 10);
-            this.salesHistory_FromDateTimePicker.Name = "salesHistory_FromDateTimePicker";
-            this.salesHistory_FromDateTimePicker.Size = new System.Drawing.Size(308, 29);
-            this.salesHistory_FromDateTimePicker.TabIndex = 22;
-            // 
-            // sale_dataGridView
-            // 
-            this.sale_dataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.sale_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.sale_dataGridView.Location = new System.Drawing.Point(534, 4);
-            this.sale_dataGridView.Margin = new System.Windows.Forms.Padding(2);
-            this.sale_dataGridView.Name = "sale_dataGridView";
-            this.sale_dataGridView.RowHeadersWidth = 51;
-            this.sale_dataGridView.RowTemplate.Height = 24;
-            this.sale_dataGridView.Size = new System.Drawing.Size(552, 447);
-            this.sale_dataGridView.TabIndex = 21;
             // 
             // carTab
             // 
@@ -953,6 +818,16 @@
             // 
             // sales_Tab
             // 
+            this.sales_Tab.Controls.Add(this.sales_ModeLbl);
+            this.sales_Tab.Controls.Add(this.sales_comboBox);
+            this.sales_Tab.Controls.Add(this.sales_Button);
+            this.sales_Tab.Controls.Add(this.sales_dataGridView);
+            this.sales_Tab.Controls.Add(this.sales_EmpLbl);
+            this.sales_Tab.Controls.Add(this.sales_EmpTxtB);
+            this.sales_Tab.Controls.Add(this.sales_CustTxtB);
+            this.sales_Tab.Controls.Add(this.sales_CustLbl);
+            this.sales_Tab.Controls.Add(this.sales_VINLbl);
+            this.sales_Tab.Controls.Add(this.sales_VINTxtB);
             this.sales_Tab.HorizontalScrollbarBarColor = true;
             this.sales_Tab.HorizontalScrollbarHighlightOnWheel = false;
             this.sales_Tab.HorizontalScrollbarSize = 6;
@@ -965,6 +840,112 @@
             this.sales_Tab.VerticalScrollbarBarColor = true;
             this.sales_Tab.VerticalScrollbarHighlightOnWheel = false;
             this.sales_Tab.VerticalScrollbarSize = 7;
+            // 
+            // sales_ModeLbl
+            // 
+            this.sales_ModeLbl.AutoSize = true;
+            this.sales_ModeLbl.BackColor = System.Drawing.Color.White;
+            this.sales_ModeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_ModeLbl.Location = new System.Drawing.Point(12, 29);
+            this.sales_ModeLbl.Name = "sales_ModeLbl";
+            this.sales_ModeLbl.Size = new System.Drawing.Size(59, 24);
+            this.sales_ModeLbl.TabIndex = 71;
+            this.sales_ModeLbl.Text = "Mode";
+            // 
+            // sales_comboBox
+            // 
+            this.sales_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_comboBox.FormattingEnabled = true;
+            this.sales_comboBox.Location = new System.Drawing.Point(181, 29);
+            this.sales_comboBox.Name = "sales_comboBox";
+            this.sales_comboBox.Size = new System.Drawing.Size(230, 32);
+            this.sales_comboBox.TabIndex = 70;
+            // 
+            // sales_Button
+            // 
+            this.sales_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_Button.Location = new System.Drawing.Point(13, 219);
+            this.sales_Button.Name = "sales_Button";
+            this.sales_Button.Size = new System.Drawing.Size(141, 63);
+            this.sales_Button.TabIndex = 69;
+            this.sales_Button.Text = "Confim Sale";
+            this.sales_Button.UseVisualStyleBackColor = true;
+            // 
+            // sales_dataGridView
+            // 
+            this.sales_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.sales_dataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.sales_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sales_dataGridView.Location = new System.Drawing.Point(531, 2);
+            this.sales_dataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.sales_dataGridView.Name = "sales_dataGridView";
+            this.sales_dataGridView.RowHeadersWidth = 51;
+            this.sales_dataGridView.RowTemplate.Height = 24;
+            this.sales_dataGridView.Size = new System.Drawing.Size(552, 447);
+            this.sales_dataGridView.TabIndex = 68;
+            // 
+            // sales_EmpLbl
+            // 
+            this.sales_EmpLbl.AutoSize = true;
+            this.sales_EmpLbl.BackColor = System.Drawing.Color.White;
+            this.sales_EmpLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_EmpLbl.Location = new System.Drawing.Point(9, 172);
+            this.sales_EmpLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.sales_EmpLbl.Name = "sales_EmpLbl";
+            this.sales_EmpLbl.Size = new System.Drawing.Size(148, 24);
+            this.sales_EmpLbl.TabIndex = 67;
+            this.sales_EmpLbl.Text = "Employee Email";
+            // 
+            // sales_EmpTxtB
+            // 
+            this.sales_EmpTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_EmpTxtB.Location = new System.Drawing.Point(181, 172);
+            this.sales_EmpTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.sales_EmpTxtB.Name = "sales_EmpTxtB";
+            this.sales_EmpTxtB.Size = new System.Drawing.Size(316, 29);
+            this.sales_EmpTxtB.TabIndex = 66;
+            // 
+            // sales_CustTxtB
+            // 
+            this.sales_CustTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_CustTxtB.Location = new System.Drawing.Point(181, 139);
+            this.sales_CustTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.sales_CustTxtB.Name = "sales_CustTxtB";
+            this.sales_CustTxtB.Size = new System.Drawing.Size(316, 29);
+            this.sales_CustTxtB.TabIndex = 65;
+            // 
+            // sales_CustLbl
+            // 
+            this.sales_CustLbl.AutoEllipsis = true;
+            this.sales_CustLbl.AutoSize = true;
+            this.sales_CustLbl.BackColor = System.Drawing.Color.White;
+            this.sales_CustLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_CustLbl.ForeColor = System.Drawing.Color.Black;
+            this.sales_CustLbl.Location = new System.Drawing.Point(9, 139);
+            this.sales_CustLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.sales_CustLbl.Name = "sales_CustLbl";
+            this.sales_CustLbl.Size = new System.Drawing.Size(156, 24);
+            this.sales_CustLbl.TabIndex = 64;
+            this.sales_CustLbl.Text = "Customer\'s Email";
+            // 
+            // sales_VINLbl
+            // 
+            this.sales_VINLbl.AutoSize = true;
+            this.sales_VINLbl.BackColor = System.Drawing.Color.White;
+            this.sales_VINLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_VINLbl.Location = new System.Drawing.Point(9, 105);
+            this.sales_VINLbl.Name = "sales_VINLbl";
+            this.sales_VINLbl.Size = new System.Drawing.Size(115, 24);
+            this.sales_VINLbl.TabIndex = 63;
+            this.sales_VINLbl.Text = "VIN Number";
+            // 
+            // sales_VINTxtB
+            // 
+            this.sales_VINTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_VINTxtB.Location = new System.Drawing.Point(181, 105);
+            this.sales_VINTxtB.Name = "sales_VINTxtB";
+            this.sales_VINTxtB.Size = new System.Drawing.Size(316, 29);
+            this.sales_VINTxtB.TabIndex = 62;
             // 
             // Dealership
             // 
@@ -982,15 +963,15 @@
             this.customerTab.ResumeLayout(false);
             this.customerTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).EndInit();
-            this.salesHistory_Tab.ResumeLayout(false);
-            this.salesHistory_Tab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sale_dataGridView)).EndInit();
             this.carTab.ResumeLayout(false);
             this.carTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cars_dataGridView)).EndInit();
             this.employeeTab.ResumeLayout(false);
             this.employeeTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emp_dataGridView)).EndInit();
+            this.sales_Tab.ResumeLayout(false);
+            this.sales_Tab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sales_dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1000,20 +981,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label titleLbl;
         private MetroFramework.Controls.MetroTabControl metroTabControl;
-        private MetroFramework.Controls.MetroTabPage salesHistory_Tab;
         private MetroFramework.Controls.MetroTabPage carTab;
         private MetroFramework.Controls.MetroTabPage employeeTab;
-        private System.Windows.Forms.DateTimePicker salesHistory_FromDateTimePicker;
-        private System.Windows.Forms.DataGridView sale_dataGridView;
-        private System.Windows.Forms.Label salesHistory_DateLbl;
-        private System.Windows.Forms.CheckBox salesHistory_EmployeeCheckBox;
-        private System.Windows.Forms.CheckBox saleHistory_CustCheckBox;
-        private System.Windows.Forms.Label salesHistory_LastNameLbl;
-        private System.Windows.Forms.TextBox salesHistory_LastNameTxtB;
-        private System.Windows.Forms.Label salesHistory_FirstNameLbl;
-        private System.Windows.Forms.TextBox salesHistory_FirstNameTxtB;
-        private System.Windows.Forms.Label salesHistory_ToDateTimePicker;
-        private System.Windows.Forms.DateTimePicker salesHistory_2DateTimePicker;
         private System.Windows.Forms.CheckBox cars_NoCheckBox;
         private System.Windows.Forms.CheckBox cars_YesCheckBox;
         private System.Windows.Forms.TextBox cars_YearTxtB;
@@ -1069,6 +1038,16 @@
         private System.Windows.Forms.Button cust_Button;
         private System.Windows.Forms.Label cust_ActionLbl;
         private System.Windows.Forms.ComboBox cust_comboBox;
+        private System.Windows.Forms.Label sales_ModeLbl;
+        private System.Windows.Forms.ComboBox sales_comboBox;
+        private System.Windows.Forms.Button sales_Button;
+        private System.Windows.Forms.DataGridView sales_dataGridView;
+        private System.Windows.Forms.Label sales_EmpLbl;
+        private System.Windows.Forms.TextBox sales_EmpTxtB;
+        private System.Windows.Forms.TextBox sales_CustTxtB;
+        private System.Windows.Forms.Label sales_CustLbl;
+        private System.Windows.Forms.Label sales_VINLbl;
+        private System.Windows.Forms.TextBox sales_VINTxtB;
     }
 }
 
