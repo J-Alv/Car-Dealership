@@ -651,7 +651,8 @@ namespace Dealership
                 {
                     case 0:
                         //Show
-                        CmdString = "";
+                        CmdString = "SELECT Price, CONCAT(Customer.FirstName, ' ', Customer.LastName) AS Customer," +
+                            " CONCAT(Employee.FirstName, ' ', Employee.LastName) AS Employee, Date, VIN FROM Sale JOIN Car ON(CarID = Car.ID) JOIN Employee ON(Employeeid = Employee.id) JOIN Customer ON(Customer.id = CustomerID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
