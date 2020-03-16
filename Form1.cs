@@ -648,6 +648,7 @@ namespace Dealership
                 string VIN = sales_VINTxtB.Text.ToString();
                 string CustEmail = sales_CustTxtB.Text.ToString();
                 string EmpEmail = sales_EmpTxtB.Text.ToString();
+                string Price = sales_PriceTxtB.Text.ToString();
                 string CmdString = "";
 
                 switch (sales_comboBox.SelectedIndex)
