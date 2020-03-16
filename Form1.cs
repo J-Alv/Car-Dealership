@@ -24,24 +24,28 @@ namespace Dealership
             cars_comboBox.Items.Add("Add Car");
             cars_comboBox.Items.Add("Update Car");
             cars_comboBox.Items.Add("Delete Car");
-            cars_comboBox.SelectedIndex = 0;
 
             cars_StatusComboBox.Items.Add("");
             cars_StatusComboBox.Items.Add("Available");
             cars_StatusComboBox.Items.Add("Sold");
             cars_StatusComboBox.Items.Add("Incoming Shipment");
-            cars_StatusComboBox.SelectedIndex = 0;
 
             emp_comboBox.Items.Add("All Employees");
             emp_comboBox.Items.Add("Search Employee");
             emp_comboBox.Items.Add("Add New Employee");
             emp_comboBox.Items.Add("Update Employee");
             emp_comboBox.Items.Add("Delete Employee");
-            emp_comboBox.SelectedIndex = 0;
 
             sales_comboBox.Items.Add("Show All Sales");
+            sales_comboBox.Items.Add("Search Sales");
             sales_comboBox.Items.Add("Create Sale");
+            sales_comboBox.Items.Add("Update A Sale");
             sales_comboBox.Items.Add("Delete A Sale");
+
+            cust_comboBox.SelectedIndex = 0;
+            emp_comboBox.SelectedIndex = 0;
+            sales_comboBox.SelectedIndex = 0;
+            cars_comboBox.SelectedIndex = 0;
         }
         private void cust_Button_Click(object sender, EventArgs e)
         {
@@ -54,7 +58,7 @@ namespace Dealership
                 conn.Open();
 
                 string FirstName = cust_firstNMTxtB.Text.ToString();
-                string MiddleName = cust_middleNMTxtB.ToString();
+                string MiddleName = cust_middleNMTxtB.Text.ToString();
                 string LastName = cust_lastNMTxtB.Text.ToString();
                 string PhoneNumber = cust_PhoneNbrTxtB.Text.ToString();
                 string Status = cust_StatusTxtB.Text.ToString();
@@ -152,7 +156,7 @@ namespace Dealership
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
-                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        cust_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();
                         break;
 
@@ -444,9 +448,9 @@ namespace Dealership
                 switch (emp_comboBox.SelectedIndex)
                 {
                     case 0:
-                       CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
-                            " LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) ";
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
+                             "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
+                             " LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) ";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -456,9 +460,9 @@ namespace Dealership
 
                     case 1:
                         //Search
-                       CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales" +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
-                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales" +
+                             "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
+                             "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
                         if (FirstName != "")
                         {
                             CmdString += "WHERE Employee.FirstName LIKE '" + FirstName + "%'";
@@ -543,7 +547,7 @@ namespace Dealership
 
 
                         CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
                             "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -600,7 +604,7 @@ namespace Dealership
                         cmd.ExecuteNonQuery();
 
                         CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
                             "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -617,7 +621,7 @@ namespace Dealership
                         cmd.ExecuteNonQuery();
 
                         CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
                             "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -636,7 +640,6 @@ namespace Dealership
         {
             try
             {
-                MySqlCommand cmd = null;
                 MySqlDataAdapter sda = null;
                 conn = new MySqlConnection(connString);
                 DataSet ds = new DataSet();
@@ -659,7 +662,7 @@ namespace Dealership
                         conn.Close();
                         break;
                     case 1:
-                        //Add
+                        //Search
                         CmdString = "";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -668,6 +671,24 @@ namespace Dealership
                         conn.Close();
                         break;
                     case 2:
+                        //Add
+                        CmdString = "";
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        sales_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+                    case 3:
+                        //Update
+                        CmdString = "";
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        sales_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+                    case 4:
                         //Delete
                         CmdString = "";
 
@@ -678,7 +699,7 @@ namespace Dealership
                         break;
                 }
             }
-            catch(MySql.Data.MySqlClient.MySqlException ex)
+            catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -703,23 +724,28 @@ namespace Dealership
             {
                 case 0:
                     cust_Button.Text = "Show Customers";
+                    cust_emailLbl.Text = "Email";
                     custUI(true);
                     break;
                 case 1:
                     cust_Button.Text = "Search Customers";
+                    cust_emailLbl.Text = "Email";
                     custUI(true);
                     break;
                 case 2:
                     cust_Button.Text = "Add Customer";
+                    cust_emailLbl.Text = "Email";
                     custUI(true);
                     break;
                 case 3:
                     cust_Button.Text = "Update Customer";
+                    cust_emailLbl.Text = "*Email";
                     custUI(true);
                     break;
 
                 case 4:
                     cust_Button.Text = "Delete Customer";
+                    cust_emailLbl.Text = "Email";
                     custUI(false);
                     break;
             }
@@ -761,6 +787,7 @@ namespace Dealership
                     break;
                 case 3:
                     car_SearchBtn.Text = "Update Car";
+                    cars_VINLbl.Text = "*VIN Number";
                     carsUI(true);
                     break;
                 case 4:
@@ -790,25 +817,79 @@ namespace Dealership
             {
                 case 0:
                     emp_Button.Text = "Show All";
+                    emp_EmailLbl.Text = "Email";
                     empUI(true);
                     break;
                 case 1:
                     emp_Button.Text = "Search";
+                    emp_EmailLbl.Text = "Email";
                     empUI(true);
                     break;
                 case 2:
                     emp_Button.Text = "Add Employee";
+                    emp_EmailLbl.Text = "Email";
                     empUI(true);
                     break;
                 case 3:
                     emp_Button.Text = "Update Employee";
+                    emp_EmailLbl.Text = "*Email";
                     empUI(true);
                     break;
                 case 4:
                     emp_Button.Text = "Delete Employee";
+                    emp_EmailLbl.Text = "Email";
+
                     empUI(false);
                     break;
             }
+        }
+        public void saleUI(bool VIN, bool CEmail, bool EmpEmail, bool EmpName, bool CName, bool Price)
+        {
+            sales_VINLbl.Visible = VIN;
+            sales_VINTxtB.Visible = VIN;
+            sales_CustLbl.Visible = CEmail;
+            sales_CustTxtB.Visible = CEmail;
+            sales_EmpLbl.Visible = EmpEmail;
+            sales_EmpTxtB.Visible = EmpEmail;
+            sales_EmpNameLbl.Visible = EmpName;
+            sales_EmpNameTxtB.Visible = EmpName;
+            sales_CustNameLbl.Visible = CName;
+            sales_CustNameTxtB.Visible = CName;
+            sales_PriceLbl.Visible = Price;
+            sales_PriceTxtB.Visible = Price;
+        }
+        private void sales_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (sales_comboBox.SelectedIndex)
+            {
+                case 0:
+                    //Show
+                    sales_Button.Text = "Show All";
+                    saleUI(false, false, false, false, false, false);
+                    break;
+                case 1:
+                    //Search
+                    sales_Button.Text = "Search Sales";
+                    saleUI(true, true, true, true, true, true);
+                    break;
+                case 2:
+                    //Create
+                    sales_Button.Text = "Complete Sale";
+                    saleUI(true, true, true, false, false, true);
+                    break;
+                case 3:
+                    //Update
+                    sales_Button.Text = "Update Sale";
+                    sales_VINLbl.Text = "*VIN Number";
+                    saleUI(true, true, true, true, true, true);
+                    break;
+                case 4:
+                    //Delete
+                    sales_Button.Text = "Delete Sale";
+                    saleUI(true, false, false, false, false, false);
+                    break;
+            }
+
         }
         private void cars_YesCheckBox_Click(object sender, EventArgs e)
         {

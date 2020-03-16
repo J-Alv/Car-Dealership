@@ -32,6 +32,8 @@
             this.titleLbl = new System.Windows.Forms.Label();
             this.metroTabControl = new MetroFramework.Controls.MetroTabControl();
             this.customerTab = new MetroFramework.Controls.MetroTabPage();
+            this.cust_StatusTxtB = new System.Windows.Forms.TextBox();
+            this.cust_StatusLbl = new System.Windows.Forms.Label();
             this.cust_Button = new System.Windows.Forms.Button();
             this.cust_ActionLbl = new System.Windows.Forms.Label();
             this.cust_comboBox = new System.Windows.Forms.ComboBox();
@@ -98,8 +100,12 @@
             this.sales_CustLbl = new System.Windows.Forms.Label();
             this.sales_VINLbl = new System.Windows.Forms.Label();
             this.sales_VINTxtB = new System.Windows.Forms.TextBox();
-            this.cust_StatusTxtB = new System.Windows.Forms.TextBox();
-            this.cust_StatusLbl = new System.Windows.Forms.Label();
+            this.sales_CustNameTxtB = new System.Windows.Forms.TextBox();
+            this.sales_CustNameLbl = new System.Windows.Forms.Label();
+            this.sales_EmpNameLbl = new System.Windows.Forms.Label();
+            this.sales_EmpNameTxtB = new System.Windows.Forms.TextBox();
+            this.sales_PriceLbl = new System.Windows.Forms.Label();
+            this.sales_PriceTxtB = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.metroTabControl.SuspendLayout();
             this.customerTab.SuspendLayout();
@@ -179,6 +185,27 @@
             this.customerTab.VerticalScrollbarHighlightOnWheel = false;
             this.customerTab.VerticalScrollbarSize = 10;
             // 
+            // cust_StatusTxtB
+            // 
+            this.cust_StatusTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_StatusTxtB.Location = new System.Drawing.Point(174, 256);
+            this.cust_StatusTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_StatusTxtB.Name = "cust_StatusTxtB";
+            this.cust_StatusTxtB.Size = new System.Drawing.Size(316, 29);
+            this.cust_StatusTxtB.TabIndex = 17;
+            // 
+            // cust_StatusLbl
+            // 
+            this.cust_StatusLbl.AutoSize = true;
+            this.cust_StatusLbl.BackColor = System.Drawing.Color.White;
+            this.cust_StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_StatusLbl.Location = new System.Drawing.Point(5, 256);
+            this.cust_StatusLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cust_StatusLbl.Name = "cust_StatusLbl";
+            this.cust_StatusLbl.Size = new System.Drawing.Size(60, 24);
+            this.cust_StatusLbl.TabIndex = 16;
+            this.cust_StatusLbl.Text = "Status";
+            // 
             // cust_Button
             // 
             this.cust_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -214,7 +241,7 @@
             // cust_PhoneNbrTxtB
             // 
             this.cust_PhoneNbrTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_PhoneNbrTxtB.Location = new System.Drawing.Point(174, 198);
+            this.cust_PhoneNbrTxtB.Location = new System.Drawing.Point(174, 223);
             this.cust_PhoneNbrTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_PhoneNbrTxtB.Name = "cust_PhoneNbrTxtB";
             this.cust_PhoneNbrTxtB.Size = new System.Drawing.Size(316, 29);
@@ -225,7 +252,7 @@
             this.cust_PhoneNbrLbl.AutoSize = true;
             this.cust_PhoneNbrLbl.BackColor = System.Drawing.Color.White;
             this.cust_PhoneNbrLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_PhoneNbrLbl.Location = new System.Drawing.Point(5, 198);
+            this.cust_PhoneNbrLbl.Location = new System.Drawing.Point(5, 223);
             this.cust_PhoneNbrLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cust_PhoneNbrLbl.Name = "cust_PhoneNbrLbl";
             this.cust_PhoneNbrLbl.Size = new System.Drawing.Size(140, 24);
@@ -247,7 +274,7 @@
             // cust_emailTxtB
             // 
             this.cust_emailTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_emailTxtB.Location = new System.Drawing.Point(174, 264);
+            this.cust_emailTxtB.Location = new System.Drawing.Point(174, 89);
             this.cust_emailTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_emailTxtB.Name = "cust_emailTxtB";
             this.cust_emailTxtB.Size = new System.Drawing.Size(316, 29);
@@ -258,7 +285,7 @@
             this.cust_emailLbl.AutoSize = true;
             this.cust_emailLbl.BackColor = System.Drawing.Color.White;
             this.cust_emailLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_emailLbl.Location = new System.Drawing.Point(5, 264);
+            this.cust_emailLbl.Location = new System.Drawing.Point(5, 89);
             this.cust_emailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cust_emailLbl.Name = "cust_emailLbl";
             this.cust_emailLbl.Size = new System.Drawing.Size(57, 24);
@@ -270,7 +297,7 @@
             this.cust_lastNMLbl.AutoSize = true;
             this.cust_lastNMLbl.BackColor = System.Drawing.Color.White;
             this.cust_lastNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_lastNMLbl.Location = new System.Drawing.Point(5, 165);
+            this.cust_lastNMLbl.Location = new System.Drawing.Point(5, 190);
             this.cust_lastNMLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cust_lastNMLbl.Name = "cust_lastNMLbl";
             this.cust_lastNMLbl.Size = new System.Drawing.Size(99, 24);
@@ -280,7 +307,7 @@
             // cust_lastNMTxtB
             // 
             this.cust_lastNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_lastNMTxtB.Location = new System.Drawing.Point(174, 165);
+            this.cust_lastNMTxtB.Location = new System.Drawing.Point(174, 190);
             this.cust_lastNMTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_lastNMTxtB.Name = "cust_lastNMTxtB";
             this.cust_lastNMTxtB.Size = new System.Drawing.Size(316, 29);
@@ -289,7 +316,7 @@
             // cust_middleNMTxtB
             // 
             this.cust_middleNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_middleNMTxtB.Location = new System.Drawing.Point(174, 132);
+            this.cust_middleNMTxtB.Location = new System.Drawing.Point(174, 157);
             this.cust_middleNMTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_middleNMTxtB.Name = "cust_middleNMTxtB";
             this.cust_middleNMTxtB.Size = new System.Drawing.Size(316, 29);
@@ -302,7 +329,7 @@
             this.cust_middleNMLbl.BackColor = System.Drawing.Color.White;
             this.cust_middleNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cust_middleNMLbl.ForeColor = System.Drawing.Color.Black;
-            this.cust_middleNMLbl.Location = new System.Drawing.Point(3, 132);
+            this.cust_middleNMLbl.Location = new System.Drawing.Point(3, 157);
             this.cust_middleNMLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cust_middleNMLbl.Name = "cust_middleNMLbl";
             this.cust_middleNMLbl.Size = new System.Drawing.Size(123, 24);
@@ -314,7 +341,7 @@
             this.cust_firstNMLbl.AutoSize = true;
             this.cust_firstNMLbl.BackColor = System.Drawing.Color.White;
             this.cust_firstNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_firstNMLbl.Location = new System.Drawing.Point(3, 98);
+            this.cust_firstNMLbl.Location = new System.Drawing.Point(3, 123);
             this.cust_firstNMLbl.Name = "cust_firstNMLbl";
             this.cust_firstNMLbl.Size = new System.Drawing.Size(101, 24);
             this.cust_firstNMLbl.TabIndex = 3;
@@ -323,7 +350,7 @@
             // cust_firstNMTxtB
             // 
             this.cust_firstNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_firstNMTxtB.Location = new System.Drawing.Point(174, 98);
+            this.cust_firstNMTxtB.Location = new System.Drawing.Point(174, 123);
             this.cust_firstNMTxtB.Name = "cust_firstNMTxtB";
             this.cust_firstNMTxtB.Size = new System.Drawing.Size(316, 29);
             this.cust_firstNMTxtB.TabIndex = 2;
@@ -627,7 +654,7 @@
             // emp_SupervisorTxtB
             // 
             this.emp_SupervisorTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_SupervisorTxtB.Location = new System.Drawing.Point(165, 242);
+            this.emp_SupervisorTxtB.Location = new System.Drawing.Point(165, 263);
             this.emp_SupervisorTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_SupervisorTxtB.Name = "emp_SupervisorTxtB";
             this.emp_SupervisorTxtB.Size = new System.Drawing.Size(316, 29);
@@ -640,7 +667,7 @@
             this.emp_SupervisorLbl.BackColor = System.Drawing.Color.White;
             this.emp_SupervisorLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp_SupervisorLbl.ForeColor = System.Drawing.Color.Black;
-            this.emp_SupervisorLbl.Location = new System.Drawing.Point(12, 242);
+            this.emp_SupervisorLbl.Location = new System.Drawing.Point(12, 263);
             this.emp_SupervisorLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_SupervisorLbl.Name = "emp_SupervisorLbl";
             this.emp_SupervisorLbl.Size = new System.Drawing.Size(100, 24);
@@ -654,7 +681,7 @@
             this.emp_EmailLbl.BackColor = System.Drawing.Color.White;
             this.emp_EmailLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp_EmailLbl.ForeColor = System.Drawing.Color.Black;
-            this.emp_EmailLbl.Location = new System.Drawing.Point(12, 275);
+            this.emp_EmailLbl.Location = new System.Drawing.Point(12, 94);
             this.emp_EmailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_EmailLbl.Name = "emp_EmailLbl";
             this.emp_EmailLbl.Size = new System.Drawing.Size(57, 24);
@@ -664,7 +691,7 @@
             // emp_TitleTxtB
             // 
             this.emp_TitleTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_TitleTxtB.Location = new System.Drawing.Point(165, 308);
+            this.emp_TitleTxtB.Location = new System.Drawing.Point(165, 296);
             this.emp_TitleTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_TitleTxtB.Name = "emp_TitleTxtB";
             this.emp_TitleTxtB.Size = new System.Drawing.Size(316, 29);
@@ -673,7 +700,7 @@
             // emp_EmailTxtB
             // 
             this.emp_EmailTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_EmailTxtB.Location = new System.Drawing.Point(165, 275);
+            this.emp_EmailTxtB.Location = new System.Drawing.Point(165, 94);
             this.emp_EmailTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_EmailTxtB.Name = "emp_EmailTxtB";
             this.emp_EmailTxtB.Size = new System.Drawing.Size(316, 29);
@@ -686,7 +713,7 @@
             this.emp_TitleLbl.BackColor = System.Drawing.Color.White;
             this.emp_TitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp_TitleLbl.ForeColor = System.Drawing.Color.Black;
-            this.emp_TitleLbl.Location = new System.Drawing.Point(12, 311);
+            this.emp_TitleLbl.Location = new System.Drawing.Point(12, 299);
             this.emp_TitleLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_TitleLbl.Name = "emp_TitleLbl";
             this.emp_TitleLbl.Size = new System.Drawing.Size(45, 24);
@@ -698,7 +725,7 @@
             this.emp_PhoneLbl.AutoSize = true;
             this.emp_PhoneLbl.BackColor = System.Drawing.Color.White;
             this.emp_PhoneLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_PhoneLbl.Location = new System.Drawing.Point(12, 208);
+            this.emp_PhoneLbl.Location = new System.Drawing.Point(12, 229);
             this.emp_PhoneLbl.Name = "emp_PhoneLbl";
             this.emp_PhoneLbl.Size = new System.Drawing.Size(140, 24);
             this.emp_PhoneLbl.TabIndex = 52;
@@ -707,7 +734,7 @@
             // emp_PhoneTxtB
             // 
             this.emp_PhoneTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_PhoneTxtB.Location = new System.Drawing.Point(165, 208);
+            this.emp_PhoneTxtB.Location = new System.Drawing.Point(165, 229);
             this.emp_PhoneTxtB.Name = "emp_PhoneTxtB";
             this.emp_PhoneTxtB.Size = new System.Drawing.Size(316, 29);
             this.emp_PhoneTxtB.TabIndex = 51;
@@ -762,7 +789,7 @@
             this.emp_LastNameLbl.AutoSize = true;
             this.emp_LastNameLbl.BackColor = System.Drawing.Color.White;
             this.emp_LastNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_LastNameLbl.Location = new System.Drawing.Point(12, 174);
+            this.emp_LastNameLbl.Location = new System.Drawing.Point(12, 195);
             this.emp_LastNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_LastNameLbl.Name = "emp_LastNameLbl";
             this.emp_LastNameLbl.Size = new System.Drawing.Size(99, 24);
@@ -772,7 +799,7 @@
             // emp_LastNameTxtB
             // 
             this.emp_LastNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_LastNameTxtB.Location = new System.Drawing.Point(165, 174);
+            this.emp_LastNameTxtB.Location = new System.Drawing.Point(165, 195);
             this.emp_LastNameTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_LastNameTxtB.Name = "emp_LastNameTxtB";
             this.emp_LastNameTxtB.Size = new System.Drawing.Size(316, 29);
@@ -781,7 +808,7 @@
             // emp_MiddleNameTxtB
             // 
             this.emp_MiddleNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_MiddleNameTxtB.Location = new System.Drawing.Point(165, 141);
+            this.emp_MiddleNameTxtB.Location = new System.Drawing.Point(165, 162);
             this.emp_MiddleNameTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_MiddleNameTxtB.Name = "emp_MiddleNameTxtB";
             this.emp_MiddleNameTxtB.Size = new System.Drawing.Size(316, 29);
@@ -794,7 +821,7 @@
             this.emp_MiddleNameLbl.BackColor = System.Drawing.Color.White;
             this.emp_MiddleNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp_MiddleNameLbl.ForeColor = System.Drawing.Color.Black;
-            this.emp_MiddleNameLbl.Location = new System.Drawing.Point(12, 141);
+            this.emp_MiddleNameLbl.Location = new System.Drawing.Point(12, 162);
             this.emp_MiddleNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emp_MiddleNameLbl.Name = "emp_MiddleNameLbl";
             this.emp_MiddleNameLbl.Size = new System.Drawing.Size(123, 24);
@@ -806,7 +833,7 @@
             this.emp_FirstNameLbl.AutoSize = true;
             this.emp_FirstNameLbl.BackColor = System.Drawing.Color.White;
             this.emp_FirstNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_FirstNameLbl.Location = new System.Drawing.Point(12, 107);
+            this.emp_FirstNameLbl.Location = new System.Drawing.Point(12, 128);
             this.emp_FirstNameLbl.Name = "emp_FirstNameLbl";
             this.emp_FirstNameLbl.Size = new System.Drawing.Size(101, 24);
             this.emp_FirstNameLbl.TabIndex = 37;
@@ -815,7 +842,7 @@
             // emp_FirstNameTxtB
             // 
             this.emp_FirstNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_FirstNameTxtB.Location = new System.Drawing.Point(165, 107);
+            this.emp_FirstNameTxtB.Location = new System.Drawing.Point(165, 128);
             this.emp_FirstNameTxtB.Name = "emp_FirstNameTxtB";
             this.emp_FirstNameTxtB.Size = new System.Drawing.Size(316, 29);
             this.emp_FirstNameTxtB.TabIndex = 36;
@@ -823,6 +850,12 @@
             // sales_Tab
             // 
             this.sales_Tab.BackColor = System.Drawing.SystemColors.Control;
+            this.sales_Tab.Controls.Add(this.sales_PriceLbl);
+            this.sales_Tab.Controls.Add(this.sales_PriceTxtB);
+            this.sales_Tab.Controls.Add(this.sales_EmpNameLbl);
+            this.sales_Tab.Controls.Add(this.sales_EmpNameTxtB);
+            this.sales_Tab.Controls.Add(this.sales_CustNameTxtB);
+            this.sales_Tab.Controls.Add(this.sales_CustNameLbl);
             this.sales_Tab.Controls.Add(this.sales_ModeLbl);
             this.sales_Tab.Controls.Add(this.sales_comboBox);
             this.sales_Tab.Controls.Add(this.sales_Button);
@@ -862,19 +895,20 @@
             // 
             this.sales_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sales_comboBox.FormattingEnabled = true;
-            this.sales_comboBox.Location = new System.Drawing.Point(181, 29);
+            this.sales_comboBox.Location = new System.Drawing.Point(184, 29);
             this.sales_comboBox.Name = "sales_comboBox";
             this.sales_comboBox.Size = new System.Drawing.Size(230, 32);
             this.sales_comboBox.TabIndex = 70;
+            this.sales_comboBox.SelectedIndexChanged += new System.EventHandler(this.sales_comboBox_SelectedIndexChanged);
             // 
             // sales_Button
             // 
             this.sales_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_Button.Location = new System.Drawing.Point(13, 219);
+            this.sales_Button.Location = new System.Drawing.Point(4, 363);
             this.sales_Button.Name = "sales_Button";
             this.sales_Button.Size = new System.Drawing.Size(141, 63);
             this.sales_Button.TabIndex = 69;
-            this.sales_Button.Text = "Confirm Sale";
+            this.sales_Button.Text = "Show All";
             this.sales_Button.UseVisualStyleBackColor = true;
             this.sales_Button.Click += new System.EventHandler(this.sales_Button_Click);
             // 
@@ -896,7 +930,7 @@
             this.sales_EmpLbl.AutoSize = true;
             this.sales_EmpLbl.BackColor = System.Drawing.Color.White;
             this.sales_EmpLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_EmpLbl.Location = new System.Drawing.Point(9, 172);
+            this.sales_EmpLbl.Location = new System.Drawing.Point(12, 163);
             this.sales_EmpLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sales_EmpLbl.Name = "sales_EmpLbl";
             this.sales_EmpLbl.Size = new System.Drawing.Size(148, 24);
@@ -906,7 +940,7 @@
             // sales_EmpTxtB
             // 
             this.sales_EmpTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_EmpTxtB.Location = new System.Drawing.Point(181, 172);
+            this.sales_EmpTxtB.Location = new System.Drawing.Point(184, 163);
             this.sales_EmpTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.sales_EmpTxtB.Name = "sales_EmpTxtB";
             this.sales_EmpTxtB.Size = new System.Drawing.Size(316, 29);
@@ -915,7 +949,7 @@
             // sales_CustTxtB
             // 
             this.sales_CustTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_CustTxtB.Location = new System.Drawing.Point(181, 139);
+            this.sales_CustTxtB.Location = new System.Drawing.Point(184, 130);
             this.sales_CustTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.sales_CustTxtB.Name = "sales_CustTxtB";
             this.sales_CustTxtB.Size = new System.Drawing.Size(316, 29);
@@ -928,7 +962,7 @@
             this.sales_CustLbl.BackColor = System.Drawing.Color.White;
             this.sales_CustLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sales_CustLbl.ForeColor = System.Drawing.Color.Black;
-            this.sales_CustLbl.Location = new System.Drawing.Point(9, 139);
+            this.sales_CustLbl.Location = new System.Drawing.Point(12, 130);
             this.sales_CustLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sales_CustLbl.Name = "sales_CustLbl";
             this.sales_CustLbl.Size = new System.Drawing.Size(156, 24);
@@ -940,7 +974,7 @@
             this.sales_VINLbl.AutoSize = true;
             this.sales_VINLbl.BackColor = System.Drawing.Color.White;
             this.sales_VINLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_VINLbl.Location = new System.Drawing.Point(9, 105);
+            this.sales_VINLbl.Location = new System.Drawing.Point(12, 96);
             this.sales_VINLbl.Name = "sales_VINLbl";
             this.sales_VINLbl.Size = new System.Drawing.Size(115, 24);
             this.sales_VINLbl.TabIndex = 63;
@@ -949,31 +983,75 @@
             // sales_VINTxtB
             // 
             this.sales_VINTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_VINTxtB.Location = new System.Drawing.Point(181, 105);
+            this.sales_VINTxtB.Location = new System.Drawing.Point(184, 96);
             this.sales_VINTxtB.Name = "sales_VINTxtB";
             this.sales_VINTxtB.Size = new System.Drawing.Size(316, 29);
             this.sales_VINTxtB.TabIndex = 62;
             // 
-            // cust_StatusTxtB
+            // sales_CustNameTxtB
             // 
-            this.cust_StatusTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_StatusTxtB.Location = new System.Drawing.Point(174, 231);
-            this.cust_StatusTxtB.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_StatusTxtB.Name = "cust_StatusTxtB";
-            this.cust_StatusTxtB.Size = new System.Drawing.Size(316, 29);
-            this.cust_StatusTxtB.TabIndex = 17;
+            this.sales_CustNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_CustNameTxtB.Location = new System.Drawing.Point(184, 244);
+            this.sales_CustNameTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.sales_CustNameTxtB.Name = "sales_CustNameTxtB";
+            this.sales_CustNameTxtB.Size = new System.Drawing.Size(316, 29);
+            this.sales_CustNameTxtB.TabIndex = 73;
             // 
-            // cust_StatusLbl
+            // sales_CustNameLbl
             // 
-            this.cust_StatusLbl.AutoSize = true;
-            this.cust_StatusLbl.BackColor = System.Drawing.Color.White;
-            this.cust_StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_StatusLbl.Location = new System.Drawing.Point(5, 231);
-            this.cust_StatusLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.cust_StatusLbl.Name = "cust_StatusLbl";
-            this.cust_StatusLbl.Size = new System.Drawing.Size(60, 24);
-            this.cust_StatusLbl.TabIndex = 16;
-            this.cust_StatusLbl.Text = "Status";
+            this.sales_CustNameLbl.AutoEllipsis = true;
+            this.sales_CustNameLbl.AutoSize = true;
+            this.sales_CustNameLbl.BackColor = System.Drawing.Color.White;
+            this.sales_CustNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_CustNameLbl.ForeColor = System.Drawing.Color.Black;
+            this.sales_CustNameLbl.Location = new System.Drawing.Point(12, 244);
+            this.sales_CustNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.sales_CustNameLbl.Name = "sales_CustNameLbl";
+            this.sales_CustNameLbl.Size = new System.Drawing.Size(160, 24);
+            this.sales_CustNameLbl.TabIndex = 72;
+            this.sales_CustNameLbl.Text = "Customer\'s Name";
+            // 
+            // sales_EmpNameLbl
+            // 
+            this.sales_EmpNameLbl.AutoSize = true;
+            this.sales_EmpNameLbl.BackColor = System.Drawing.Color.White;
+            this.sales_EmpNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_EmpNameLbl.Location = new System.Drawing.Point(12, 211);
+            this.sales_EmpNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.sales_EmpNameLbl.Name = "sales_EmpNameLbl";
+            this.sales_EmpNameLbl.Size = new System.Drawing.Size(152, 24);
+            this.sales_EmpNameLbl.TabIndex = 75;
+            this.sales_EmpNameLbl.Text = "Employee Name";
+            // 
+            // sales_EmpNameTxtB
+            // 
+            this.sales_EmpNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_EmpNameTxtB.Location = new System.Drawing.Point(184, 211);
+            this.sales_EmpNameTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.sales_EmpNameTxtB.Name = "sales_EmpNameTxtB";
+            this.sales_EmpNameTxtB.Size = new System.Drawing.Size(316, 29);
+            this.sales_EmpNameTxtB.TabIndex = 74;
+            // 
+            // sales_PriceLbl
+            // 
+            this.sales_PriceLbl.AutoSize = true;
+            this.sales_PriceLbl.BackColor = System.Drawing.Color.White;
+            this.sales_PriceLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_PriceLbl.Location = new System.Drawing.Point(12, 294);
+            this.sales_PriceLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.sales_PriceLbl.Name = "sales_PriceLbl";
+            this.sales_PriceLbl.Size = new System.Drawing.Size(53, 24);
+            this.sales_PriceLbl.TabIndex = 77;
+            this.sales_PriceLbl.Text = "Price";
+            // 
+            // sales_PriceTxtB
+            // 
+            this.sales_PriceTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sales_PriceTxtB.Location = new System.Drawing.Point(184, 294);
+            this.sales_PriceTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.sales_PriceTxtB.Name = "sales_PriceTxtB";
+            this.sales_PriceTxtB.Size = new System.Drawing.Size(316, 29);
+            this.sales_PriceTxtB.TabIndex = 76;
             // 
             // Dealership
             // 
@@ -1079,6 +1157,12 @@
         private System.Windows.Forms.TextBox sales_VINTxtB;
         private System.Windows.Forms.TextBox cust_StatusTxtB;
         private System.Windows.Forms.Label cust_StatusLbl;
+        private System.Windows.Forms.Label sales_EmpNameLbl;
+        private System.Windows.Forms.TextBox sales_EmpNameTxtB;
+        private System.Windows.Forms.TextBox sales_CustNameTxtB;
+        private System.Windows.Forms.Label sales_CustNameLbl;
+        private System.Windows.Forms.Label sales_PriceLbl;
+        private System.Windows.Forms.TextBox sales_PriceTxtB;
     }
 }
 
