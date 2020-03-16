@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Dealership
@@ -46,6 +47,7 @@ namespace Dealership
             emp_comboBox.SelectedIndex = 0;
             sales_comboBox.SelectedIndex = 0;
             cars_comboBox.SelectedIndex = 0;
+            cars_StatusComboBox.SelectedIndex = 0;
         }
         private void cust_Button_Click(object sender, EventArgs e)
         {
@@ -707,7 +709,6 @@ namespace Dealership
                 MessageBox.Show(ex.Message);
             }
         }
-
         public void custUI(bool state)
         {
             cust_firstNMLbl.Visible = state;
@@ -915,6 +916,30 @@ namespace Dealership
                     cars_YesCheckBox.Checked = true;
                 }
             }
+        }
+        private void sales_dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            sales_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { ForeColor = Color.White, BackColor = Color.FromArgb(41, 44, 51) };
+            sales_dataGridView.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
+            sales_dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+        }
+        private void emp_dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            emp_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { ForeColor = Color.White, BackColor = Color.FromArgb(41, 44, 51) };
+            emp_dataGridView.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
+            emp_dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+        }
+        private void cars_dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            cars_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { ForeColor = Color.White, BackColor = Color.FromArgb(41, 44, 51) };
+            cars_dataGridView.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
+            cars_dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+        }
+        private void cust_dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            cust_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { ForeColor = Color.White, BackColor = Color.FromArgb(41, 44, 51) };
+            cust_dataGridView.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
+            cust_dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
         }
     }
 }
