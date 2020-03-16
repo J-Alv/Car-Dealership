@@ -98,6 +98,8 @@
             this.sales_CustLbl = new System.Windows.Forms.Label();
             this.sales_VINLbl = new System.Windows.Forms.Label();
             this.sales_VINTxtB = new System.Windows.Forms.TextBox();
+            this.cust_StatusTxtB = new System.Windows.Forms.TextBox();
+            this.cust_StatusLbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.metroTabControl.SuspendLayout();
             this.customerTab.SuspendLayout();
@@ -148,6 +150,8 @@
             // 
             // customerTab
             // 
+            this.customerTab.Controls.Add(this.cust_StatusTxtB);
+            this.customerTab.Controls.Add(this.cust_StatusLbl);
             this.customerTab.Controls.Add(this.cust_Button);
             this.customerTab.Controls.Add(this.cust_ActionLbl);
             this.customerTab.Controls.Add(this.cust_comboBox);
@@ -178,7 +182,7 @@
             // cust_Button
             // 
             this.cust_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_Button.Location = new System.Drawing.Point(9, 296);
+            this.cust_Button.Location = new System.Drawing.Point(9, 316);
             this.cust_Button.Name = "cust_Button";
             this.cust_Button.Size = new System.Drawing.Size(136, 57);
             this.cust_Button.TabIndex = 15;
@@ -243,7 +247,7 @@
             // cust_emailTxtB
             // 
             this.cust_emailTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_emailTxtB.Location = new System.Drawing.Point(174, 231);
+            this.cust_emailTxtB.Location = new System.Drawing.Point(174, 264);
             this.cust_emailTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_emailTxtB.Name = "cust_emailTxtB";
             this.cust_emailTxtB.Size = new System.Drawing.Size(316, 29);
@@ -254,7 +258,7 @@
             this.cust_emailLbl.AutoSize = true;
             this.cust_emailLbl.BackColor = System.Drawing.Color.White;
             this.cust_emailLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_emailLbl.Location = new System.Drawing.Point(5, 231);
+            this.cust_emailLbl.Location = new System.Drawing.Point(5, 264);
             this.cust_emailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cust_emailLbl.Name = "cust_emailLbl";
             this.cust_emailLbl.Size = new System.Drawing.Size(57, 24);
@@ -947,6 +951,27 @@
             this.sales_VINTxtB.Size = new System.Drawing.Size(316, 29);
             this.sales_VINTxtB.TabIndex = 62;
             // 
+            // cust_StatusTxtB
+            // 
+            this.cust_StatusTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_StatusTxtB.Location = new System.Drawing.Point(174, 231);
+            this.cust_StatusTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_StatusTxtB.Name = "cust_StatusTxtB";
+            this.cust_StatusTxtB.Size = new System.Drawing.Size(316, 29);
+            this.cust_StatusTxtB.TabIndex = 17;
+            // 
+            // cust_StatusLbl
+            // 
+            this.cust_StatusLbl.AutoSize = true;
+            this.cust_StatusLbl.BackColor = System.Drawing.Color.White;
+            this.cust_StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_StatusLbl.Location = new System.Drawing.Point(5, 231);
+            this.cust_StatusLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cust_StatusLbl.Name = "cust_StatusLbl";
+            this.cust_StatusLbl.Size = new System.Drawing.Size(60, 24);
+            this.cust_StatusLbl.TabIndex = 16;
+            this.cust_StatusLbl.Text = "Status";
+            // 
             // Dealership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1048,6 +1073,8 @@
         private System.Windows.Forms.Label sales_CustLbl;
         private System.Windows.Forms.Label sales_VINLbl;
         private System.Windows.Forms.TextBox sales_VINTxtB;
+        private System.Windows.Forms.TextBox cust_StatusTxtB;
+        private System.Windows.Forms.Label cust_StatusLbl;
     }
 }
 

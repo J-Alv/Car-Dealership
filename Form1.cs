@@ -58,6 +58,7 @@ namespace Dealership
                 string MiddleName = cust_middleNMTxtB.ToString();
                 string LastName = cust_lastNMTxtB.Text.ToString();
                 string PhoneNumber = cust_PhoneNbrTxtB.Text.ToString();
+                string Status = cust_StatusTxtB.Text.ToString();
                 string Email = cust_emailTxtB.Text.ToString();
                 string CmdString = "";
 
@@ -632,67 +633,135 @@ namespace Dealership
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void custUI(bool state)
+        {
+            cust_firstNMLbl.Visible = state;
+            cust_firstNMTxtB.Visible = state;
+            cust_middleNMLbl.Visible = state;
+            cust_middleNMTxtB.Visible = state;
+            cust_lastNMLbl.Visible = state;
+            cust_lastNMTxtB.Visible = state;
+            cust_PhoneNbrLbl.Visible = state;
+            cust_PhoneNbrTxtB.Visible = state;
+            cust_StatusLbl.Visible = state;
+            cust_StatusTxtB.Visible = state;
+        }
+
         private void cust_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch(cust_comboBox.SelectedIndex)
             {
                 case 0:
                     cust_Button.Text = "Show Customers";
+                    custUI(true);
                     break;
                 case 1:
                     cust_Button.Text = "Search Customers";
+                    custUI(true);
                     break;
                 case 2:
                     cust_Button.Text = "Add Customer";
+                    custUI(true);
                     break;
                 case 3:
                     cust_Button.Text = "Update Customer";
+                    custUI(true);
                     break;
 
                 case 4:
                     cust_Button.Text = "Delete Customer";
+                    custUI(false);
                     break;
             }
         }
+
+        public void carsUI(bool state)
+        {
+            cars_makeLbl.Visible = state;
+            cars_makeTxtB.Visible = state;
+            cars_modelLbl.Visible = state;
+            cars_modelTxtB.Visible = state;
+            cars_YearLbl.Visible = state;
+            cars_YearTxtB.Visible = state;
+            cars_YearTxtB.Visible = state;
+            cars_ColorLbl.Visible = state;
+            cars_ColorTxtB.Visible = state;
+            cars_MilageLbl.Visible = state;
+            cars_MileageTxtB.Visible = state;
+            cars_StatusLbl.Visible = state;
+            cars_StatusComboBox.Visible = state;
+            cars_usedLbl.Visible = state;
+            cars_YesCheckBox.Visible = state;
+            cars_NoCheckBox.Visible = state;
+        }
+
         private void cars_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (cars_comboBox.SelectedIndex)
             {
                 case 0:
                     car_SearchBtn.Text = "Show Inventory";
+                    carsUI(true);
                     break;
                 case 1:
                     car_SearchBtn.Text = "Search Cars";
+                    carsUI(true);
                     break;
                 case 2:
                     car_SearchBtn.Text = "Add Car";
+                    carsUI(true);
                     break;
                 case 3:
                     car_SearchBtn.Text = "Update Car";
+                    carsUI(true);
                     break;
                 case 4:
                     car_SearchBtn.Text = "Delete Car";
+                    carsUI(false);
                     break;
             }
         }
+
+        void empUI(bool state)
+        {
+            emp_FirstNameLbl.Visible = state;
+            emp_FirstNameTxtB.Visible = state;
+            emp_MiddleNameLbl.Visible = state;
+            emp_MiddleNameTxtB.Visible = state;
+            emp_LastNameLbl.Visible = state;
+            emp_LastNameTxtB.Visible = state;
+            emp_PhoneLbl.Visible = state;
+            emp_PhoneTxtB.Visible = state;
+            emp_SupervisorLbl.Visible = state;
+            emp_SupervisorTxtB.Visible = state;
+            emp_TitleLbl.Visible = state;
+            emp_TitleTxtB.Visible = state;
+        }
+
         private void emp_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (emp_comboBox.SelectedIndex)
             {
                 case 0:
                     emp_Button.Text = "Show All";
+                    empUI(true);
                     break;
                 case 1:
                     emp_Button.Text = "Search";
+                    empUI(true);
                     break;
                 case 2:
                     emp_Button.Text = "Add Employee";
+                    empUI(true);
                     break;
                 case 3:
                     emp_Button.Text = "Update Employee";
+                    empUI(true);
                     break;
                 case 4:
                     emp_Button.Text = "Delete Employee";
+                    empUI(false);
                     break;
             }
         }
