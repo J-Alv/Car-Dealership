@@ -31,6 +31,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.titleLbl = new System.Windows.Forms.Label();
             this.metroTabControl = new MetroFramework.Controls.MetroTabControl();
+            this.customerTab = new MetroFramework.Controls.MetroTabPage();
+            this.cust_Button = new System.Windows.Forms.Button();
+            this.cust_ActionLbl = new System.Windows.Forms.Label();
+            this.cust_comboBox = new System.Windows.Forms.ComboBox();
+            this.cust_PhoneNbrTxtB = new System.Windows.Forms.TextBox();
+            this.cust_PhoneNbrLbl = new System.Windows.Forms.Label();
+            this.cust_dataGridView = new System.Windows.Forms.DataGridView();
+            this.cust_emailTxtB = new System.Windows.Forms.TextBox();
+            this.cust_emailLbl = new System.Windows.Forms.Label();
+            this.cust_lastNMLbl = new System.Windows.Forms.Label();
+            this.cust_lastNMTxtB = new System.Windows.Forms.TextBox();
+            this.cust_middleNMTxtB = new System.Windows.Forms.TextBox();
+            this.cust_middleNMLbl = new System.Windows.Forms.Label();
+            this.cust_firstNMLbl = new System.Windows.Forms.Label();
+            this.cust_firstNMTxtB = new System.Windows.Forms.TextBox();
             this.salesHistory_Tab = new MetroFramework.Controls.MetroTabPage();
             this.salesHistory_EmployeeCheckBox = new System.Windows.Forms.CheckBox();
             this.saleHistory_CustCheckBox = new System.Windows.Forms.CheckBox();
@@ -85,31 +100,16 @@
             this.emp_FirstNameLbl = new System.Windows.Forms.Label();
             this.emp_FirstNameTxtB = new System.Windows.Forms.TextBox();
             this.sales_Tab = new MetroFramework.Controls.MetroTabPage();
-            this.cust_firstNMTxtB = new System.Windows.Forms.TextBox();
-            this.cust_firstNMLbl = new System.Windows.Forms.Label();
-            this.cust_middleNMTxtB = new System.Windows.Forms.TextBox();
-            this.cust_lastNMTxtB = new System.Windows.Forms.TextBox();
-            this.cust_lastNMLbl = new System.Windows.Forms.Label();
-            this.cust_emailLbl = new System.Windows.Forms.Label();
-            this.cust_dataGridView = new System.Windows.Forms.DataGridView();
-            this.cust_PhoneNbrLbl = new System.Windows.Forms.Label();
-            this.cust_PhoneNbrTxtB = new System.Windows.Forms.TextBox();
-            this.customerTab = new MetroFramework.Controls.MetroTabPage();
-            this.cust_emailTxtB = new System.Windows.Forms.TextBox();
-            this.cust_middleNMLbl = new System.Windows.Forms.Label();
-            this.cust_comboBox = new System.Windows.Forms.ComboBox();
-            this.cust_ActionLbl = new System.Windows.Forms.Label();
-            this.cust_Button = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.metroTabControl.SuspendLayout();
+            this.customerTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).BeginInit();
             this.salesHistory_Tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sale_dataGridView)).BeginInit();
             this.carTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cars_dataGridView)).BeginInit();
             this.employeeTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emp_dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).BeginInit();
-            this.customerTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -148,6 +148,184 @@
             this.metroTabControl.Size = new System.Drawing.Size(1096, 493);
             this.metroTabControl.TabIndex = 1;
             this.metroTabControl.UseSelectable = true;
+            // 
+            // customerTab
+            // 
+            this.customerTab.Controls.Add(this.cust_Button);
+            this.customerTab.Controls.Add(this.cust_ActionLbl);
+            this.customerTab.Controls.Add(this.cust_comboBox);
+            this.customerTab.Controls.Add(this.cust_PhoneNbrTxtB);
+            this.customerTab.Controls.Add(this.cust_PhoneNbrLbl);
+            this.customerTab.Controls.Add(this.cust_dataGridView);
+            this.customerTab.Controls.Add(this.cust_emailTxtB);
+            this.customerTab.Controls.Add(this.cust_emailLbl);
+            this.customerTab.Controls.Add(this.cust_lastNMLbl);
+            this.customerTab.Controls.Add(this.cust_lastNMTxtB);
+            this.customerTab.Controls.Add(this.cust_middleNMTxtB);
+            this.customerTab.Controls.Add(this.cust_middleNMLbl);
+            this.customerTab.Controls.Add(this.cust_firstNMLbl);
+            this.customerTab.Controls.Add(this.cust_firstNMTxtB);
+            this.customerTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerTab.HorizontalScrollbarBarColor = true;
+            this.customerTab.HorizontalScrollbarHighlightOnWheel = false;
+            this.customerTab.HorizontalScrollbarSize = 10;
+            this.customerTab.Location = new System.Drawing.Point(4, 38);
+            this.customerTab.Name = "customerTab";
+            this.customerTab.Size = new System.Drawing.Size(1088, 451);
+            this.customerTab.TabIndex = 0;
+            this.customerTab.Text = "Customers";
+            this.customerTab.VerticalScrollbarBarColor = true;
+            this.customerTab.VerticalScrollbarHighlightOnWheel = false;
+            this.customerTab.VerticalScrollbarSize = 10;
+            // 
+            // cust_Button
+            // 
+            this.cust_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_Button.Location = new System.Drawing.Point(9, 296);
+            this.cust_Button.Name = "cust_Button";
+            this.cust_Button.Size = new System.Drawing.Size(136, 57);
+            this.cust_Button.TabIndex = 15;
+            this.cust_Button.Text = "Show Customers";
+            this.cust_Button.UseVisualStyleBackColor = true;
+            this.cust_Button.Click += new System.EventHandler(this.cust_Button_Click);
+            // 
+            // cust_ActionLbl
+            // 
+            this.cust_ActionLbl.AutoSize = true;
+            this.cust_ActionLbl.BackColor = System.Drawing.Color.White;
+            this.cust_ActionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_ActionLbl.Location = new System.Drawing.Point(8, 34);
+            this.cust_ActionLbl.Name = "cust_ActionLbl";
+            this.cust_ActionLbl.Size = new System.Drawing.Size(68, 24);
+            this.cust_ActionLbl.TabIndex = 14;
+            this.cust_ActionLbl.Text = "Action:";
+            // 
+            // cust_comboBox
+            // 
+            this.cust_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_comboBox.FormattingEnabled = true;
+            this.cust_comboBox.Location = new System.Drawing.Point(174, 31);
+            this.cust_comboBox.Name = "cust_comboBox";
+            this.cust_comboBox.Size = new System.Drawing.Size(165, 32);
+            this.cust_comboBox.TabIndex = 13;
+            this.cust_comboBox.SelectedIndexChanged += new System.EventHandler(this.cust_comboBox_SelectedIndexChanged);
+            // 
+            // cust_PhoneNbrTxtB
+            // 
+            this.cust_PhoneNbrTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_PhoneNbrTxtB.Location = new System.Drawing.Point(174, 198);
+            this.cust_PhoneNbrTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_PhoneNbrTxtB.Name = "cust_PhoneNbrTxtB";
+            this.cust_PhoneNbrTxtB.Size = new System.Drawing.Size(316, 29);
+            this.cust_PhoneNbrTxtB.TabIndex = 12;
+            // 
+            // cust_PhoneNbrLbl
+            // 
+            this.cust_PhoneNbrLbl.AutoSize = true;
+            this.cust_PhoneNbrLbl.BackColor = System.Drawing.Color.White;
+            this.cust_PhoneNbrLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_PhoneNbrLbl.Location = new System.Drawing.Point(5, 198);
+            this.cust_PhoneNbrLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cust_PhoneNbrLbl.Name = "cust_PhoneNbrLbl";
+            this.cust_PhoneNbrLbl.Size = new System.Drawing.Size(140, 24);
+            this.cust_PhoneNbrLbl.TabIndex = 11;
+            this.cust_PhoneNbrLbl.Text = "Phone Number";
+            // 
+            // cust_dataGridView
+            // 
+            this.cust_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.cust_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cust_dataGridView.Location = new System.Drawing.Point(534, 2);
+            this.cust_dataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_dataGridView.Name = "cust_dataGridView";
+            this.cust_dataGridView.RowHeadersWidth = 51;
+            this.cust_dataGridView.RowTemplate.Height = 24;
+            this.cust_dataGridView.Size = new System.Drawing.Size(552, 447);
+            this.cust_dataGridView.TabIndex = 10;
+            // 
+            // cust_emailTxtB
+            // 
+            this.cust_emailTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_emailTxtB.Location = new System.Drawing.Point(174, 231);
+            this.cust_emailTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_emailTxtB.Name = "cust_emailTxtB";
+            this.cust_emailTxtB.Size = new System.Drawing.Size(316, 29);
+            this.cust_emailTxtB.TabIndex = 9;
+            // 
+            // cust_emailLbl
+            // 
+            this.cust_emailLbl.AutoSize = true;
+            this.cust_emailLbl.BackColor = System.Drawing.Color.White;
+            this.cust_emailLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_emailLbl.Location = new System.Drawing.Point(5, 231);
+            this.cust_emailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cust_emailLbl.Name = "cust_emailLbl";
+            this.cust_emailLbl.Size = new System.Drawing.Size(57, 24);
+            this.cust_emailLbl.TabIndex = 8;
+            this.cust_emailLbl.Text = "Email";
+            // 
+            // cust_lastNMLbl
+            // 
+            this.cust_lastNMLbl.AutoSize = true;
+            this.cust_lastNMLbl.BackColor = System.Drawing.Color.White;
+            this.cust_lastNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_lastNMLbl.Location = new System.Drawing.Point(5, 165);
+            this.cust_lastNMLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cust_lastNMLbl.Name = "cust_lastNMLbl";
+            this.cust_lastNMLbl.Size = new System.Drawing.Size(99, 24);
+            this.cust_lastNMLbl.TabIndex = 7;
+            this.cust_lastNMLbl.Text = "Last Name";
+            // 
+            // cust_lastNMTxtB
+            // 
+            this.cust_lastNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_lastNMTxtB.Location = new System.Drawing.Point(174, 165);
+            this.cust_lastNMTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_lastNMTxtB.Name = "cust_lastNMTxtB";
+            this.cust_lastNMTxtB.Size = new System.Drawing.Size(316, 29);
+            this.cust_lastNMTxtB.TabIndex = 6;
+            // 
+            // cust_middleNMTxtB
+            // 
+            this.cust_middleNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_middleNMTxtB.Location = new System.Drawing.Point(174, 132);
+            this.cust_middleNMTxtB.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_middleNMTxtB.Name = "cust_middleNMTxtB";
+            this.cust_middleNMTxtB.Size = new System.Drawing.Size(316, 29);
+            this.cust_middleNMTxtB.TabIndex = 5;
+            // 
+            // cust_middleNMLbl
+            // 
+            this.cust_middleNMLbl.AutoEllipsis = true;
+            this.cust_middleNMLbl.AutoSize = true;
+            this.cust_middleNMLbl.BackColor = System.Drawing.Color.White;
+            this.cust_middleNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_middleNMLbl.ForeColor = System.Drawing.Color.Black;
+            this.cust_middleNMLbl.Location = new System.Drawing.Point(3, 132);
+            this.cust_middleNMLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cust_middleNMLbl.Name = "cust_middleNMLbl";
+            this.cust_middleNMLbl.Size = new System.Drawing.Size(123, 24);
+            this.cust_middleNMLbl.TabIndex = 4;
+            this.cust_middleNMLbl.Text = "Middle Name";
+            // 
+            // cust_firstNMLbl
+            // 
+            this.cust_firstNMLbl.AutoSize = true;
+            this.cust_firstNMLbl.BackColor = System.Drawing.Color.White;
+            this.cust_firstNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_firstNMLbl.Location = new System.Drawing.Point(3, 98);
+            this.cust_firstNMLbl.Name = "cust_firstNMLbl";
+            this.cust_firstNMLbl.Size = new System.Drawing.Size(101, 24);
+            this.cust_firstNMLbl.TabIndex = 3;
+            this.cust_firstNMLbl.Text = "First Name";
+            // 
+            // cust_firstNMTxtB
+            // 
+            this.cust_firstNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_firstNMTxtB.Location = new System.Drawing.Point(174, 98);
+            this.cust_firstNMTxtB.Name = "cust_firstNMTxtB";
+            this.cust_firstNMTxtB.Size = new System.Drawing.Size(316, 29);
+            this.cust_firstNMTxtB.TabIndex = 2;
             // 
             // salesHistory_Tab
             // 
@@ -271,6 +449,7 @@
             // 
             // sale_dataGridView
             // 
+            this.sale_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.sale_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sale_dataGridView.Location = new System.Drawing.Point(534, 4);
             this.sale_dataGridView.Margin = new System.Windows.Forms.Padding(2);
@@ -459,6 +638,7 @@
             // 
             // cars_dataGridView
             // 
+            this.cars_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.cars_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cars_dataGridView.Location = new System.Drawing.Point(534, 2);
             this.cars_dataGridView.Margin = new System.Windows.Forms.Padding(2);
@@ -697,6 +877,7 @@
             // 
             // emp_dataGridView
             // 
+            this.emp_dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.emp_dataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.emp_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.emp_dataGridView.Location = new System.Drawing.Point(534, 4);
@@ -785,183 +966,6 @@
             this.sales_Tab.VerticalScrollbarHighlightOnWheel = false;
             this.sales_Tab.VerticalScrollbarSize = 7;
             // 
-            // cust_firstNMTxtB
-            // 
-            this.cust_firstNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_firstNMTxtB.Location = new System.Drawing.Point(174, 98);
-            this.cust_firstNMTxtB.Name = "cust_firstNMTxtB";
-            this.cust_firstNMTxtB.Size = new System.Drawing.Size(316, 29);
-            this.cust_firstNMTxtB.TabIndex = 2;
-            // 
-            // cust_firstNMLbl
-            // 
-            this.cust_firstNMLbl.AutoSize = true;
-            this.cust_firstNMLbl.BackColor = System.Drawing.Color.White;
-            this.cust_firstNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_firstNMLbl.Location = new System.Drawing.Point(3, 98);
-            this.cust_firstNMLbl.Name = "cust_firstNMLbl";
-            this.cust_firstNMLbl.Size = new System.Drawing.Size(101, 24);
-            this.cust_firstNMLbl.TabIndex = 3;
-            this.cust_firstNMLbl.Text = "First Name";
-            // 
-            // cust_middleNMTxtB
-            // 
-            this.cust_middleNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_middleNMTxtB.Location = new System.Drawing.Point(174, 132);
-            this.cust_middleNMTxtB.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_middleNMTxtB.Name = "cust_middleNMTxtB";
-            this.cust_middleNMTxtB.Size = new System.Drawing.Size(316, 29);
-            this.cust_middleNMTxtB.TabIndex = 5;
-            // 
-            // cust_lastNMTxtB
-            // 
-            this.cust_lastNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_lastNMTxtB.Location = new System.Drawing.Point(174, 165);
-            this.cust_lastNMTxtB.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_lastNMTxtB.Name = "cust_lastNMTxtB";
-            this.cust_lastNMTxtB.Size = new System.Drawing.Size(316, 29);
-            this.cust_lastNMTxtB.TabIndex = 6;
-            // 
-            // cust_lastNMLbl
-            // 
-            this.cust_lastNMLbl.AutoSize = true;
-            this.cust_lastNMLbl.BackColor = System.Drawing.Color.White;
-            this.cust_lastNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_lastNMLbl.Location = new System.Drawing.Point(5, 165);
-            this.cust_lastNMLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.cust_lastNMLbl.Name = "cust_lastNMLbl";
-            this.cust_lastNMLbl.Size = new System.Drawing.Size(99, 24);
-            this.cust_lastNMLbl.TabIndex = 7;
-            this.cust_lastNMLbl.Text = "Last Name";
-            // 
-            // cust_emailLbl
-            // 
-            this.cust_emailLbl.AutoSize = true;
-            this.cust_emailLbl.BackColor = System.Drawing.Color.White;
-            this.cust_emailLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_emailLbl.Location = new System.Drawing.Point(5, 231);
-            this.cust_emailLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.cust_emailLbl.Name = "cust_emailLbl";
-            this.cust_emailLbl.Size = new System.Drawing.Size(57, 24);
-            this.cust_emailLbl.TabIndex = 8;
-            this.cust_emailLbl.Text = "Email";
-            // 
-            // cust_dataGridView
-            // 
-            this.cust_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cust_dataGridView.Location = new System.Drawing.Point(534, 2);
-            this.cust_dataGridView.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_dataGridView.Name = "cust_dataGridView";
-            this.cust_dataGridView.RowHeadersWidth = 51;
-            this.cust_dataGridView.RowTemplate.Height = 24;
-            this.cust_dataGridView.Size = new System.Drawing.Size(552, 447);
-            this.cust_dataGridView.TabIndex = 10;
-            // 
-            // cust_PhoneNbrLbl
-            // 
-            this.cust_PhoneNbrLbl.AutoSize = true;
-            this.cust_PhoneNbrLbl.BackColor = System.Drawing.Color.White;
-            this.cust_PhoneNbrLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_PhoneNbrLbl.Location = new System.Drawing.Point(5, 198);
-            this.cust_PhoneNbrLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.cust_PhoneNbrLbl.Name = "cust_PhoneNbrLbl";
-            this.cust_PhoneNbrLbl.Size = new System.Drawing.Size(140, 24);
-            this.cust_PhoneNbrLbl.TabIndex = 11;
-            this.cust_PhoneNbrLbl.Text = "Phone Number";
-            // 
-            // cust_PhoneNbrTxtB
-            // 
-            this.cust_PhoneNbrTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_PhoneNbrTxtB.Location = new System.Drawing.Point(174, 198);
-            this.cust_PhoneNbrTxtB.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_PhoneNbrTxtB.Name = "cust_PhoneNbrTxtB";
-            this.cust_PhoneNbrTxtB.Size = new System.Drawing.Size(316, 29);
-            this.cust_PhoneNbrTxtB.TabIndex = 12;
-            // 
-            // customerTab
-            // 
-            this.customerTab.Controls.Add(this.cust_Button);
-            this.customerTab.Controls.Add(this.cust_ActionLbl);
-            this.customerTab.Controls.Add(this.cust_comboBox);
-            this.customerTab.Controls.Add(this.cust_PhoneNbrTxtB);
-            this.customerTab.Controls.Add(this.cust_PhoneNbrLbl);
-            this.customerTab.Controls.Add(this.cust_dataGridView);
-            this.customerTab.Controls.Add(this.cust_emailTxtB);
-            this.customerTab.Controls.Add(this.cust_emailLbl);
-            this.customerTab.Controls.Add(this.cust_lastNMLbl);
-            this.customerTab.Controls.Add(this.cust_lastNMTxtB);
-            this.customerTab.Controls.Add(this.cust_middleNMTxtB);
-            this.customerTab.Controls.Add(this.cust_middleNMLbl);
-            this.customerTab.Controls.Add(this.cust_firstNMLbl);
-            this.customerTab.Controls.Add(this.cust_firstNMTxtB);
-            this.customerTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerTab.HorizontalScrollbarBarColor = true;
-            this.customerTab.HorizontalScrollbarHighlightOnWheel = false;
-            this.customerTab.HorizontalScrollbarSize = 10;
-            this.customerTab.Location = new System.Drawing.Point(4, 38);
-            this.customerTab.Name = "customerTab";
-            this.customerTab.Size = new System.Drawing.Size(1088, 451);
-            this.customerTab.TabIndex = 0;
-            this.customerTab.Text = "Customers";
-            this.customerTab.VerticalScrollbarBarColor = true;
-            this.customerTab.VerticalScrollbarHighlightOnWheel = false;
-            this.customerTab.VerticalScrollbarSize = 10;
-            // 
-            // cust_emailTxtB
-            // 
-            this.cust_emailTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_emailTxtB.Location = new System.Drawing.Point(174, 231);
-            this.cust_emailTxtB.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_emailTxtB.Name = "cust_emailTxtB";
-            this.cust_emailTxtB.Size = new System.Drawing.Size(316, 29);
-            this.cust_emailTxtB.TabIndex = 9;
-            // 
-            // cust_middleNMLbl
-            // 
-            this.cust_middleNMLbl.AutoEllipsis = true;
-            this.cust_middleNMLbl.AutoSize = true;
-            this.cust_middleNMLbl.BackColor = System.Drawing.Color.White;
-            this.cust_middleNMLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_middleNMLbl.ForeColor = System.Drawing.Color.Black;
-            this.cust_middleNMLbl.Location = new System.Drawing.Point(3, 132);
-            this.cust_middleNMLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.cust_middleNMLbl.Name = "cust_middleNMLbl";
-            this.cust_middleNMLbl.Size = new System.Drawing.Size(123, 24);
-            this.cust_middleNMLbl.TabIndex = 4;
-            this.cust_middleNMLbl.Text = "Middle Name";
-            // 
-            // cust_comboBox
-            // 
-            this.cust_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_comboBox.FormattingEnabled = true;
-            this.cust_comboBox.Location = new System.Drawing.Point(174, 31);
-            this.cust_comboBox.Name = "cust_comboBox";
-            this.cust_comboBox.Size = new System.Drawing.Size(165, 32);
-            this.cust_comboBox.TabIndex = 13;
-            this.cust_comboBox.SelectedIndexChanged += new System.EventHandler(this.cust_comboBox_SelectedIndexChanged);
-            // 
-            // cust_ActionLbl
-            // 
-            this.cust_ActionLbl.AutoSize = true;
-            this.cust_ActionLbl.BackColor = System.Drawing.Color.White;
-            this.cust_ActionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_ActionLbl.Location = new System.Drawing.Point(8, 34);
-            this.cust_ActionLbl.Name = "cust_ActionLbl";
-            this.cust_ActionLbl.Size = new System.Drawing.Size(68, 24);
-            this.cust_ActionLbl.TabIndex = 14;
-            this.cust_ActionLbl.Text = "Action:";
-            // 
-            // cust_Button
-            // 
-            this.cust_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_Button.Location = new System.Drawing.Point(9, 296);
-            this.cust_Button.Name = "cust_Button";
-            this.cust_Button.Size = new System.Drawing.Size(136, 57);
-            this.cust_Button.TabIndex = 15;
-            this.cust_Button.Text = "Show Customers";
-            this.cust_Button.UseVisualStyleBackColor = true;
-            this.cust_Button.Click += new System.EventHandler(this.cust_Button_Click);
-            // 
             // Dealership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -975,6 +979,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.metroTabControl.ResumeLayout(false);
+            this.customerTab.ResumeLayout(false);
+            this.customerTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).EndInit();
             this.salesHistory_Tab.ResumeLayout(false);
             this.salesHistory_Tab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sale_dataGridView)).EndInit();
@@ -984,9 +991,6 @@
             this.employeeTab.ResumeLayout(false);
             this.employeeTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emp_dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).EndInit();
-            this.customerTab.ResumeLayout(false);
-            this.customerTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
