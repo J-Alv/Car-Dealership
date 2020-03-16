@@ -70,7 +70,7 @@ namespace Dealership
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
-                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        cust_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();             
                         break;
 
@@ -115,7 +115,7 @@ namespace Dealership
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
-                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        cust_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();
                         break;
 
@@ -192,7 +192,7 @@ namespace Dealership
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
-                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        cust_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();
                         break;
 
@@ -208,7 +208,7 @@ namespace Dealership
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
-                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        cust_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();
                         break;
                 }
