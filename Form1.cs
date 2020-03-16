@@ -26,9 +26,11 @@ namespace Dealership
             cars_comboBox.Items.Add("Delete Car");
             cars_comboBox.SelectedIndex = 0;
 
+            cars_StatusComboBox.Items.Add("");
             cars_StatusComboBox.Items.Add("Available");
             cars_StatusComboBox.Items.Add("Sold");
             cars_StatusComboBox.Items.Add("Incoming Shipment");
+            cars_StatusComboBox.SelectedIndex = 0;
 
             emp_comboBox.Items.Add("All Employees");
             emp_comboBox.Items.Add("Search Employee");
@@ -112,7 +114,7 @@ namespace Dealership
                 {
                     case 0:
                         //Show Inventory
-                        CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car";
+                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used FROM Car";
                         sda = new MySqlDataAdapter(CmdString, conn);
 
                         sda.Fill(ds);
@@ -121,22 +123,164 @@ namespace Dealership
                         break;
                     case 1:
                         //Search
+                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car ";
+                        if (VIN != "")
+                        {
+	                        CmdString += "WHERE VIN LIKE '" + VIN + "%'";
+                        }
+                        if (Make != "")
+                        {
+	                        if(VIN != "")
+		                        CmdString += "AND Make LIKE '" + Make + "%'";
+	                        else
+		                        CmdString += "WHERE Make LIKE '" + Make + "%'";
+                        }
+                        if (Model != "")
+                        {
+	                        if(VIN != "" || Make != "")
+		                        CmdString += " AND Model LIKE '" + Model + "%'";
+	                        else
+		                        CmdString += "WHERE Model LIKE '" + Model + "%'";
+                        }
+                        if (Year != "")
+                        {
+	                        if(VIN != "" || Make != "" || Model != "")
+		                        CmdString += " AND Year LIKE " + Year;
+	                        else
+		                        CmdString += "WHERE Year LIKE " + Year;
+                        }
+                        if (Color != "")
+                        {
+	                        if(VIN != "" || Make != ""|| Model != "" || Year != "")
+		                        CmdString += " AND Color LIKE '" + Color + "%'";
+	                        else
+		                        CmdString += "WHERE Color LIKE '" + Color + "%'";
+                        }
+                        if (Mileage != "")
+                        {
+	                        if(VIN != "" || Make != ""|| Model != "" || Year != "" || Color != "")
+		                        CmdString += " AND Mileage <= " + Mileage;
+	                        else
+		                        CmdString += "WHERE Mileage <= " + Mileage;
+                        }
+                        if (cars_YesCheckBox.Checked == true || cars_NoCheckBox.Checked == true)
+                        {
+	                        if(VIN != "" || Make != "" || Model != "" || Year != "" || Color != ""|| Mileage != "")
+		                        CmdString += " AND Used = " + Used;
+	                        else
+		                        CmdString += "WHERE Used = " + Used;
+                        }
+                        else if (cars_YesCheckBox.Checked == false && cars_NoCheckBox.Checked == true) 
+                        {
+                            if(VIN != "" || Make != "" || Model != "" || Year != "" || Color != ""|| Mileage != "")
+		                        CmdString += " AND Used IS NOT NULL";
+	                        else
+		                        CmdString += "WHERE Used IS NOT NULL";
+                        }
+                        if(Status != "")
+                        {
+	                        if(VIN != "" || Make != "" || Model != "" || Year != ""  || Color != ""|| Mileage != "" || cars_YesCheckBox.Checked == true || cars_NoCheckBox.Checked == true)
+		                        CmdString += " AND Status = Like '" + Status + "'";
+	                        else
+		                        CmdString += "WHERE Status  Like  '" + Status + "'";
+                        }
 
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
                         break;
                     case 2:
                         //Add
+                        CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Used, Status) VALUES ("
+                        + "'" + VIN + "'"
+                        + "'" + Make + "'"
+                        + "'" + Model + "'"
+                        + "'" + Year + "'";
+                        if (Color != "")
+                            CmdString += ",'" + Color + "'";
+                        else
+                            CmdString += ", NULL";
+                        if (Mileage != "")
+                            CmdString += ", " + Mileage;
+                        else
+                            CmdString += ", NULL";
+                        CmdString += "," + Used
+                        + ", '" + Status + "')";
 
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
+                        
+                        
+                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car";
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
                         break;
 
                     case 3:
                         //Update
+                         CmdString = "UPDATE Car SET ";
+                        if (VIN != "")
+                        {
+                            CmdString += "VIN = '" + VIN + "'";
+                        }
+                        if (Make != "")
+                        {
+                            if (VIN != "")
+                                CmdString += ", Make = '" + Make  + "'";
+                            else
+                                CmdString += "Make = " + Make  + "'";
+                        }
+                        if (Model != "")
+                        {
+                            if (VIN != "" || Make != "")
+                                CmdString += ", Model = '" + Model + "'";
+                            else
+                                CmdString += "Model = '" + Model + "'";
+                        }
+                        if (Year != "")
+                        {
+                            if (VIN != "" || Make != "" || Model != "")
+                                CmdString += ", Year " + Year;
+                            else
+                                CmdString += "Year = " + Year;
+                        }
+                        if (Color != "")
+                        {
+                            if (VIN != "" || Make != "" || Model != "" || Year != "" )
+                                CmdString += ", Color = '" + Color + "'";
+                            else
+                                CmdString += "Color = '" + Color + "'";
+                        }
+                        if (Mileage != "")
+                        {
+                            if (VIN != "" || Make != "" || Model != "" || Year != "" )
+                                CmdString += ", Milage = " + Mileage;
+                            else
+                                CmdString += "Milage = " + Mileage;
+                        }
+                        if(VIN != "")
+                            CmdString += "WHERE OLD.VIN = " + VIN;
+                        else
+                            CmdString += "WHERE VIN = " + VIN;
+
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
+
+                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car";
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
                         break;
 
                     case 4:
                         //Delete
                         CmdString = "DELETE FROM Car WHERE = '" + VIN + "')";
 
-                        CmdString = "SELECT VIN, Make, Model, Year, Color, Mileage, Used FROM Car";
+                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car";
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
                         cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
@@ -192,7 +336,7 @@ namespace Dealership
                             if (FirstName != "")
                                 CmdString += " AND MiddleName LIKE '" + MiddleName + "'";
                             else
-                                CmdString += "WHERE MiddleName LIKE " + MiddleName + "'";
+                                CmdString += "WHERE MiddleName LIKE '" + MiddleName + "'";
                         }
                         if (LastName != "")
                         {
@@ -203,22 +347,17 @@ namespace Dealership
                         }
                         if (Supervisor != "")
                         {
-
                             if (FirstName != "" || MiddleName != "" || LastName != "")
-                            {
                                 CmdString += " AND SuppervisorID = (SELECT ID FROM Employee WHERE(SELECT CONCAT(FirstName, ' ', LastName) FROM Employee) LIKE '" + Supervisor + "')";
-                            }
-
                             else
-                                CmdString += "WHERE SupervisorID = " + Supervisor;
+                                CmdString += "WHERE SupervisorID = (SELECT ID FROM Employee WHERE(SELECT CONCAT(FirstName, ' ', LastName) FROM Employee) LIKE '" + Supervisor + "')";
                         }
-
                         if (PhoneNumber != "")
                         {
                             if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "")
                                 CmdString += " AND Number LIKE '" + PhoneNumber + "'";
                             else
-                                CmdString += "'WHERE Number LIKE " + PhoneNumber + "'";
+                                CmdString += "WHERE Number LIKE '" + PhoneNumber + "'";
                         }
                         if (Email != "")
                         {
@@ -248,7 +387,7 @@ namespace Dealership
                             if (FirstName != "")
                                 CmdString += " AND MiddleName LIKE '" + MiddleName + "'";
                             else
-                                CmdString += "WHERE MiddleName LIKE " + MiddleName + "'";
+                                CmdString += "WHERE MiddleName LIKE '" + MiddleName + "'";
                         }
                         if (LastName != "")
                         {
@@ -264,7 +403,7 @@ namespace Dealership
                                 CmdString += " AND SuppervisorID = (SELECT ID FROM Employee WHERE(SELECT CONCAT(FirstName, ' ', LastName) FROM Employee) LIKE '" + Supervisor + "')";
 
                             else
-                                CmdString += "WHERE SupervisorID = " + Supervisor;
+                                CmdString += "WHERE SupervisorID = (SELECT ID FROM Employee WHERE(SELECT CONCAT(FirstName, ' ', LastName) FROM Employee) LIKE '" + Supervisor + "')";
                         }
 
                         if (PhoneNumber != "")
@@ -272,7 +411,7 @@ namespace Dealership
                             if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "")
                                 CmdString += " AND Number LIKE '" + PhoneNumber + "'";
                             else
-                                CmdString += "'WHERE Number LIKE " + PhoneNumber + "'";
+                                CmdString += "WHERE Number LIKE '" + PhoneNumber + "'";
                         }
                         if (Email != "")
                         {
@@ -372,14 +511,16 @@ namespace Dealership
                             else
                                 CmdString += "Title = '" + Title + "'";
                         }
-                        CmdString += "WHERE OLD.Email = " + Email;
+                        if (Email != "")
+                            CmdString += "WHERE OLD.Email = " + Email;
+                        else
+                            CmdString += "WHERE Email = " + Email;
 
                         if (PhoneNumber != "")
                         {
                             CmdString = "UPDATE PhoneInfo SET Number = '" + PhoneNumber +
                             "' WHERE EmployeeID = (SELECT ID FROM Employee WHERE OLD.Email = " + Email + ")";
                         }
-
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
