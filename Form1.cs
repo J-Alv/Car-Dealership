@@ -39,9 +39,9 @@ namespace Dealership
             emp_comboBox.Items.Add("Delete Employee");
             emp_comboBox.SelectedIndex = 0;
 
-            sales_ComboBox.Items.Add("Show All Sales");
-            sales_ComboBox.Items.Add("Create Sale");
-            sales_ComboBox.Items.Add("Delete A Sale");
+            sales_comboBox.Items.Add("Show All Sales");
+            sales_comboBox.Items.Add("Create Sale");
+            sales_comboBox.Items.Add("Delete A Sale");
         }
 
         private void cust_Button_Click(object sender, EventArgs e)
@@ -579,27 +579,27 @@ namespace Dealership
                             else
                                 CmdString += ", (SELECT ID FROM Employee WHERE CONCAT(FirstName, ' ', LastName) LIKE '" + Supervisor + "')";
                         }
-                        if (Email != "")
+                        /*if (Email != "")
                         {
                             if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "")
                                 CmdString += ", Email = '" + Email + "'";
                             else
                                 CmdString += "Email = '" + Email + "'";
-                        }
+                        }*/
                         if (Title != "")
                         {
-                            if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "" || Email != "")
+                            if (FirstName != "" || MiddleName != "" || LastName != "" || Supervisor != "")
                                 CmdString += ", Title = '" + Title + "'";
                             else
                                 CmdString += "Title = '" + Title + "'";
                         }
 
-                        CmdString += "WHERE Email = " + Email;
+                        CmdString += " WHERE Email = '" + Email + "'";
 
                         if (PhoneNumber != "")
                         {
                             CmdString = "UPDATE PhoneInfo SET Number = '" + PhoneNumber +
-                            "' WHERE EmployeeID = (SELECT ID FROM Employee WHERE Email = " + Email + ")";
+                            "' WHERE EmployeeID = (SELECT ID FROM Employee WHERE Email = '" + Email + "')";
                         }
 
                         cmd = new MySqlCommand(CmdString, conn);
@@ -617,7 +617,7 @@ namespace Dealership
 
                     case 4:
                         //Delete
-                        CmdString = "DELETE FROM Employee WHERE Email = '" + Email + "'";
+                        CmdString = "UPDATE Employee SET Title = 'Terminated' WHERE Email = '" + Email + "'";
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
