@@ -39,6 +39,9 @@ namespace Dealership
             emp_comboBox.Items.Add("Delete Employee");
             emp_comboBox.SelectedIndex = 0;
 
+            sales_ComboBox.Items.Add("Show All Sales");
+            sales_ComboBox.Items.Add("Create Sale");
+            sales_ComboBox.Items.Add("Delete A Sale");
         }
 
         private void cust_Button_Click(object sender, EventArgs e)
@@ -62,25 +65,151 @@ namespace Dealership
                 {
                     case 0:
                         //Show All
+                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email " +
+                            "FROM Customer JOIN PhoneInfo ON(Customer.ID = PhoneInfo.CustomerID)";
 
-                        break;
-                       
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();             
                         break;
 
                     case 1:
                         //Search
+                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email " +
+                            "FROM Customer JOIN PhoneInfo ON(Customer.ID = PhoneInfo.CustomerID)";
+
+                        if (FirstName != "")
+                        {
+                            CmdString += "WHERE FirstName LIKE '" + FirstName + "%'";
+                        }
+
+                        if (MiddleName != "")
+                        {
+                            if (FirstName != "")
+                                CmdString += " AND MiddleName LIKE '" + MiddleName + "%'";
+                            else
+                                CmdString += "WHERE MiddleName LIKE '" + MiddleName + "%'";
+                        }
+                        if (LastName != "")
+                        {
+                            if (FirstName != "" || MiddleName != "")
+                                CmdString += " AND LastName LIKE '" + LastName + "%'";
+                            else
+                                CmdString += "WHERE LastName LIKE '" + LastName + "%'";
+                        }
+                        if (PhoneNumber != "")
+                        {
+                            if (FirstName != "" || MiddleName != "" || LastName != "")
+                                CmdString += " AND Number LIKE '" + PhoneNumber + "%'";
+                            else
+                                CmdString += "WHERE Number LIKE '" + PhoneNumber + "%'";
+                        }
+                        if (Email != "")
+                        {
+                            if (FirstName != "" || MiddleName != "" || LastName != "" || PhoneNumber != "")
+                                CmdString += " AND Email LIKE '" + Email + "%'";
+                            else
+                                CmdString += "WHERE Email LIKE '" + Email + "%'";
+                        }
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
                         break;
 
                     case 2:
                         //Add
+                        CmdString = "INSERT INTO Customer (FirstName, MiddleName, LastName, Email) VALUES ("
+                        + "'" + FirstName + "'";
+                        if (MiddleName != "")
+                            CmdString += ",'" + MiddleName + "'";
+                        else
+                            CmdString += ", NULL";
+                        CmdString += ", '" + LastName + "'"
+                        + ",'" + Email +  "')";
+
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
+
+                        CmdString = "INSERT INTO PhoneInfo (TypeID, Number, CustomerID) VALUES ( 'C', '" + PhoneNumber + "', last_insert_id())";
+
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
+
+
+                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email " +
+                            "FROM Customer JOIN PhoneInfo ON(Customer.ID = PhoneInfo.CustomerID)";
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
                         break;
 
                     case 3:
                         //Update
+                        CmdString = "UPDATE Customer SET ";
+                        if (FirstName != "")
+                        {
+                            CmdString += "FirstName = '" + FirstName + "'";
+                        }
+                        if (MiddleName != "")
+                        {
+                            if (FirstName != "")
+                                CmdString += ", MiddleName = '" + MiddleName + "'";
+                            else
+                                CmdString += "MiddleName = " + MiddleName + "'";
+                        }
+                        if (LastName != "")
+                        {
+                            if (FirstName != "" || MiddleName != "")
+                                CmdString += ", LastName = '" + LastName + "'";
+                            else
+                                CmdString += "LastName = '" + LastName + "'";
+                        }
+                        if (Email != "")
+                        {
+                            if (FirstName != "" || MiddleName != "" || LastName != "")
+                                CmdString += ", Email = '" + Email + "'";
+                            else
+                                CmdString += "Email = '" + Email + "'";
+                        }
+                        CmdString += "WHERE Email = " + Email;
+
+                        if (PhoneNumber != "")
+                        {
+                            CmdString = "UPDATE PhoneInfo SET Number = '" + PhoneNumber +
+                            "' WHERE EmployeeID = (SELECT ID FROM Employee WHERE Email = " + Email + ")";
+                        }
+
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
+
+                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email " +
+                            "FROM Customer JOIN PhoneInfo ON(Customer.ID = PhoneInfo.CustomerID)";
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
                         break;
 
                     case 4:
                         //Delete
+                        CmdString = "DELETE FROM Customer WHERE Email = '" + Email + "'";
+
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
+
+                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email " +
+                            "FROM Customer JOIN PhoneInfo ON(Customer.ID = PhoneInfo.CustomerID)";
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        emp_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
                         break;
                 }
             }
@@ -314,11 +443,6 @@ namespace Dealership
                 switch (emp_comboBox.SelectedIndex)
                 {
                     case 0:
-                        //Show All
-                        //CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
-                        //    "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)";
-
-
                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
                             "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
                             "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
@@ -417,8 +541,9 @@ namespace Dealership
                         cmd.ExecuteNonQuery();
 
 
-                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
-                        "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
+                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -474,14 +599,15 @@ namespace Dealership
                         if (PhoneNumber != "")
                         {
                             CmdString = "UPDATE PhoneInfo SET Number = '" + PhoneNumber +
-                            "' WHERE EmployeeID = (SELECT ID FROM Employee WHERE OLD.Email = " + Email + ")";
+                            "' WHERE EmployeeID = (SELECT ID FROM Employee WHERE Email = " + Email + ")";
                         }
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
+                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -496,8 +622,9 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT FirstName, MiddleName, LastName, SupervisorID, Number, Email, Title " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.PhoneID = PhoneInfo.ID)";
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
+                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
