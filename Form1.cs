@@ -43,7 +43,6 @@ namespace Dealership
             sales_comboBox.Items.Add("Create Sale");
             sales_comboBox.Items.Add("Delete A Sale");
         }
-
         private void cust_Button_Click(object sender, EventArgs e)
         {
             try
@@ -62,7 +61,7 @@ namespace Dealership
                 string Email = cust_emailTxtB.Text.ToString();
                 string CmdString = "";
 
-                switch(cust_comboBox.SelectedIndex)
+                switch (cust_comboBox.SelectedIndex)
                 {
                     case 0:
                         //Show All
@@ -72,7 +71,7 @@ namespace Dealership
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
                         cust_dataGridView.DataSource = ds.Tables[0].DefaultView;
-                        conn.Close();             
+                        conn.Close();
                         break;
 
                     case 1:
@@ -136,8 +135,8 @@ namespace Dealership
                         else
                             CmdString += ", NULL";
                         CmdString += ", '" + LastName + "'"
-                        + ",'" + Email +  "'"
-                        + ",'" + Status +  "')";
+                        + ",'" + Email + "'"
+                        + ",'" + Status + "')";
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
@@ -222,7 +221,7 @@ namespace Dealership
                         break;
                 }
             }
-            catch(MySql.Data.MySqlClient.MySqlException ex)
+            catch (MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -266,63 +265,63 @@ namespace Dealership
                         CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car ";
                         if (VIN != "")
                         {
-	                        CmdString += "WHERE VIN LIKE '" + VIN + "%'";
+                            CmdString += "WHERE VIN LIKE '" + VIN + "%'";
                         }
                         if (Make != "")
                         {
-	                        if(VIN != "")
-		                        CmdString += "AND Make LIKE '" + Make + "%'";
-	                        else
-		                        CmdString += "WHERE Make LIKE '" + Make + "%'";
+                            if (VIN != "")
+                                CmdString += "AND Make LIKE '" + Make + "%'";
+                            else
+                                CmdString += "WHERE Make LIKE '" + Make + "%'";
                         }
                         if (Model != "")
                         {
-	                        if(VIN != "" || Make != "")
-		                        CmdString += " AND Model LIKE '" + Model + "%'";
-	                        else
-		                        CmdString += "WHERE Model LIKE '" + Model + "%'";
+                            if (VIN != "" || Make != "")
+                                CmdString += " AND Model LIKE '" + Model + "%'";
+                            else
+                                CmdString += "WHERE Model LIKE '" + Model + "%'";
                         }
                         if (Year != "")
                         {
-	                        if(VIN != "" || Make != "" || Model != "")
-		                        CmdString += " AND Year LIKE " + Year;
-	                        else
-		                        CmdString += "WHERE Year LIKE " + Year;
+                            if (VIN != "" || Make != "" || Model != "")
+                                CmdString += " AND Year LIKE " + Year;
+                            else
+                                CmdString += "WHERE Year LIKE " + Year;
                         }
                         if (Color != "")
                         {
-	                        if(VIN != "" || Make != ""|| Model != "" || Year != "")
-		                        CmdString += " AND Color LIKE '" + Color + "%'";
-	                        else
-		                        CmdString += "WHERE Color LIKE '" + Color + "%'";
+                            if (VIN != "" || Make != "" || Model != "" || Year != "")
+                                CmdString += " AND Color LIKE '" + Color + "%'";
+                            else
+                                CmdString += "WHERE Color LIKE '" + Color + "%'";
                         }
                         if (Mileage != "")
                         {
-	                        if(VIN != "" || Make != ""|| Model != "" || Year != "" || Color != "")
-		                        CmdString += " AND Mileage <= " + Mileage;
-	                        else
-		                        CmdString += "WHERE Mileage <= " + Mileage;
+                            if (VIN != "" || Make != "" || Model != "" || Year != "" || Color != "")
+                                CmdString += " AND Mileage <= " + Mileage;
+                            else
+                                CmdString += "WHERE Mileage <= " + Mileage;
                         }
                         if (cars_YesCheckBox.Checked == true || cars_NoCheckBox.Checked == true)
                         {
-	                        if(VIN != "" || Make != "" || Model != "" || Year != "" || Color != ""|| Mileage != "")
-		                        CmdString += " AND Used = " + Used;
-	                        else
-		                        CmdString += "WHERE Used = " + Used;
+                            if (VIN != "" || Make != "" || Model != "" || Year != "" || Color != "" || Mileage != "")
+                                CmdString += " AND Used = " + Used;
+                            else
+                                CmdString += "WHERE Used = " + Used;
                         }
-                        else if (cars_YesCheckBox.Checked == false && cars_NoCheckBox.Checked == true) 
+                        else if (cars_YesCheckBox.Checked == false && cars_NoCheckBox.Checked == true)
                         {
-                            if(VIN != "" || Make != "" || Model != "" || Year != "" || Color != ""|| Mileage != "")
-		                        CmdString += " AND Used IS NOT NULL";
-	                        else
-		                        CmdString += "WHERE Used IS NOT NULL";
+                            if (VIN != "" || Make != "" || Model != "" || Year != "" || Color != "" || Mileage != "")
+                                CmdString += " AND Used IS NOT NULL";
+                            else
+                                CmdString += "WHERE Used IS NOT NULL";
                         }
-                        if(Status != "")
+                        if (Status != "")
                         {
-	                        if(VIN != "" || Make != "" || Model != "" || Year != ""  || Color != ""|| Mileage != "" || cars_YesCheckBox.Checked == true || cars_NoCheckBox.Checked == true)
-		                        CmdString += " AND Status = Like '" + Status + "'";
-	                        else
-		                        CmdString += "WHERE Status  Like  '" + Status + "'";
+                            if (VIN != "" || Make != "" || Model != "" || Year != "" || Color != "" || Mileage != "" || cars_YesCheckBox.Checked == true || cars_NoCheckBox.Checked == true)
+                                CmdString += " AND Status = Like '" + Status + "'";
+                            else
+                                CmdString += "WHERE Status  Like  '" + Status + "'";
                         }
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -350,8 +349,8 @@ namespace Dealership
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
-                        
-                        
+
+
                         CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car";
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -361,10 +360,10 @@ namespace Dealership
 
                     case 3:
                         //Update
-                         CmdString = "UPDATE Car SET ";
+                        CmdString = "UPDATE Car SET ";
                         if (Make != "")
                         {
-                            CmdString += ", Make = '" + Make  + "'";
+                            CmdString += ", Make = '" + Make + "'";
                         }
                         if (Model != "")
                         {
@@ -382,14 +381,14 @@ namespace Dealership
                         }
                         if (Color != "")
                         {
-                            if (Make != "" || Model != "" || Year != "" )
+                            if (Make != "" || Model != "" || Year != "")
                                 CmdString += ", Color = '" + Color + "'";
                             else
                                 CmdString += "Color = '" + Color + "'";
                         }
                         if (Mileage != "")
                         {
-                            if (Make != "" || Model != "" || Year != "" )
+                            if (Make != "" || Model != "" || Year != "")
                                 CmdString += ", Milage = " + Mileage;
                             else
                                 CmdString += "Milage = " + Mileage;
@@ -445,9 +444,9 @@ namespace Dealership
                 switch (emp_comboBox.SelectedIndex)
                 {
                     case 0:
-                       CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
-                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales " +
+                             "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
+                             "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -457,9 +456,9 @@ namespace Dealership
 
                     case 1:
                         //Search
-                       CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales" +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
-                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales" +
+                             "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
+                             "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
                         if (FirstName != "")
                         {
                             CmdString += "WHERE Employee.FirstName LIKE '" + FirstName + "%'";
@@ -545,7 +544,7 @@ namespace Dealership
 
 
                         CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
                             "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -602,7 +601,7 @@ namespace Dealership
                         cmd.ExecuteNonQuery();
 
                         CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
                             "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -619,7 +618,7 @@ namespace Dealership
                         cmd.ExecuteNonQuery();
 
                         CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" + 
+                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
                             "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -630,6 +629,57 @@ namespace Dealership
                 }
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void sales_Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MySqlCommand cmd = null;
+                MySqlDataAdapter sda = null;
+                conn = new MySqlConnection(connString);
+                DataSet ds = new DataSet();
+                conn.Open();
+
+                string VIN = sales_VINTxtB.Text.ToString();
+                string CustEmail = sales_CustTxtB.Text.ToString();
+                string EmpEmail = sales_EmpTxtB.Text.ToString();
+                string CmdString = "";
+
+                switch (sales_comboBox.SelectedIndex)
+                {
+                    case 0:
+                        //Show
+                        CmdString = "";
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        sales_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+                    case 1:
+                        //Add
+                        CmdString = "";
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        sales_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+                    case 2:
+                        //Delete
+                        CmdString = "";
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        sales_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+                }
+            }
+            catch(MySql.Data.MySqlClient.MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -648,10 +698,9 @@ namespace Dealership
             cust_StatusLbl.Visible = state;
             cust_StatusTxtB.Visible = state;
         }
-
         private void cust_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch(cust_comboBox.SelectedIndex)
+            switch (cust_comboBox.SelectedIndex)
             {
                 case 0:
                     cust_Button.Text = "Show Customers";
@@ -676,7 +725,6 @@ namespace Dealership
                     break;
             }
         }
-
         public void carsUI(bool state)
         {
             cars_makeLbl.Visible = state;
@@ -696,7 +744,6 @@ namespace Dealership
             cars_YesCheckBox.Visible = state;
             cars_NoCheckBox.Visible = state;
         }
-
         private void cars_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (cars_comboBox.SelectedIndex)
@@ -723,7 +770,6 @@ namespace Dealership
                     break;
             }
         }
-
         void empUI(bool state)
         {
             emp_FirstNameLbl.Visible = state;
@@ -739,7 +785,6 @@ namespace Dealership
             emp_TitleLbl.Visible = state;
             emp_TitleTxtB.Visible = state;
         }
-
         private void emp_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (emp_comboBox.SelectedIndex)

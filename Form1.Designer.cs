@@ -114,7 +114,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Teal;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.panel1.Controls.Add(this.titleLbl);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -143,7 +143,7 @@
             this.metroTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl.Location = new System.Drawing.Point(0, 52);
             this.metroTabControl.Name = "metroTabControl";
-            this.metroTabControl.SelectedIndex = 0;
+            this.metroTabControl.SelectedIndex = 3;
             this.metroTabControl.Size = new System.Drawing.Size(1096, 493);
             this.metroTabControl.TabIndex = 1;
             this.metroTabControl.UseSelectable = true;
@@ -234,7 +234,7 @@
             // 
             // cust_dataGridView
             // 
-            this.cust_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.cust_dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.cust_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cust_dataGridView.Location = new System.Drawing.Point(534, 2);
             this.cust_dataGridView.Margin = new System.Windows.Forms.Padding(2);
@@ -441,7 +441,7 @@
             // cars_comboBox
             // 
             this.cars_comboBox.FormattingEnabled = true;
-            this.cars_comboBox.Location = new System.Drawing.Point(86, 17);
+            this.cars_comboBox.Location = new System.Drawing.Point(174, 17);
             this.cars_comboBox.Name = "cars_comboBox";
             this.cars_comboBox.Size = new System.Drawing.Size(158, 32);
             this.cars_comboBox.TabIndex = 28;
@@ -507,7 +507,7 @@
             // 
             // cars_dataGridView
             // 
-            this.cars_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.cars_dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.cars_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cars_dataGridView.Location = new System.Drawing.Point(534, 2);
             this.cars_dataGridView.Margin = new System.Windows.Forms.Padding(2);
@@ -746,10 +746,10 @@
             // 
             // emp_dataGridView
             // 
-            this.emp_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.emp_dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.emp_dataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.emp_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.emp_dataGridView.Location = new System.Drawing.Point(534, 4);
+            this.emp_dataGridView.Location = new System.Drawing.Point(534, 2);
             this.emp_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.emp_dataGridView.Name = "emp_dataGridView";
             this.emp_dataGridView.RowHeadersWidth = 51;
@@ -822,6 +822,7 @@
             // 
             // sales_Tab
             // 
+            this.sales_Tab.BackColor = System.Drawing.SystemColors.Control;
             this.sales_Tab.Controls.Add(this.sales_ModeLbl);
             this.sales_Tab.Controls.Add(this.sales_comboBox);
             this.sales_Tab.Controls.Add(this.sales_Button);
@@ -832,6 +833,7 @@
             this.sales_Tab.Controls.Add(this.sales_CustLbl);
             this.sales_Tab.Controls.Add(this.sales_VINLbl);
             this.sales_Tab.Controls.Add(this.sales_VINTxtB);
+            this.sales_Tab.ForeColor = System.Drawing.SystemColors.ControlText;
             this.sales_Tab.HorizontalScrollbarBarColor = true;
             this.sales_Tab.HorizontalScrollbarHighlightOnWheel = false;
             this.sales_Tab.HorizontalScrollbarSize = 6;
@@ -872,15 +874,16 @@
             this.sales_Button.Name = "sales_Button";
             this.sales_Button.Size = new System.Drawing.Size(141, 63);
             this.sales_Button.TabIndex = 69;
-            this.sales_Button.Text = "Confim Sale";
+            this.sales_Button.Text = "Confirm Sale";
             this.sales_Button.UseVisualStyleBackColor = true;
+            this.sales_Button.Click += new System.EventHandler(this.sales_Button_Click);
             // 
             // sales_dataGridView
             // 
-            this.sales_dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.sales_dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.sales_dataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.sales_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.sales_dataGridView.Location = new System.Drawing.Point(531, 2);
+            this.sales_dataGridView.Location = new System.Drawing.Point(534, 2);
             this.sales_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.sales_dataGridView.Name = "sales_dataGridView";
             this.sales_dataGridView.RowHeadersWidth = 51;
@@ -976,6 +979,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1096, 545);
             this.Controls.Add(this.metroTabControl);
             this.Controls.Add(this.panel1);
