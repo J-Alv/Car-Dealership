@@ -666,9 +666,8 @@ namespace Dealership
                         conn.Close();
                         break;
                     case 1:
-                        //Add
-                        CmdString = "INSERT INTO Sale(Price, CustomerID, EmployeeID, CarID)" +
-                                "SELECT " + Price + ", CustomerID, " + EmpEmail + "," + VIN + "FROM Customer WHERE Email = '" + CustEmail + "'";
+                        //Search
+                        CmdString = "";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -676,8 +675,23 @@ namespace Dealership
                         conn.Close();
                         break;
                     case 2:
-                        //Add
-                        CmdString = "";
+                        //Create
+                        if (Price != "")
+                        {
+                            CmdString = "INSERT INTO Sale(Price, CustomerID, EmployeeID, CarID)" +
+                                    "Values(" + Price + ", " +
+                                    "(SELECT ID FROM Customer WHERE Email LIKE '" + CustEmail + "'), " +
+                                    "(SELECT ID FROM Employee WHERE Email LIKE '" + EmpEmail + "'), " +
+                                    "(SELECT ID FROM Car WHERE VIN = '" + VIN + "'))";
+                        }
+                        else
+                        {
+                            CmdString = "INSERT INTO Sale(CustomerID, EmployeeID, CarID)" +
+                                   "Values("+
+                                   "(SELECT ID FROM Customer WHERE Email LIKE '" + CustEmail + "'), " +
+                                   "(SELECT ID FROM Employee WHERE Email LIKE '" + EmpEmail + "'), " +
+                                   "(SELECT ID FROM Car WHERE VIN = '" + VIN + "'))";
+                        }
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -686,7 +700,40 @@ namespace Dealership
                         break;
                     case 3:
                         //Update
-                        CmdString = "";
+                        CmdString = "UPDATE Sale SET ";
+                        //for if customer email is being update
+                        if (CustEmail != "")
+                        {
+                            CmdString += "CustomerID = (SELECT ID FROM Customer WHERE Email LIKE '" + CustEmail + "') ";
+                        }
+
+                        //if customer and emp are being updated, else just employee being updated
+                        if (EmpEmail != "")
+                        {
+                            if (EmpEmail != "" && CustEmail != "")
+                            {
+                                CmdString += ", EmployeeID = (SELECT ID FROM Employee WHERE Email LIKE '" + EmpEmail + "') ";
+                            }
+                            else
+                            {
+                                CmdString += "EmployeeID = (SELECT ID FROM Employee WHERE Email LIKE '" + EmpEmail + "') ";
+                            }
+                        }
+
+                        //if either of prior are update else just price being updated
+                        if (Price != "")
+                        {
+                            if (EmpEmail != "" || CustEmail != "")
+                            {
+                                CmdString += ", Price = " + Price + " ";
+                            }
+                            else
+                            {
+                                CmdString += "Price = " + Price + " ";
+                            }
+                        }
+
+                        CmdString += "WHERE CarID = (SELECT ID FROM Car WHERE VIN = '" + VIN + "')";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -695,7 +742,7 @@ namespace Dealership
                         break;
                     case 4:
                         //Delete
-                        CmdString = "DELETE FROM Sale WHERE VIN = '" + VIN + "'";
+                        CmdString = "DELETE FROM Sale WHERE CarID = (SELECT ID FROM Car WHERE VIN = '" + VIN + "')";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -874,22 +921,31 @@ namespace Dealership
                 case 1:
                     //Search
                     sales_Button.Text = "Search Sales";
+                    sales_VINLbl.Text = "VIN Number";
+                    sales_CustLbl.Text = "Customer Email";
+                    sales_EmpLbl.Text = "Employee Email";
                     saleUI(true, true, true, true, true, true);
                     break;
                 case 2:
                     //Create
                     sales_Button.Text = "Complete Sale";
+                    sales_VINLbl.Text = "*VIN Number";
+                    sales_CustLbl.Text = "*Customer Email";
+                    sales_EmpLbl.Text = "*Employee Email";
                     saleUI(true, true, true, false, false, true);
                     break;
                 case 3:
                     //Update
                     sales_Button.Text = "Update Sale";
                     sales_VINLbl.Text = "*VIN Number";
-                    saleUI(true, true, true, true, true, true);
+                    sales_CustLbl.Text = "Customer Email";
+                    sales_EmpLbl.Text = "Employee Email";
+                    saleUI(true, true, true, false, false, true);
                     break;
                 case 4:
                     //Delete
                     sales_Button.Text = "Delete Sale";
+                    sales_VINLbl.Text = "*VIN Number";
                     saleUI(true, false, false, false, false, false);
                     break;
             }
