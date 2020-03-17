@@ -643,6 +643,7 @@ namespace Dealership
             try
             {
                 MySqlDataAdapter sda = null;
+                MySqlCommand cmd = null;
                 conn = new MySqlConnection(connString);
                 DataSet ds = new DataSet();
                 conn.Open();
@@ -734,6 +735,9 @@ namespace Dealership
                                    "UPDATE Car SET Status = 'Sold' WHERE VIN = '" + VIN + "'";
                         }
 
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
+
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
                         sales_dataGridView.DataSource = ds.Tables[0].DefaultView;
@@ -776,6 +780,11 @@ namespace Dealership
 
                         CmdString += "WHERE CarID = (SELECT ID FROM Car WHERE VIN = '" + VIN + "')";
 
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
+
+                        CmdString = "SELECT * FROM Sale";
+
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
                         sales_dataGridView.DataSource = ds.Tables[0].DefaultView;
@@ -784,6 +793,9 @@ namespace Dealership
                     case 5:
                         //Delete
                         CmdString = "DELETE FROM Sale WHERE CarID = (SELECT ID FROM Car WHERE VIN = '" + VIN + "')";
+
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);

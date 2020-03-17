@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dealership));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dealership));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.titleLbl = new System.Windows.Forms.Label();
             this.metroTabControl = new MetroFramework.Controls.MetroTabControl();
             this.customerTab = new MetroFramework.Controls.MetroTabPage();
@@ -111,8 +112,8 @@
             this.sales_CustLbl = new System.Windows.Forms.Label();
             this.sales_VINLbl = new System.Windows.Forms.Label();
             this.sales_VINTxtB = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.metroTabControl.SuspendLayout();
             this.customerTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_dataGridView)).BeginInit();
@@ -122,7 +123,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emp_dataGridView)).BeginInit();
             this.sales_Tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sales_dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -135,6 +135,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1096, 52);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(942, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(151, 50);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // titleLbl
             // 
@@ -204,7 +213,7 @@
             // cust_StatusTxtB
             // 
             this.cust_StatusTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_StatusTxtB.Location = new System.Drawing.Point(174, 215);
+            this.cust_StatusTxtB.Location = new System.Drawing.Point(175, 215);
             this.cust_StatusTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_StatusTxtB.Name = "cust_StatusTxtB";
             this.cust_StatusTxtB.Size = new System.Drawing.Size(316, 29);
@@ -254,7 +263,7 @@
             this.cust_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cust_comboBox.ForeColor = System.Drawing.Color.Black;
             this.cust_comboBox.FormattingEnabled = true;
-            this.cust_comboBox.Location = new System.Drawing.Point(174, 31);
+            this.cust_comboBox.Location = new System.Drawing.Point(175, 31);
             this.cust_comboBox.Name = "cust_comboBox";
             this.cust_comboBox.Size = new System.Drawing.Size(199, 32);
             this.cust_comboBox.TabIndex = 13;
@@ -263,7 +272,7 @@
             // cust_PhoneNbrTxtB
             // 
             this.cust_PhoneNbrTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_PhoneNbrTxtB.Location = new System.Drawing.Point(174, 182);
+            this.cust_PhoneNbrTxtB.Location = new System.Drawing.Point(175, 182);
             this.cust_PhoneNbrTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_PhoneNbrTxtB.Name = "cust_PhoneNbrTxtB";
             this.cust_PhoneNbrTxtB.Size = new System.Drawing.Size(316, 29);
@@ -284,6 +293,8 @@
             // 
             // cust_dataGridView
             // 
+            this.cust_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.cust_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.cust_dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.cust_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -296,13 +307,13 @@
             this.cust_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.cust_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cust_dataGridView.EnableHeadersVisualStyles = false;
-            this.cust_dataGridView.Location = new System.Drawing.Point(534, 2);
+            this.cust_dataGridView.Location = new System.Drawing.Point(495, 2);
             this.cust_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.cust_dataGridView.Name = "cust_dataGridView";
             this.cust_dataGridView.RowHeadersVisible = false;
             this.cust_dataGridView.RowHeadersWidth = 51;
             this.cust_dataGridView.RowTemplate.Height = 24;
-            this.cust_dataGridView.Size = new System.Drawing.Size(552, 441);
+            this.cust_dataGridView.Size = new System.Drawing.Size(586, 441);
             this.cust_dataGridView.TabIndex = 10;
             this.cust_dataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.cust_dataGridView_CellFormatting);
             // 
@@ -311,7 +322,7 @@
             this.cust_emailTxtB.BackColor = System.Drawing.SystemColors.Window;
             this.cust_emailTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cust_emailTxtB.ForeColor = System.Drawing.Color.Black;
-            this.cust_emailTxtB.Location = new System.Drawing.Point(174, 248);
+            this.cust_emailTxtB.Location = new System.Drawing.Point(175, 248);
             this.cust_emailTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_emailTxtB.Name = "cust_emailTxtB";
             this.cust_emailTxtB.Size = new System.Drawing.Size(316, 29);
@@ -346,7 +357,7 @@
             // cust_lastNMTxtB
             // 
             this.cust_lastNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_lastNMTxtB.Location = new System.Drawing.Point(174, 149);
+            this.cust_lastNMTxtB.Location = new System.Drawing.Point(175, 149);
             this.cust_lastNMTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_lastNMTxtB.Name = "cust_lastNMTxtB";
             this.cust_lastNMTxtB.Size = new System.Drawing.Size(316, 29);
@@ -355,7 +366,7 @@
             // cust_middleNMTxtB
             // 
             this.cust_middleNMTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_middleNMTxtB.Location = new System.Drawing.Point(174, 116);
+            this.cust_middleNMTxtB.Location = new System.Drawing.Point(175, 116);
             this.cust_middleNMTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cust_middleNMTxtB.Name = "cust_middleNMTxtB";
             this.cust_middleNMTxtB.Size = new System.Drawing.Size(316, 29);
@@ -436,7 +447,7 @@
             // cars_StatusComboBox
             // 
             this.cars_StatusComboBox.FormattingEnabled = true;
-            this.cars_StatusComboBox.Location = new System.Drawing.Point(174, 284);
+            this.cars_StatusComboBox.Location = new System.Drawing.Point(175, 284);
             this.cars_StatusComboBox.Name = "cars_StatusComboBox";
             this.cars_StatusComboBox.Size = new System.Drawing.Size(316, 32);
             this.cars_StatusComboBox.TabIndex = 37;
@@ -458,7 +469,7 @@
             // cars_MileageTxtB
             // 
             this.cars_MileageTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_MileageTxtB.Location = new System.Drawing.Point(174, 250);
+            this.cars_MileageTxtB.Location = new System.Drawing.Point(175, 250);
             this.cars_MileageTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_MileageTxtB.Name = "cars_MileageTxtB";
             this.cars_MileageTxtB.Size = new System.Drawing.Size(316, 29);
@@ -493,7 +504,7 @@
             // cars_ColorTxtB
             // 
             this.cars_ColorTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_ColorTxtB.Location = new System.Drawing.Point(174, 216);
+            this.cars_ColorTxtB.Location = new System.Drawing.Point(175, 216);
             this.cars_ColorTxtB.Name = "cars_ColorTxtB";
             this.cars_ColorTxtB.Size = new System.Drawing.Size(316, 29);
             this.cars_ColorTxtB.TabIndex = 30;
@@ -512,7 +523,7 @@
             // cars_comboBox
             // 
             this.cars_comboBox.FormattingEnabled = true;
-            this.cars_comboBox.Location = new System.Drawing.Point(174, 31);
+            this.cars_comboBox.Location = new System.Drawing.Point(175, 31);
             this.cars_comboBox.Name = "cars_comboBox";
             this.cars_comboBox.Size = new System.Drawing.Size(199, 32);
             this.cars_comboBox.TabIndex = 28;
@@ -562,7 +573,7 @@
             // cars_YearTxtB
             // 
             this.cars_YearTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_YearTxtB.Location = new System.Drawing.Point(174, 182);
+            this.cars_YearTxtB.Location = new System.Drawing.Point(175, 182);
             this.cars_YearTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_YearTxtB.Name = "cars_YearTxtB";
             this.cars_YearTxtB.Size = new System.Drawing.Size(316, 29);
@@ -583,6 +594,8 @@
             // 
             // cars_dataGridView
             // 
+            this.cars_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.cars_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.cars_dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.cars_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -595,13 +608,13 @@
             this.cars_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.cars_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cars_dataGridView.EnableHeadersVisualStyles = false;
-            this.cars_dataGridView.Location = new System.Drawing.Point(534, 2);
+            this.cars_dataGridView.Location = new System.Drawing.Point(495, 2);
             this.cars_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.cars_dataGridView.Name = "cars_dataGridView";
             this.cars_dataGridView.RowHeadersVisible = false;
             this.cars_dataGridView.RowHeadersWidth = 51;
             this.cars_dataGridView.RowTemplate.Height = 24;
-            this.cars_dataGridView.Size = new System.Drawing.Size(552, 441);
+            this.cars_dataGridView.Size = new System.Drawing.Size(586, 441);
             this.cars_dataGridView.TabIndex = 21;
             this.cars_dataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.cars_dataGridView_CellFormatting);
             // 
@@ -634,7 +647,7 @@
             // cars_modelTxtB
             // 
             this.cars_modelTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_modelTxtB.Location = new System.Drawing.Point(174, 149);
+            this.cars_modelTxtB.Location = new System.Drawing.Point(175, 149);
             this.cars_modelTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_modelTxtB.Name = "cars_modelTxtB";
             this.cars_modelTxtB.Size = new System.Drawing.Size(316, 29);
@@ -643,7 +656,7 @@
             // cars_makeTxtB
             // 
             this.cars_makeTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_makeTxtB.Location = new System.Drawing.Point(174, 116);
+            this.cars_makeTxtB.Location = new System.Drawing.Point(175, 116);
             this.cars_makeTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_makeTxtB.Name = "cars_makeTxtB";
             this.cars_makeTxtB.Size = new System.Drawing.Size(316, 29);
@@ -678,7 +691,7 @@
             // cars_VINTxtB
             // 
             this.cars_VINTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_VINTxtB.Location = new System.Drawing.Point(174, 82);
+            this.cars_VINTxtB.Location = new System.Drawing.Point(175, 82);
             this.cars_VINTxtB.Name = "cars_VINTxtB";
             this.cars_VINTxtB.Size = new System.Drawing.Size(316, 29);
             this.cars_VINTxtB.TabIndex = 13;
@@ -724,7 +737,7 @@
             // emp_SupervisorTxtB
             // 
             this.emp_SupervisorTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_SupervisorTxtB.Location = new System.Drawing.Point(174, 252);
+            this.emp_SupervisorTxtB.Location = new System.Drawing.Point(175, 252);
             this.emp_SupervisorTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_SupervisorTxtB.Name = "emp_SupervisorTxtB";
             this.emp_SupervisorTxtB.Size = new System.Drawing.Size(316, 29);
@@ -761,7 +774,7 @@
             // emp_TitleTxtB
             // 
             this.emp_TitleTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_TitleTxtB.Location = new System.Drawing.Point(174, 285);
+            this.emp_TitleTxtB.Location = new System.Drawing.Point(175, 285);
             this.emp_TitleTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_TitleTxtB.Name = "emp_TitleTxtB";
             this.emp_TitleTxtB.Size = new System.Drawing.Size(316, 29);
@@ -770,7 +783,7 @@
             // emp_EmailTxtB
             // 
             this.emp_EmailTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_EmailTxtB.Location = new System.Drawing.Point(174, 82);
+            this.emp_EmailTxtB.Location = new System.Drawing.Point(175, 82);
             this.emp_EmailTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_EmailTxtB.Name = "emp_EmailTxtB";
             this.emp_EmailTxtB.Size = new System.Drawing.Size(316, 29);
@@ -805,7 +818,7 @@
             // emp_PhoneTxtB
             // 
             this.emp_PhoneTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_PhoneTxtB.Location = new System.Drawing.Point(174, 218);
+            this.emp_PhoneTxtB.Location = new System.Drawing.Point(175, 218);
             this.emp_PhoneTxtB.Name = "emp_PhoneTxtB";
             this.emp_PhoneTxtB.Size = new System.Drawing.Size(316, 29);
             this.emp_PhoneTxtB.TabIndex = 51;
@@ -826,7 +839,7 @@
             // 
             this.emp_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp_comboBox.FormattingEnabled = true;
-            this.emp_comboBox.Location = new System.Drawing.Point(174, 31);
+            this.emp_comboBox.Location = new System.Drawing.Point(175, 31);
             this.emp_comboBox.Name = "emp_comboBox";
             this.emp_comboBox.Size = new System.Drawing.Size(199, 32);
             this.emp_comboBox.TabIndex = 49;
@@ -847,6 +860,8 @@
             // 
             // emp_dataGridView
             // 
+            this.emp_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.emp_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.emp_dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.emp_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -859,13 +874,13 @@
             this.emp_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.emp_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.emp_dataGridView.EnableHeadersVisualStyles = false;
-            this.emp_dataGridView.Location = new System.Drawing.Point(534, 2);
+            this.emp_dataGridView.Location = new System.Drawing.Point(495, 2);
             this.emp_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.emp_dataGridView.Name = "emp_dataGridView";
             this.emp_dataGridView.RowHeadersVisible = false;
             this.emp_dataGridView.RowHeadersWidth = 51;
             this.emp_dataGridView.RowTemplate.Height = 24;
-            this.emp_dataGridView.Size = new System.Drawing.Size(552, 441);
+            this.emp_dataGridView.Size = new System.Drawing.Size(586, 441);
             this.emp_dataGridView.TabIndex = 43;
             this.emp_dataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.emp_dataGridView_CellFormatting);
             // 
@@ -885,7 +900,7 @@
             // emp_LastNameTxtB
             // 
             this.emp_LastNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_LastNameTxtB.Location = new System.Drawing.Point(174, 184);
+            this.emp_LastNameTxtB.Location = new System.Drawing.Point(175, 184);
             this.emp_LastNameTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_LastNameTxtB.Name = "emp_LastNameTxtB";
             this.emp_LastNameTxtB.Size = new System.Drawing.Size(316, 29);
@@ -894,7 +909,7 @@
             // emp_MiddleNameTxtB
             // 
             this.emp_MiddleNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_MiddleNameTxtB.Location = new System.Drawing.Point(174, 150);
+            this.emp_MiddleNameTxtB.Location = new System.Drawing.Point(175, 150);
             this.emp_MiddleNameTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.emp_MiddleNameTxtB.Name = "emp_MiddleNameTxtB";
             this.emp_MiddleNameTxtB.Size = new System.Drawing.Size(316, 29);
@@ -929,7 +944,7 @@
             // emp_FirstNameTxtB
             // 
             this.emp_FirstNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emp_FirstNameTxtB.Location = new System.Drawing.Point(174, 116);
+            this.emp_FirstNameTxtB.Location = new System.Drawing.Point(175, 116);
             this.emp_FirstNameTxtB.Name = "emp_FirstNameTxtB";
             this.emp_FirstNameTxtB.Size = new System.Drawing.Size(316, 29);
             this.emp_FirstNameTxtB.TabIndex = 36;
@@ -1056,7 +1071,7 @@
             // 
             this.sales_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sales_comboBox.FormattingEnabled = true;
-            this.sales_comboBox.Location = new System.Drawing.Point(174, 31);
+            this.sales_comboBox.Location = new System.Drawing.Point(175, 31);
             this.sales_comboBox.Name = "sales_comboBox";
             this.sales_comboBox.Size = new System.Drawing.Size(199, 32);
             this.sales_comboBox.TabIndex = 70;
@@ -1078,6 +1093,8 @@
             // 
             // sales_dataGridView
             // 
+            this.sales_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.sales_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.sales_dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.sales_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1090,13 +1107,13 @@
             this.sales_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.sales_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sales_dataGridView.EnableHeadersVisualStyles = false;
-            this.sales_dataGridView.Location = new System.Drawing.Point(534, 2);
+            this.sales_dataGridView.Location = new System.Drawing.Point(495, 2);
             this.sales_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.sales_dataGridView.Name = "sales_dataGridView";
             this.sales_dataGridView.RowHeadersVisible = false;
             this.sales_dataGridView.RowHeadersWidth = 51;
             this.sales_dataGridView.RowTemplate.Height = 24;
-            this.sales_dataGridView.Size = new System.Drawing.Size(552, 441);
+            this.sales_dataGridView.Size = new System.Drawing.Size(586, 441);
             this.sales_dataGridView.TabIndex = 68;
             this.sales_dataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.sales_dataGridView_CellFormatting);
             // 
@@ -1116,7 +1133,7 @@
             // sales_EmpTxtB
             // 
             this.sales_EmpTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_EmpTxtB.Location = new System.Drawing.Point(174, 149);
+            this.sales_EmpTxtB.Location = new System.Drawing.Point(175, 149);
             this.sales_EmpTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.sales_EmpTxtB.Name = "sales_EmpTxtB";
             this.sales_EmpTxtB.Size = new System.Drawing.Size(316, 29);
@@ -1125,7 +1142,7 @@
             // sales_CustTxtB
             // 
             this.sales_CustTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_CustTxtB.Location = new System.Drawing.Point(174, 116);
+            this.sales_CustTxtB.Location = new System.Drawing.Point(175, 116);
             this.sales_CustTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.sales_CustTxtB.Name = "sales_CustTxtB";
             this.sales_CustTxtB.Size = new System.Drawing.Size(316, 29);
@@ -1160,19 +1177,10 @@
             // sales_VINTxtB
             // 
             this.sales_VINTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_VINTxtB.Location = new System.Drawing.Point(174, 82);
+            this.sales_VINTxtB.Location = new System.Drawing.Point(175, 82);
             this.sales_VINTxtB.Name = "sales_VINTxtB";
             this.sales_VINTxtB.Size = new System.Drawing.Size(316, 29);
             this.sales_VINTxtB.TabIndex = 62;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(942, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(151, 50);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // Dealership
             // 
@@ -1190,6 +1198,7 @@
             this.Text = "Atlas Dealership";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.metroTabControl.ResumeLayout(false);
             this.customerTab.ResumeLayout(false);
             this.customerTab.PerformLayout();
@@ -1203,7 +1212,6 @@
             this.sales_Tab.ResumeLayout(false);
             this.sales_Tab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sales_dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
