@@ -135,15 +135,15 @@ namespace Dealership
 
                     case 2:
                         //Add
-                        CmdString = "INSERT INTO Customer (FirstName, MiddleName, LastName, Email) VALUES ("
+                        CmdString = "INSERT INTO Customer (FirstName, MiddleName, LastName, Status, Email) VALUES ("
                         + "'" + FirstName + "'";
                         if (MiddleName != "")
                             CmdString += ",'" + MiddleName + "'";
                         else
                             CmdString += ", NULL";
                         CmdString += ", '" + LastName + "'"
-                        + ",'" + Email + "'"
-                        + ",'" + Status + "')";
+                        + ",'" + Status + "'"
+                        + ",'" + Email + "')";
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
@@ -489,7 +489,7 @@ namespace Dealership
                         {
 
                             if (FirstName != "" || MiddleName != "" || LastName != "")
-                                CmdString += " AND Employee.SuppervisorID = (SELECT ID FROM Employee WHERE FirstName LIKE '" + Supervisor + "%' OR LastName LIKE '" + Supervisor + "%' OR CONCAT(FirstName, ' ', LastName) LIKE '" + Supervisor + "')";
+                                CmdString += " AND Employee.SupervisorID = (SELECT ID FROM Employee WHERE FirstName LIKE '" + Supervisor + "%' OR LastName LIKE '" + Supervisor + "%' OR CONCAT(FirstName, ' ', LastName) LIKE '" + Supervisor + "')";
 
                             else
                                 CmdString += "WHERE Employee.SupervisorID = (SELECT ID FROM Employee WHERE FirstName LIKE '" + Supervisor + "%' OR LastName LIKE '" + Supervisor + "%'  OR CONCAT(FirstName, ' ', LastName) LIKE '" + Supervisor + "')";
@@ -583,9 +583,9 @@ namespace Dealership
                         if (Supervisor != "")
                         {
                             if (FirstName != "" || MiddleName != "" || LastName != "")
-                                CmdString += ", (SELECT ID FROM Employee WHERE CONCAT(FirstName, ' ', LastName) LIKE '" + Supervisor + "')";
+                                CmdString += ", (SELECT SupervisorID FROM Employee WHERE CONCAT(FirstName, ' ', LastName) LIKE '" + Supervisor + "')";
                             else
-                                CmdString += ", (SELECT ID FROM Employee WHERE CONCAT(FirstName, ' ', LastName) LIKE '" + Supervisor + "')";
+                                CmdString += ", (SELECT SupervisorID FROM Employee WHERE CONCAT(FirstName, ' ', LastName) LIKE '" + Supervisor + "')";
                         }
                         if (Title != "")
                         {
@@ -608,7 +608,7 @@ namespace Dealership
 
                         CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS Number of Sales " +
                             "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
-                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
+                            "LEFT JOIN Employee S ON(S.SupervisorID = S.ID) GROUP BY Employee.ID";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
