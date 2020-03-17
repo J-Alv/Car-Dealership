@@ -260,7 +260,7 @@ namespace Dealership
                 {
                     case 0:
                         //Show Inventory
-                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used FROM Car";
+                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car";
                         sda = new MySqlDataAdapter(CmdString, conn);
 
                         sda.Fill(ds);
@@ -661,7 +661,8 @@ namespace Dealership
                     case 0:
                         //Show
                         CmdString = "SELECT Price AS '$Price', CONCAT(Customer.FirstName, ' ', Customer.LastName) AS Customer," +
-                            " CONCAT(Employee.FirstName, ' ', Employee.LastName) AS Employee, Date, VIN FROM Sale JOIN Car ON(CarID = Car.ID) JOIN Employee ON(Employeeid = Employee.id) JOIN Customer ON(Customer.id = CustomerID)";
+                            " CONCAT(Employee.FirstName, ' ', Employee.LastName) AS Employee, Date, VIN FROM Sale JOIN Car ON(CarID = Car.ID) JOIN Employee ON(Employeeid = Employee.id) JOIN Customer ON(Customer.id = CustomerID) " +
+                            "ORDER BY Date";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
