@@ -38,6 +38,7 @@ namespace Dealership
             emp_comboBox.Items.Add("Delete Employee");
 
             sales_comboBox.Items.Add("Show All Sales");
+            sales_comboBox.Items.Add("Show Sale Count");
             sales_comboBox.Items.Add("Search Sales");
             sales_comboBox.Items.Add("Create Sale");
             sales_comboBox.Items.Add("Update A Sale");
@@ -666,7 +667,7 @@ namespace Dealership
                         conn.Close();
                         break;
                     case 1:
-                        //Search
+                        //Show Sales Count
                         CmdString = "";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -675,6 +676,15 @@ namespace Dealership
                         conn.Close();
                         break;
                     case 2:
+                        //Search
+                        CmdString = "";
+
+                        sda = new MySqlDataAdapter(CmdString, conn);
+                        sda.Fill(ds);
+                        sales_dataGridView.DataSource = ds.Tables[0].DefaultView;
+                        conn.Close();
+                        break;
+                    case 3:
                         //Create
                         if (Price != "")
                         {
@@ -698,7 +708,7 @@ namespace Dealership
                         sales_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();
                         break;
-                    case 3:
+                    case 4:
                         //Update
                         CmdString = "UPDATE Sale SET ";
                         //for if customer email is being update
@@ -740,7 +750,7 @@ namespace Dealership
                         sales_dataGridView.DataSource = ds.Tables[0].DefaultView;
                         conn.Close();
                         break;
-                    case 4:
+                    case 5:
                         //Delete
                         CmdString = "DELETE FROM Sale WHERE CarID = (SELECT ID FROM Car WHERE VIN = '" + VIN + "')";
 
@@ -919,6 +929,11 @@ namespace Dealership
                     saleUI(false, false, false, false, false, false);
                     break;
                 case 1:
+                    //Show Sale Count
+                    sales_EmpLbl.Text = "*Employee Email";
+                    saleUI(false, false, true, false, false, false);
+                    break;
+                case 2:
                     //Search
                     sales_Button.Text = "Search Sales";
                     sales_VINLbl.Text = "VIN Number";
@@ -926,7 +941,7 @@ namespace Dealership
                     sales_EmpLbl.Text = "Employee Email";
                     saleUI(true, true, true, true, true, true);
                     break;
-                case 2:
+                case 3:
                     //Create
                     sales_Button.Text = "Complete Sale";
                     sales_VINLbl.Text = "*VIN Number";
@@ -934,7 +949,7 @@ namespace Dealership
                     sales_EmpLbl.Text = "*Employee Email";
                     saleUI(true, true, true, false, false, true);
                     break;
-                case 3:
+                case 4:
                     //Update
                     sales_Button.Text = "Update Sale";
                     sales_VINLbl.Text = "*VIN Number";
@@ -942,7 +957,7 @@ namespace Dealership
                     sales_EmpLbl.Text = "Employee Email";
                     saleUI(true, true, true, false, false, true);
                     break;
-                case 4:
+                case 5:
                     //Delete
                     sales_Button.Text = "Delete Sale";
                     sales_VINLbl.Text = "*VIN Number";
