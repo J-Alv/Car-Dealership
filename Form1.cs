@@ -175,7 +175,7 @@ namespace Dealership
                             if (FirstName != "")
                                 CmdString += ", MiddleName = '" + MiddleName + "'";
                             else
-                                CmdString += "MiddleName = " + MiddleName + "'";
+                                CmdString += "MiddleName = '" + MiddleName + "'";
                         }
                         if (LastName != "")
                         {
@@ -260,7 +260,7 @@ namespace Dealership
                 {
                     case 0:
                         //Show Inventory
-                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car";
+                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car ORDER BY Make ASC";
                         sda = new MySqlDataAdapter(CmdString, conn);
 
                         sda.Fill(ds);
@@ -331,6 +331,8 @@ namespace Dealership
                                 CmdString += "WHERE Status  Like  '" + Status + "'";
                         }
 
+                        CmdString += " ORDER BY Make, Model ASC";
+
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
                         cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
@@ -364,7 +366,7 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car";
+                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car ORDER BY Make, Model ASC";
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
                         cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
@@ -411,7 +413,7 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car";
+                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car ORDER BY Make, Model ASC";
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
                         cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
@@ -422,7 +424,7 @@ namespace Dealership
                         //Delete
                         CmdString = "UPDATE Car SET Status = 'Removed' WHERE = '" + VIN + "')";
 
-                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car";
+                        CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car ORDER BY Make, Model ASC";
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
                         cars_dataGridView.DataSource = ds.Tables[0].DefaultView;
