@@ -370,7 +370,7 @@ namespace Dealership
                         CmdString = "UPDATE Car SET ";
                         if (Make != "")
                         {
-                            CmdString += ", Make = '" + Make + "'";
+                            CmdString += "Make = '" + Make + "'";
                         }
                         if (Model != "")
                         {
