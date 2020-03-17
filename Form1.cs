@@ -931,6 +931,7 @@ namespace Dealership
                 case 1:
                     //Show Sale Count
                     sales_EmpLbl.Text = "*Employee Email";
+                    sales_Button.Text = "Show Totals";
                     saleUI(false, false, true, false, false, false);
                     break;
                 case 2:
