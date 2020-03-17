@@ -684,7 +684,7 @@ namespace Dealership
                         {
                             CmdString = "SELECT MONTH(Date) AS Month, YEAR(Date) AS Year, COUNT(*) AS 'Number Of Sales' " +
                                 "FROM Sale " +
-                                "WHERE EmployeeID = (SELECT ID FROM Employee WHERE Email = '" + EmpEmail + "')  " +
+                                "WHERE EmployeeID = (SELECT ID FROM Employee WHERE Email LIKE '" + EmpEmail + "%')  " +
                                 "GROUP BY MONTH(Date)";
                         }
                         //for looking at cars sold
