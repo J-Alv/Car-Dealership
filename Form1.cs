@@ -721,7 +721,8 @@ namespace Dealership
                                     "Values(" + Price + ", " +
                                     "(SELECT ID FROM Customer WHERE Email LIKE '" + CustEmail + "'), " +
                                     "(SELECT ID FROM Employee WHERE Email LIKE '" + EmpEmail + "'), " +
-                                    "(SELECT ID FROM Car WHERE VIN = '" + VIN + "'))";
+                                    "(SELECT ID FROM Car WHERE VIN = '" + VIN + "')); " +
+                                    "UPDATE Car SET Status = 'Sold' WHERE VIN = '" + VIN + "'";
                         }
                         else
                         {
@@ -729,7 +730,8 @@ namespace Dealership
                                    "Values("+
                                    "(SELECT ID FROM Customer WHERE Email LIKE '" + CustEmail + "'), " +
                                    "(SELECT ID FROM Employee WHERE Email LIKE '" + EmpEmail + "'), " +
-                                   "(SELECT ID FROM Car WHERE VIN = '" + VIN + "'))";
+                                   "(SELECT ID FROM Car WHERE VIN = '" + VIN + "')); " +
+                                   "UPDATE Car SET Status = 'Sold' WHERE VIN = '" + VIN + "'";
                         }
 
                         sda = new MySqlDataAdapter(CmdString, conn);
