@@ -338,6 +338,13 @@ namespace Dealership
                         break;
                     case 2:
                         //Add
+
+                        if (VinLength < 17 || VinLength > 17)
+                        {
+                            MessageBox.Show("Invalid VIN length\nVIN length was: " + VinLength + "\nVIN must be 17 digits");
+                            return;
+                        }
+
                         CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Status, Used ) VALUES ("
                                                + "'" + VIN + "'"
                                                + ",'" + Make + "'"
@@ -649,6 +656,7 @@ namespace Dealership
                 conn.Open();
 
                 string VIN = sales_VINTxtB.Text.ToString();
+                int VinLength = VIN.Length;
                 string CustEmail = sales_CustTxtB.Text.ToString();
                 string EmpEmail = sales_EmpTxtB.Text.ToString();
                 string Price = sales_PriceTxtB.Text.ToString();
@@ -716,6 +724,13 @@ namespace Dealership
                         break;
                     case 3:
                         //Create
+
+                        if (VinLength < 17 || VinLength > 17)
+                        {
+                            MessageBox.Show("Invalid VIN length\nVIN length was: " + VinLength + "\nVIN must be 17 digits");
+                            return;
+                        }
+
                         if (Price != "")
                         {
                             CmdString = "INSERT INTO Sale(Price, CustomerID, EmployeeID, CarID)" +
