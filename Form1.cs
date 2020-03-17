@@ -738,6 +738,10 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
+                        CmdString = "SELECT Price AS '$Price', CONCAT(Customer.FirstName, ' ', Customer.LastName) AS Customer," +
+                            " CONCAT(Employee.FirstName, ' ', Employee.LastName) AS Employee, Date, VIN FROM Sale JOIN Car ON(CarID = Car.ID) JOIN Employee ON(Employeeid = Employee.id) JOIN Customer ON(Customer.id = CustomerID) " +
+                            "ORDER BY Date";
+
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
                         sales_dataGridView.DataSource = ds.Tables[0].DefaultView;
@@ -783,7 +787,9 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT * FROM Sale";
+                        CmdString = "SELECT Price AS '$Price', CONCAT(Customer.FirstName, ' ', Customer.LastName) AS Customer," +
+                            " CONCAT(Employee.FirstName, ' ', Employee.LastName) AS Employee, Date, VIN FROM Sale JOIN Car ON(CarID = Car.ID) JOIN Employee ON(Employeeid = Employee.id) JOIN Customer ON(Customer.id = CustomerID) " +
+                            "ORDER BY Date";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -796,6 +802,10 @@ namespace Dealership
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
+
+                        CmdString = "SELECT Price AS '$Price', CONCAT(Customer.FirstName, ' ', Customer.LastName) AS Customer," +
+                            " CONCAT(Employee.FirstName, ' ', Employee.LastName) AS Employee, Date, VIN FROM Sale JOIN Car ON(CarID = Car.ID) JOIN Employee ON(Employeeid = Employee.id) JOIN Customer ON(Customer.id = CustomerID) " +
+                            "ORDER BY Date";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
