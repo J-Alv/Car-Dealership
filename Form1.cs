@@ -37,7 +37,7 @@ namespace Dealership
             emp_comboBox.Items.Add("Update Employee");
             emp_comboBox.Items.Add("Delete Employee");
 
-            sales_comboBox.Items.Add("Show All Sales");
+            sales_comboBox.Items.Add("All Sales");
             sales_comboBox.Items.Add("Show Sale Count");
             sales_comboBox.Items.Add("Search Sales");
             sales_comboBox.Items.Add("Create Sale");
@@ -338,11 +338,11 @@ namespace Dealership
                         break;
                     case 2:
                         //Add
-                        CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Used, Status) VALUES ("
-                        + "'" + VIN + "'"
-                        + "'" + Make + "'"
-                        + "'" + Model + "'"
-                        + "'" + Year + "'";
+                        CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Status, Used ) VALUES ("
+                                               + "'" + VIN + "'"
+                                               + ",'" + Make + "'"
+                                               + ",'" + Model + "'"
+                                               + ",'" + Year + "'";
                         if (Color != "")
                             CmdString += ",'" + Color + "'";
                         else
@@ -351,12 +351,11 @@ namespace Dealership
                             CmdString += ", " + Mileage;
                         else
                             CmdString += ", NULL";
-                        CmdString += "," + Used
-                        + ", '" + Status + "')";
+                        CmdString += ",'" + Status + "'"
+                       + ", '" + Used + "')";
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
-
 
                         CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car";
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -798,18 +797,20 @@ namespace Dealership
                 MessageBox.Show(ex.Message);
             }
         }
-        public void custUI(bool state)
+        public void custUI(bool first, bool middle, bool last, bool number, bool status, bool email)
         {
-            cust_firstNMLbl.Visible = state;
-            cust_firstNMTxtB.Visible = state;
-            cust_middleNMLbl.Visible = state;
-            cust_middleNMTxtB.Visible = state;
-            cust_lastNMLbl.Visible = state;
-            cust_lastNMTxtB.Visible = state;
-            cust_PhoneNbrLbl.Visible = state;
-            cust_PhoneNbrTxtB.Visible = state;
-            cust_StatusLbl.Visible = state;
-            cust_StatusTxtB.Visible = state;
+            cust_firstNMLbl.Visible = first;
+            cust_firstNMTxtB.Visible = first;
+            cust_middleNMLbl.Visible = middle;
+            cust_middleNMTxtB.Visible = middle;
+            cust_lastNMLbl.Visible = last;
+            cust_lastNMTxtB.Visible = last;
+            cust_PhoneNbrLbl.Visible = number;
+            cust_PhoneNbrTxtB.Visible = number;
+            cust_StatusLbl.Visible = status;
+            cust_StatusTxtB.Visible = status;
+            cust_emailLbl.Visible = email;
+            cust_emailTxtB.Visible = email;
         }
         private void cust_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -818,49 +819,51 @@ namespace Dealership
                 case 0:
                     cust_Button.Text = "Show Customers";
                     cust_emailLbl.Text = "Email";
-                    custUI(true);
+                    custUI(false, false, false, false, false, false);
                     break;
                 case 1:
                     cust_Button.Text = "Search Customers";
                     cust_emailLbl.Text = "Email";
-                    custUI(true);
+                    custUI(true, true, true, true, true, true);
                     break;
                 case 2:
                     cust_Button.Text = "Add Customer";
                     cust_emailLbl.Text = "Email";
-                    custUI(true);
+                    custUI(true, true, true, true, true, true);
                     break;
                 case 3:
                     cust_Button.Text = "Update Customer";
                     cust_emailLbl.Text = "*Email";
-                    custUI(true);
+                    custUI(true, true, true, true, true, true);
                     break;
 
                 case 4:
                     cust_Button.Text = "Delete Customer";
                     cust_emailLbl.Text = "Email";
-                    custUI(false);
+                    custUI(true, true, true, true, true, true);
                     break;
             }
         }
-        public void carsUI(bool state)
+        public void carsUI(bool VIN, bool make, bool model, bool year, bool color, bool mileage, bool status, bool used_CheckBoxs)
         {
-            cars_makeLbl.Visible = state;
-            cars_makeTxtB.Visible = state;
-            cars_modelLbl.Visible = state;
-            cars_modelTxtB.Visible = state;
-            cars_YearLbl.Visible = state;
-            cars_YearTxtB.Visible = state;
-            cars_YearTxtB.Visible = state;
-            cars_ColorLbl.Visible = state;
-            cars_ColorTxtB.Visible = state;
-            cars_MilageLbl.Visible = state;
-            cars_MileageTxtB.Visible = state;
-            cars_StatusLbl.Visible = state;
-            cars_StatusComboBox.Visible = state;
-            cars_usedLbl.Visible = state;
-            cars_YesCheckBox.Visible = state;
-            cars_NoCheckBox.Visible = state;
+            cars_VINLbl.Visible = VIN;
+            cars_VINTxtB.Visible = VIN;
+            cars_makeLbl.Visible = make;
+            cars_makeTxtB.Visible = make;
+            cars_modelLbl.Visible = model;
+            cars_modelTxtB.Visible = model;
+            cars_YearLbl.Visible = year;
+            cars_YearTxtB.Visible = year;
+            cars_YearTxtB.Visible = year;
+            cars_ColorLbl.Visible = color;
+            cars_ColorTxtB.Visible = color;
+            cars_MilageLbl.Visible = mileage;
+            cars_MileageTxtB.Visible = mileage;
+            cars_StatusLbl.Visible = status;
+            cars_StatusComboBox.Visible = status;
+            cars_usedLbl.Visible = used_CheckBoxs;
+            cars_YesCheckBox.Visible = used_CheckBoxs;
+            cars_NoCheckBox.Visible = used_CheckBoxs;
         }
         private void cars_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -868,41 +871,43 @@ namespace Dealership
             {
                 case 0:
                     car_SearchBtn.Text = "Show Inventory";
-                    carsUI(true);
+                    carsUI(false, false, false, false, false, false, false, false);
                     break;
                 case 1:
                     car_SearchBtn.Text = "Search Cars";
-                    carsUI(true);
+                    carsUI(true, true, true, true, true, true, true, true);
                     break;
                 case 2:
                     car_SearchBtn.Text = "Add Car";
-                    carsUI(true);
+                    carsUI(true, true, true, true, true, true, true, true);
                     break;
                 case 3:
                     car_SearchBtn.Text = "Update Car";
                     cars_VINLbl.Text = "*VIN Number";
-                    carsUI(true);
+                    carsUI(true, true, true, true, true, true, true, true);
                     break;
                 case 4:
                     car_SearchBtn.Text = "Delete Car";
-                    carsUI(false);
+                    carsUI(true, false, false, false, false, false, false, false);
                     break;
             }
         }
-        void empUI(bool state)
+        void empUI(bool email, bool first, bool middle, bool last, bool number, bool supervisor, bool title)
         {
-            emp_FirstNameLbl.Visible = state;
-            emp_FirstNameTxtB.Visible = state;
-            emp_MiddleNameLbl.Visible = state;
-            emp_MiddleNameTxtB.Visible = state;
-            emp_LastNameLbl.Visible = state;
-            emp_LastNameTxtB.Visible = state;
-            emp_PhoneLbl.Visible = state;
-            emp_PhoneTxtB.Visible = state;
-            emp_SupervisorLbl.Visible = state;
-            emp_SupervisorTxtB.Visible = state;
-            emp_TitleLbl.Visible = state;
-            emp_TitleTxtB.Visible = state;
+            emp_EmailLbl.Visible = email;
+            emp_EmailTxtB.Visible = email;
+            emp_FirstNameLbl.Visible = first;
+            emp_FirstNameTxtB.Visible = first;
+            emp_MiddleNameLbl.Visible = middle;
+            emp_MiddleNameTxtB.Visible = middle;
+            emp_LastNameLbl.Visible = last;
+            emp_LastNameTxtB.Visible = last;
+            emp_PhoneLbl.Visible = number;
+            emp_PhoneTxtB.Visible = number;
+            emp_SupervisorLbl.Visible = supervisor;
+            emp_SupervisorTxtB.Visible = supervisor;
+            emp_TitleLbl.Visible = title;
+            emp_TitleTxtB.Visible = title;
         }
         private void emp_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -911,28 +916,27 @@ namespace Dealership
                 case 0:
                     emp_Button.Text = "Show All";
                     emp_EmailLbl.Text = "Email";
-                    empUI(true);
+                    empUI(false, false, false, false, false, false, false);
                     break;
                 case 1:
                     emp_Button.Text = "Search";
                     emp_EmailLbl.Text = "Email";
-                    empUI(true);
+                    empUI(true, true, true, true, true, true, true);
                     break;
                 case 2:
                     emp_Button.Text = "Add Employee";
                     emp_EmailLbl.Text = "Email";
-                    empUI(true);
+                    empUI(true, true, true, true, true, true, true);
                     break;
                 case 3:
                     emp_Button.Text = "Update Employee";
                     emp_EmailLbl.Text = "*Email";
-                    empUI(true);
+                    empUI(true, true, true, true, true, true, true);
                     break;
                 case 4:
                     emp_Button.Text = "Delete Employee";
                     emp_EmailLbl.Text = "Email";
-
-                    empUI(false);
+                    empUI(true, true, true, true, true, true, true);
                     break;
             }
         }
