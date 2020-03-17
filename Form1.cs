@@ -654,6 +654,8 @@ namespace Dealership
                 string Price = sales_PriceTxtB.Text.ToString();
                 string CmdString = "";
 
+                //to do for sales:
+                //Implement date option potentially?
                 switch (sales_comboBox.SelectedIndex)
                 {
                     case 0:
@@ -668,7 +670,34 @@ namespace Dealership
                         break;
                     case 1:
                         //Show Sales Count
-                        CmdString = "";
+                        //for looking at specific employee counts
+                        if(EmpEmail != "")
+                        {
+                            CmdString = "SELECT MONTH(Date) AS Month, YEAR(Date) AS Year, COUNT(*) AS 'Number Of Sales' " +
+                                "FROM Sale " +
+                                "WHERE EmployeeID = (SELECT ID FROM Employee WHERE Email = '" + EmpEmail + "')  " +
+                                "GROUP BY MONTH(Date)";
+                        }
+                        //for looking at cars sold
+                        else
+                        {
+                            CmdString = "SELECT * " +
+                                         "FROM(" +
+                                            "SELECT Make, Model, Year AS 'Model Year', MONTH(Date) AS Month, YEAR(Date) AS Year, COUNT(*) AS 'Number Of Sales'" +
+                                            "FROM Sale " +
+                                            "JOIN Car ON(CarID = Car.ID) " +
+                                            "GROUP BY Make, Model, Car.Year " +
+
+                                            "UNION \n" +
+
+                                            "SELECT IF(Make != '', 'Total', '') AS Make, IF(Model != '', '-------', '') AS Model, IF(Car.Year != '', '-------->', '') AS 'Model Year',  " +
+                                            "MONTH(Date) AS Month, YEAR(Date) AS Year, COUNT(*) AS 'NUMBER OF SALES' " +
+                                            "FROM Sale " +
+
+                                            "JOIN Car ON(CarID = Car.ID) " +
+                                            ") temp ORDER BY temp.Month, temp.Year";
+                        }
+                        
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -930,7 +959,7 @@ namespace Dealership
                     break;
                 case 1:
                     //Show Sale Count
-                    sales_EmpLbl.Text = "*Employee Email";
+                    sales_EmpLbl.Text = "Employee Email";
                     sales_Button.Text = "Show Totals";
                     saleUI(false, false, true, false, false, false);
                     break;
