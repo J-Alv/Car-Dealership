@@ -684,7 +684,7 @@ namespace Dealership
                         {
                             CmdString = "SELECT * " +
                                          "FROM(" +
-                                            "SELECT Make, Model, Year AS 'Model Year', MONTH(Date) AS Month, YEAR(Date) AS Year, COUNT(*) AS 'Number Of Sales'" +
+                                            "SELECT Make, Model, Year AS 'Model Year', MONTH(Date) AS Month, YEAR(Date) AS Year, COUNT(*) AS 'NumSales'" +
                                             "FROM Sale " +
                                             "JOIN Car ON(CarID = Car.ID) " +
                                             "GROUP BY Make, Model, Car.Year " +
@@ -692,10 +692,10 @@ namespace Dealership
                                             "UNION \n" +
 
                                             "SELECT IF(Make != '', 'Total', '') AS Make, IF(Model != '', '-------', '') AS Model, IF(Car.Year != '', '-------->', '') AS 'Model Year',  " +
-                                            "MONTH(Date) AS Month, YEAR(Date) AS Year, COUNT(*) AS 'NUMBER OF SALES' " +
+                                            "MONTH(Date) AS Month, YEAR(Date) AS Year, COUNT(*) AS 'NumSales' " +
                                             "FROM Sale " +
-
                                             "JOIN Car ON(CarID = Car.ID) " +
+                                            "GROUP BY MONTH(Date) " +
                                             ") temp ORDER BY temp.Month, temp.Year";
                         }
                         
