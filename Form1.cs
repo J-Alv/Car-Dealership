@@ -20,6 +20,10 @@ namespace Dealership
             cust_comboBox.Items.Add("Update Customer");
             cust_comboBox.Items.Add("Delete Customer");
 
+            cust_StatusComboBox.Items.Add("");
+            cust_StatusComboBox.Items.Add("Member");
+            cust_StatusComboBox.Items.Add("Non Member");
+
             cars_comboBox.Items.Add("All Inventory");
             cars_comboBox.Items.Add("Search Car");
             cars_comboBox.Items.Add("Add Car");
@@ -45,6 +49,7 @@ namespace Dealership
             sales_comboBox.Items.Add("Delete A Sale");
 
             cust_comboBox.SelectedIndex = 0;
+            cust_comboBox.SelectedIndex = 0;
             emp_comboBox.SelectedIndex = 0;
             sales_comboBox.SelectedIndex = 0;
             cars_comboBox.SelectedIndex = 0;
@@ -64,7 +69,7 @@ namespace Dealership
                 string MiddleName = cust_middleNMTxtB.Text.ToString();
                 string LastName = cust_lastNMTxtB.Text.ToString();
                 string PhoneNumber = cust_PhoneNbrTxtB.Text.ToString();
-                string Status = cust_StatusTxtB.Text.ToString();
+                string Status = cust_StatusComboBox.Text.ToString();
                 string Email = cust_emailTxtB.Text.ToString();
                 string CmdString = "";
 
@@ -141,9 +146,12 @@ namespace Dealership
                             CmdString += ",'" + MiddleName + "'";
                         else
                             CmdString += ", NULL";
-                        CmdString += ", '" + LastName + "'"
-                        + ",'" + Status + "'"
-                        + ",'" + Email + "')";
+                        CmdString += ", '" + LastName + "'";
+                        if (Status != "")
+                            CmdString += ",'" + Status + "'";
+                        else
+                            CmdString += ", 'Member'";
+                        CmdString += ",'" + Email + "')";
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
@@ -218,7 +226,7 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email " +
+                        CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email, Status " +
                             "FROM Customer JOIN PhoneInfo ON(Customer.ID = PhoneInfo.CustomerID)";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -411,11 +419,17 @@ namespace Dealership
                         if (Status != "")
                         {
                             if (Make != "" || Model != "" || Year != "" || Mileage != "")
-                                CmdString += ", Status = " + Status;
+                                CmdString += ", Status = '" + Status + "'";
                             else
-                                CmdString += "Status = " + Status;
+                                CmdString += "Status = '" + Status + "'";
                         }
-
+                        if (cars_YesCheckBox.Checked == true || cars_NoCheckBox.Checked == true)
+                        {
+                            if (Make != "" || Model != "" || Year != "" || Mileage != "" || Status != "")
+                                CmdString += ", Used = " + Used;
+                            else
+                                CmdString += "Used = " + Used;
+                        }
                         CmdString += " WHERE VIN = '" + VIN + "'";
 
                         cmd = new MySqlCommand(CmdString, conn);
@@ -482,7 +496,7 @@ namespace Dealership
 
                     case 1:
                         //Search
-                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS 'Number of Sales'" +
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title" +
                              " FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
                              " LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
                         if (FirstName != "")
@@ -536,7 +550,6 @@ namespace Dealership
                             else
                                 CmdString += "WHERE Employee.Title LIKE '" + Title + "%'";
                         }
-                        CmdString += " GROUP BY Employee.ID";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -569,9 +582,9 @@ namespace Dealership
                         cmd.ExecuteNonQuery();
 
 
-                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS 'Number of Sales'" +
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
                             "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
-                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
+                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) ";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -626,9 +639,9 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS 'Number of Sales'" +
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
                             "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
-                            "LEFT JOIN Employee S ON(S.SupervisorID = S.ID) GROUP BY Employee.ID";
+                            "LEFT JOIN Employee S ON(S.SupervisorID = S.ID) ";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -643,9 +656,9 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title, COUNT(*) AS 'Number of Sales'" +
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
                             "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
-                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) GROUP BY Employee.ID";
+                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) ";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -904,7 +917,7 @@ namespace Dealership
             cust_PhoneNbrLbl.Visible = number;
             cust_PhoneNbrTxtB.Visible = number;
             cust_StatusLbl.Visible = status;
-            cust_StatusTxtB.Visible = status;
+            cust_StatusComboBox.Visible = status;
             cust_emailLbl.Visible = email;
             cust_emailTxtB.Visible = email;
         }

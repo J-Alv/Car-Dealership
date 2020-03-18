@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dealership));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.titleLbl = new System.Windows.Forms.Label();
             this.metroTabControl = new MetroFramework.Controls.MetroTabControl();
             this.customerTab = new MetroFramework.Controls.MetroTabPage();
-            this.cust_StatusTxtB = new System.Windows.Forms.TextBox();
+            this.cust_StatusComboBox = new System.Windows.Forms.ComboBox();
             this.cust_StatusLbl = new System.Windows.Forms.Label();
             this.cust_Button = new System.Windows.Forms.Button();
             this.cust_ActionLbl = new System.Windows.Forms.Label();
@@ -167,7 +167,7 @@
             this.metroTabControl.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.metroTabControl.Location = new System.Drawing.Point(0, 52);
             this.metroTabControl.Name = "metroTabControl";
-            this.metroTabControl.SelectedIndex = 3;
+            this.metroTabControl.SelectedIndex = 0;
             this.metroTabControl.Size = new System.Drawing.Size(1096, 492);
             this.metroTabControl.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTabControl.TabIndex = 1;
@@ -180,7 +180,7 @@
             // customerTab
             // 
             this.customerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.customerTab.Controls.Add(this.cust_StatusTxtB);
+            this.customerTab.Controls.Add(this.cust_StatusComboBox);
             this.customerTab.Controls.Add(this.cust_StatusLbl);
             this.customerTab.Controls.Add(this.cust_Button);
             this.customerTab.Controls.Add(this.cust_ActionLbl);
@@ -210,14 +210,14 @@
             this.customerTab.VerticalScrollbarHighlightOnWheel = false;
             this.customerTab.VerticalScrollbarSize = 10;
             // 
-            // cust_StatusTxtB
+            // cust_StatusComboBox
             // 
-            this.cust_StatusTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cust_StatusTxtB.Location = new System.Drawing.Point(175, 245);
-            this.cust_StatusTxtB.Margin = new System.Windows.Forms.Padding(2);
-            this.cust_StatusTxtB.Name = "cust_StatusTxtB";
-            this.cust_StatusTxtB.Size = new System.Drawing.Size(316, 29);
-            this.cust_StatusTxtB.TabIndex = 17;
+            this.cust_StatusComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cust_StatusComboBox.Location = new System.Drawing.Point(175, 245);
+            this.cust_StatusComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.cust_StatusComboBox.Name = "cust_StatusComboBox";
+            this.cust_StatusComboBox.Size = new System.Drawing.Size(316, 32);
+            this.cust_StatusComboBox.TabIndex = 17;
             // 
             // cust_StatusLbl
             // 
@@ -297,14 +297,14 @@
             this.cust_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.cust_dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.cust_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cust_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cust_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.cust_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cust_dataGridView.EnableHeadersVisualStyles = false;
             this.cust_dataGridView.Location = new System.Drawing.Point(495, 2);
@@ -447,7 +447,7 @@
             // cars_StatusComboBox
             // 
             this.cars_StatusComboBox.FormattingEnabled = true;
-            this.cars_StatusComboBox.Location = new System.Drawing.Point(175, 284);
+            this.cars_StatusComboBox.Location = new System.Drawing.Point(175, 281);
             this.cars_StatusComboBox.Name = "cars_StatusComboBox";
             this.cars_StatusComboBox.Size = new System.Drawing.Size(316, 32);
             this.cars_StatusComboBox.TabIndex = 37;
@@ -459,7 +459,7 @@
             this.cars_StatusLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.cars_StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cars_StatusLbl.ForeColor = System.Drawing.Color.White;
-            this.cars_StatusLbl.Location = new System.Drawing.Point(8, 285);
+            this.cars_StatusLbl.Location = new System.Drawing.Point(8, 281);
             this.cars_StatusLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cars_StatusLbl.Name = "cars_StatusLbl";
             this.cars_StatusLbl.Size = new System.Drawing.Size(60, 24);
@@ -469,7 +469,7 @@
             // cars_MileageTxtB
             // 
             this.cars_MileageTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_MileageTxtB.Location = new System.Drawing.Point(175, 250);
+            this.cars_MileageTxtB.Location = new System.Drawing.Point(175, 247);
             this.cars_MileageTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_MileageTxtB.Name = "cars_MileageTxtB";
             this.cars_MileageTxtB.Size = new System.Drawing.Size(316, 29);
@@ -482,7 +482,7 @@
             this.cars_MilageLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.cars_MilageLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cars_MilageLbl.ForeColor = System.Drawing.Color.White;
-            this.cars_MilageLbl.Location = new System.Drawing.Point(8, 253);
+            this.cars_MilageLbl.Location = new System.Drawing.Point(8, 247);
             this.cars_MilageLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cars_MilageLbl.Name = "cars_MilageLbl";
             this.cars_MilageLbl.Size = new System.Drawing.Size(77, 24);
@@ -495,7 +495,7 @@
             this.cars_ColorLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.cars_ColorLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cars_ColorLbl.ForeColor = System.Drawing.Color.White;
-            this.cars_ColorLbl.Location = new System.Drawing.Point(8, 216);
+            this.cars_ColorLbl.Location = new System.Drawing.Point(8, 213);
             this.cars_ColorLbl.Name = "cars_ColorLbl";
             this.cars_ColorLbl.Size = new System.Drawing.Size(55, 24);
             this.cars_ColorLbl.TabIndex = 31;
@@ -504,7 +504,7 @@
             // cars_ColorTxtB
             // 
             this.cars_ColorTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_ColorTxtB.Location = new System.Drawing.Point(175, 216);
+            this.cars_ColorTxtB.Location = new System.Drawing.Point(175, 213);
             this.cars_ColorTxtB.Name = "cars_ColorTxtB";
             this.cars_ColorTxtB.Size = new System.Drawing.Size(316, 29);
             this.cars_ColorTxtB.TabIndex = 30;
@@ -573,7 +573,7 @@
             // cars_YearTxtB
             // 
             this.cars_YearTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_YearTxtB.Location = new System.Drawing.Point(175, 182);
+            this.cars_YearTxtB.Location = new System.Drawing.Point(175, 180);
             this.cars_YearTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_YearTxtB.Name = "cars_YearTxtB";
             this.cars_YearTxtB.Size = new System.Drawing.Size(316, 29);
@@ -585,7 +585,7 @@
             this.cars_YearLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.cars_YearLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cars_YearLbl.ForeColor = System.Drawing.Color.White;
-            this.cars_YearLbl.Location = new System.Drawing.Point(8, 186);
+            this.cars_YearLbl.Location = new System.Drawing.Point(8, 180);
             this.cars_YearLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cars_YearLbl.Name = "cars_YearLbl";
             this.cars_YearLbl.Size = new System.Drawing.Size(49, 24);
@@ -598,14 +598,14 @@
             this.cars_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.cars_dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.cars_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cars_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cars_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.cars_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cars_dataGridView.EnableHeadersVisualStyles = false;
             this.cars_dataGridView.Location = new System.Drawing.Point(495, 2);
@@ -637,7 +637,7 @@
             this.cars_modelLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.cars_modelLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cars_modelLbl.ForeColor = System.Drawing.Color.White;
-            this.cars_modelLbl.Location = new System.Drawing.Point(8, 153);
+            this.cars_modelLbl.Location = new System.Drawing.Point(8, 147);
             this.cars_modelLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cars_modelLbl.Name = "cars_modelLbl";
             this.cars_modelLbl.Size = new System.Drawing.Size(63, 24);
@@ -647,7 +647,7 @@
             // cars_modelTxtB
             // 
             this.cars_modelTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_modelTxtB.Location = new System.Drawing.Point(175, 149);
+            this.cars_modelTxtB.Location = new System.Drawing.Point(175, 147);
             this.cars_modelTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_modelTxtB.Name = "cars_modelTxtB";
             this.cars_modelTxtB.Size = new System.Drawing.Size(316, 29);
@@ -656,7 +656,7 @@
             // cars_makeTxtB
             // 
             this.cars_makeTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cars_makeTxtB.Location = new System.Drawing.Point(175, 116);
+            this.cars_makeTxtB.Location = new System.Drawing.Point(175, 114);
             this.cars_makeTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.cars_makeTxtB.Name = "cars_makeTxtB";
             this.cars_makeTxtB.Size = new System.Drawing.Size(316, 29);
@@ -669,7 +669,7 @@
             this.cars_makeLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.cars_makeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cars_makeLbl.ForeColor = System.Drawing.Color.White;
-            this.cars_makeLbl.Location = new System.Drawing.Point(8, 119);
+            this.cars_makeLbl.Location = new System.Drawing.Point(8, 114);
             this.cars_makeLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cars_makeLbl.Name = "cars_makeLbl";
             this.cars_makeLbl.Size = new System.Drawing.Size(56, 24);
@@ -864,14 +864,14 @@
             this.emp_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.emp_dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.emp_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.emp_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.emp_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.emp_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.emp_dataGridView.EnableHeadersVisualStyles = false;
             this.emp_dataGridView.Location = new System.Drawing.Point(495, 2);
@@ -1016,7 +1016,7 @@
             this.sales_EmpNameLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.sales_EmpNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sales_EmpNameLbl.ForeColor = System.Drawing.Color.White;
-            this.sales_EmpNameLbl.Location = new System.Drawing.Point(8, 215);
+            this.sales_EmpNameLbl.Location = new System.Drawing.Point(8, 248);
             this.sales_EmpNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sales_EmpNameLbl.Name = "sales_EmpNameLbl";
             this.sales_EmpNameLbl.Size = new System.Drawing.Size(152, 24);
@@ -1026,7 +1026,7 @@
             // sales_EmpNameTxtB
             // 
             this.sales_EmpNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_EmpNameTxtB.Location = new System.Drawing.Point(175, 215);
+            this.sales_EmpNameTxtB.Location = new System.Drawing.Point(175, 248);
             this.sales_EmpNameTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.sales_EmpNameTxtB.Name = "sales_EmpNameTxtB";
             this.sales_EmpNameTxtB.Size = new System.Drawing.Size(316, 29);
@@ -1035,7 +1035,7 @@
             // sales_CustNameTxtB
             // 
             this.sales_CustNameTxtB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sales_CustNameTxtB.Location = new System.Drawing.Point(175, 248);
+            this.sales_CustNameTxtB.Location = new System.Drawing.Point(175, 215);
             this.sales_CustNameTxtB.Margin = new System.Windows.Forms.Padding(2);
             this.sales_CustNameTxtB.Name = "sales_CustNameTxtB";
             this.sales_CustNameTxtB.Size = new System.Drawing.Size(316, 29);
@@ -1048,7 +1048,7 @@
             this.sales_CustNameLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.sales_CustNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sales_CustNameLbl.ForeColor = System.Drawing.Color.White;
-            this.sales_CustNameLbl.Location = new System.Drawing.Point(8, 248);
+            this.sales_CustNameLbl.Location = new System.Drawing.Point(8, 215);
             this.sales_CustNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sales_CustNameLbl.Name = "sales_CustNameLbl";
             this.sales_CustNameLbl.Size = new System.Drawing.Size(147, 24);
@@ -1098,14 +1098,14 @@
             this.sales_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.sales_dataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.sales_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.sales_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.sales_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.sales_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sales_dataGridView.EnableHeadersVisualStyles = false;
             this.sales_dataGridView.Location = new System.Drawing.Point(495, 2);
@@ -1289,7 +1289,7 @@
         private System.Windows.Forms.Label sales_CustLbl;
         private System.Windows.Forms.Label sales_VINLbl;
         private System.Windows.Forms.TextBox sales_VINTxtB;
-        private System.Windows.Forms.TextBox cust_StatusTxtB;
+        private System.Windows.Forms.ComboBox cust_StatusComboBox;
         private System.Windows.Forms.Label cust_StatusLbl;
         private System.Windows.Forms.Label sales_EmpNameLbl;
         private System.Windows.Forms.TextBox sales_EmpNameTxtB;
