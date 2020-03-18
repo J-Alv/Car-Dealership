@@ -408,6 +408,14 @@ namespace Dealership
                             else
                                 CmdString += "Milage = " + Mileage;
                         }
+                        if (Status != "")
+                        {
+                            if (Make != "" || Model != "" || Year != "" || Mileage != "")
+                                CmdString += ", Status = " + Status;
+                            else
+                                CmdString += "Status = " + Status;
+                        }
+
                         CmdString += " WHERE VIN = '" + VIN + "'";
 
                         cmd = new MySqlCommand(CmdString, conn);
