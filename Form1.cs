@@ -347,7 +347,7 @@ namespace Dealership
                             return;
                         }
 
-                        CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Status, Used ) VALUES ("
+                        CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Used, Status ) VALUES ("
                                                + "'" + VIN + "'"
                                                + ",'" + Make + "'"
                                                + ",'" + Model + "'"
@@ -360,8 +360,8 @@ namespace Dealership
                             CmdString += ", " + Mileage;
                         else
                             CmdString += ", NULL";
-                        CmdString += ",'" + Status + "'"
-                       + ", '" + Used + "')";
+                        CmdString += "," + Used + ""
+                       + ", '" + Status + "')";
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
@@ -408,7 +408,7 @@ namespace Dealership
                             else
                                 CmdString += "Milage = " + Mileage;
                         }
-                        CmdString += "WHERE VIN = " + VIN;
+                        CmdString += " WHERE VIN = '" + VIN + "'";
 
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
@@ -422,7 +422,10 @@ namespace Dealership
 
                     case 4:
                         //Delete
-                        CmdString = "UPDATE Car SET Status = 'Removed' WHERE = '" + VIN + "')";
+                        CmdString = "UPDATE Car SET Status = 'Removed' WHERE VIN = '" + VIN + "'";
+
+                        cmd = new MySqlCommand(CmdString, conn);
+                        cmd.ExecuteNonQuery();
 
                         CmdString = "SELECT VIN, Make, Model, Year, Color, COALESCE(Mileage, 'Unknown') AS Mileage, Used, Status FROM Car ORDER BY Make, Model ASC";
                         sda = new MySqlDataAdapter(CmdString, conn);
