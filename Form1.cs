@@ -528,6 +528,7 @@ namespace Dealership
                             else
                                 CmdString += "WHERE Employee.Title LIKE '" + Title + "%'";
                         }
+                        CmdString += " GROUP BY Employee.ID";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -664,6 +665,8 @@ namespace Dealership
                 int VinLength = VIN.Length;
                 string CustEmail = sales_CustTxtB.Text.ToString();
                 string EmpEmail = sales_EmpTxtB.Text.ToString();
+                string EmployeeName = sales_EmpNameTxtB.Text.ToString();
+                string CustomerName = sales_CustNameTxtB.Text.ToString();
                 string Price = sales_PriceTxtB.Text.ToString();
                 string CmdString = "";
 
@@ -720,7 +723,50 @@ namespace Dealership
                         break;
                     case 2:
                         //Search
-                        CmdString = "";
+                        CmdString = "SELECT Price AS '$Price', CONCAT(Customer.FirstName, ' ', Customer.LastName) AS Customer, CONCAT(Employee.FirstName, ' ', Employee.LastName) AS Employee, Date, VIN" +
+                        " FROM Sale JOIN Customer ON (Sale.CustomerID = Customer.ID) JOIN Employee ON (Sale.EmployeeID = Employee.ID) JOIN Car ON (Sale.CarID = Car.ID) ";
+
+                        if (VIN != "")
+                        {
+
+                            CmdString += "WHERE VIN LIKE '" + VIN + "%'";
+                        }
+
+                        if (CustEmail != "")
+                        {
+                            if (VIN != "")
+                                CmdString += " AND Customer.Email LIKE '" + CustEmail + "%'";
+                            else
+                                CmdString += "WHERE Customer.Email LIKE'" + CustEmail + "%'";
+                        }
+                        if (EmpEmail != "")
+                        {
+                            if (VIN != "" || CustEmail != "")
+                                CmdString += " AND Employee.Email LIKE '" + EmpEmail + "%'";
+                            else
+                                CmdString += "WHERE Employee.Email LIKE'" + EmpEmail + "%'";
+                        }
+                        if (EmployeeName != "")
+                        {
+                            if (VIN != "" || CustEmail != "" || EmpEmail != "")
+                                CmdString += " AND EmployeeID = (SELECT ID FROM Employee WHERE FirstName LIKE '" + EmployeeName + "%' OR LastName LIKE '" + EmployeeName + "%' OR CONCAT(FirstName, ' ', LastName) LIKE '" + EmployeeName + "')";
+                            else
+                                CmdString += "WHERE EmployeeID = (SELECT ID FROM Employee WHERE FirstName LIKE '" + EmployeeName + "%' OR LastName LIKE '" + EmployeeName + "%' OR CONCAT(FirstName, ' ', LastName) LIKE '" + EmployeeName + "')";
+                        }
+                        if (CustomerName != "")
+                        {
+                            if (VIN != "" || CustEmail != "" || EmpEmail != "" || EmployeeName != "")
+                                CmdString += " AND CustomerID = (SELECT ID FROM Customer WHERE FirstName LIKE '" + CustomerName + "%' OR LastName LIKE '" + CustomerName + "%' OR CONCAT(FirstName, ' ', LastName) LIKE '" + CustomerName + "')";
+                            else
+                                CmdString += "WHERE CustomerID = (SELECT ID FROM Customer WHERE FirstName LIKE '" + CustomerName + "%' OR LastName LIKE '" + CustomerName + "%' OR CONCAT(FirstName, ' ', LastName) LIKE '" + CustomerName + "')";
+                        }
+                        if (Price != "")
+                        {
+                            if (VIN != "" || CustEmail != "" || EmpEmail != "" || EmployeeName != "")
+                                CmdString += " AND Price = " + Price;
+                            else
+                                CmdString += "WHERE Price = " + Price;
+                        }
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -902,7 +948,7 @@ namespace Dealership
                 case 4:
                     cust_Button.Text = "Delete Customer";
                     cust_emailLbl.Text = "*Email";
-                    custUI(true, false, false, false, false, false);
+                    custUI(false, false, false, false, false, true);
                     break;
             }
         }
@@ -1152,6 +1198,11 @@ namespace Dealership
             cust_dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style = new DataGridViewCellStyle { ForeColor = Color.White, BackColor = Color.FromArgb(41, 44, 51) };
             cust_dataGridView.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
             cust_dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+        }
+
+        private void sales_CustNameLbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
