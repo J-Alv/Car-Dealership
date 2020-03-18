@@ -326,12 +326,12 @@ namespace Dealership
                         if (Status != "")
                         {
                             if (VIN != "" || Make != "" || Model != "" || Year != "" || Color != "" || Mileage != "" || cars_YesCheckBox.Checked == true || cars_NoCheckBox.Checked == true)
-                                CmdString += " AND Status = Like '" + Status + "'";
+                                CmdString += " AND Status Like '" + Status + "'";
                             else
-                                CmdString += "WHERE Status  Like  '" + Status + "'";
+                                CmdString += "WHERE Status Like  '" + Status + "'";
                         }
 
-                        CmdString += " ORDER BY Make, Model ASC";
+                        CmdString += " ORDER BY Make, Model";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -861,28 +861,48 @@ namespace Dealership
                 case 0:
                     cust_Button.Text = "Show Customers";
                     cust_emailLbl.Text = "Email";
+                    cust_firstNMLbl.Text = "First Name";
+                    cust_middleNMLbl.Text = "Middle Name";
+                    cust_lastNMLbl.Text = "Last Name";
+                    cust_PhoneNbrLbl.Text = "Phone Number";
+                    cust_StatusLbl.Text = "Status";
                     custUI(false, false, false, false, false, false);
                     break;
                 case 1:
                     cust_Button.Text = "Search Customers";
                     cust_emailLbl.Text = "Email";
+                    cust_firstNMLbl.Text = "First Name";
+                    cust_middleNMLbl.Text = "Middle Name";
+                    cust_lastNMLbl.Text = "Last Name";
+                    cust_PhoneNbrLbl.Text = "Phone Number";
+                    cust_StatusLbl.Text = "Status";
                     custUI(true, true, true, true, true, true);
                     break;
                 case 2:
                     cust_Button.Text = "Add Customer";
-                    cust_emailLbl.Text = "Email";
+                    cust_emailLbl.Text = "*Email";
+                    cust_firstNMLbl.Text = "*First Name";
+                    cust_middleNMLbl.Text = "Middle Name";
+                    cust_lastNMLbl.Text = "*Last Name";
+                    cust_PhoneNbrLbl.Text = "*Phone Number";
+                    cust_StatusLbl.Text = "*Status";
                     custUI(true, true, true, true, true, true);
                     break;
                 case 3:
                     cust_Button.Text = "Update Customer";
                     cust_emailLbl.Text = "*Email";
+                    cust_firstNMLbl.Text = "First Name";
+                    cust_middleNMLbl.Text = "Middle Name";
+                    cust_lastNMLbl.Text = "Last Name";
+                    cust_PhoneNbrLbl.Text = "Phone Number";
+                    cust_StatusLbl.Text = "Status";
                     custUI(true, true, true, true, true, true);
                     break;
 
                 case 4:
                     cust_Button.Text = "Delete Customer";
-                    cust_emailLbl.Text = "Email";
-                    custUI(true, true, true, true, true, true);
+                    cust_emailLbl.Text = "*Email";
+                    custUI(true, false, false, false, false, false);
                     break;
             }
         }
@@ -917,19 +937,43 @@ namespace Dealership
                     break;
                 case 1:
                     car_SearchBtn.Text = "Search Cars";
+                    cars_VINLbl.Text = "VIN Number";
+                    cars_makeLbl.Text = "Make";
+                    cars_modelLbl.Text = "Model";
+                    cars_YearLbl.Text = "Year";
+                    cars_ColorLbl.Text = "Color";
+                    cars_MilageLbl.Text = "Mileage";
+                    cars_StatusLbl.Text = "Status";
+                    cars_usedLbl.Text = "Used";
                     carsUI(true, true, true, true, true, true, true, true);
                     break;
                 case 2:
                     car_SearchBtn.Text = "Add Car";
+                    cars_VINLbl.Text = "*VIN Number";
+                    cars_makeLbl.Text = "*Make";
+                    cars_modelLbl.Text = "*Model";
+                    cars_YearLbl.Text = "*Year";
+                    cars_ColorLbl.Text = "Color";
+                    cars_MilageLbl.Text = "Mileage";
+                    cars_StatusLbl.Text = "*Status";
+                    cars_usedLbl.Text = "*Used";
                     carsUI(true, true, true, true, true, true, true, true);
                     break;
                 case 3:
                     car_SearchBtn.Text = "Update Car";
                     cars_VINLbl.Text = "*VIN Number";
+                    cars_makeLbl.Text = "Make";
+                    cars_modelLbl.Text = "Model";
+                    cars_YearLbl.Text = "Year";
+                    cars_ColorLbl.Text = "Color";
+                    cars_MilageLbl.Text = "Mileage";
+                    cars_StatusLbl.Text = "Status";
+                    cars_usedLbl.Text = "Used";
                     carsUI(true, true, true, true, true, true, true, true);
                     break;
                 case 4:
                     car_SearchBtn.Text = "Delete Car";
+                    cars_VINLbl.Text = "*VIN Number";
                     carsUI(true, false, false, false, false, false, false, false);
                     break;
             }
@@ -963,22 +1007,40 @@ namespace Dealership
                 case 1:
                     emp_Button.Text = "Search";
                     emp_EmailLbl.Text = "Email";
+                    emp_FirstNameLbl.Text = "First Name";
+                    emp_MiddleNameLbl.Text = "Middle Name";
+                    emp_LastNameLbl.Text = "Last Name";
+                    emp_PhoneLbl.Text = "Phone Number";
+                    emp_SupervisorLbl.Text = "Supervisor";
+                    emp_TitleLbl.Text = "Title";
                     empUI(true, true, true, true, true, true, true);
                     break;
                 case 2:
                     emp_Button.Text = "Add Employee";
-                    emp_EmailLbl.Text = "Email";
+                    emp_EmailLbl.Text = "*Email";
+                    emp_FirstNameLbl.Text = "*First Name";
+                    emp_MiddleNameLbl.Text = "Middle Name";
+                    emp_LastNameLbl.Text = "*Last Name";
+                    emp_PhoneLbl.Text = "*Phone Number";
+                    emp_SupervisorLbl.Text = "Supervisor";
+                    emp_TitleLbl.Text = "*Title";
                     empUI(true, true, true, true, true, true, true);
                     break;
                 case 3:
                     emp_Button.Text = "Update Employee";
                     emp_EmailLbl.Text = "*Email";
+                    emp_FirstNameLbl.Text = "First Name";
+                    emp_MiddleNameLbl.Text = "Middle Name";
+                    emp_LastNameLbl.Text = "Last Name";
+                    emp_PhoneLbl.Text = "Phone Number";
+                    emp_SupervisorLbl.Text = "Supervisor";
+                    emp_TitleLbl.Text = "Title";
                     empUI(true, true, true, true, true, true, true);
                     break;
                 case 4:
                     emp_Button.Text = "Delete Employee";
-                    emp_EmailLbl.Text = "Email";
-                    empUI(true, true, true, true, true, true, true);
+                    emp_EmailLbl.Text = "*Email";
+                    empUI(true, false, false, false, false, false, false);
                     break;
             }
         }
