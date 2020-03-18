@@ -89,7 +89,7 @@ namespace Dealership
                     case 1:
                         //Search
                         CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email, Status " +
-                            "FROM Customer JOIN PhoneInfo ON(Customer.ID = PhoneInfo.CustomerID)";
+                            "FROM Customer JOIN PhoneInfo ON(Customer.ID = PhoneInfo.CustomerID) ";
 
                         if (FirstName != "")
                         {
@@ -199,7 +199,7 @@ namespace Dealership
                             else
                                 CmdString += "Status = '" + Status + "'";
                         }
-                        CmdString += "WHERE Email = '" + Email + "'";
+                        CmdString += " WHERE Email = '" + Email + "'";
 
                         if (PhoneNumber != "")
                         {
@@ -211,7 +211,7 @@ namespace Dealership
                         cmd.ExecuteNonQuery();
 
                         CmdString = "SELECT FirstName, MiddleName, LastName, Number, Email, Status " +
-                            "FROM Customer JOIN PhoneInfo ON (Customer.ID = PhoneInfo.CustomerID)";
+                            "FROM Customer JOIN PhoneInfo ON (Customer.ID = PhoneInfo.CustomerID) ";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -285,7 +285,7 @@ namespace Dealership
                         if (Make != "")
                         {
                             if (VIN != "")
-                                CmdString += "AND Make LIKE '" + Make + "%'";
+                                CmdString += " AND Make LIKE '" + Make + "%'";
                             else
                                 CmdString += "WHERE Make LIKE '" + Make + "%'";
                         }
@@ -336,7 +336,7 @@ namespace Dealership
                             if (VIN != "" || Make != "" || Model != "" || Year != "" || Color != "" || Mileage != "" || cars_YesCheckBox.Checked == true || cars_NoCheckBox.Checked == true)
                                 CmdString += " AND Status Like '" + Status + "'";
                             else
-                                CmdString += "WHERE Status Like  '" + Status + "'";
+                                CmdString += "WHERE Status Like '" + Status + "'";
                         }
 
                         CmdString += " ORDER BY Make, Model";
@@ -357,11 +357,11 @@ namespace Dealership
 
                         CmdString = "INSERT INTO Car (VIN, Make, Model, Year, Color, Mileage, Used, Status ) VALUES ("
                                                + "'" + VIN + "'"
-                                               + ",'" + Make + "'"
-                                               + ",'" + Model + "'"
-                                               + ",'" + Year + "'";
+                                               + ", '" + Make + "'"
+                                               + ", '" + Model + "'"
+                                               + ", '" + Year + "'";
                         if (Color != "")
-                            CmdString += ",'" + Color + "'";
+                            CmdString += ", '" + Color + "'";
                         else
                             CmdString += ", NULL";
                         if (Mileage != "")
@@ -412,9 +412,9 @@ namespace Dealership
                         if (Mileage != "")
                         {
                             if (Make != "" || Model != "" || Year != "")
-                                CmdString += ", Milage = " + Mileage;
+                                CmdString += ", Mileage = " + Mileage;
                             else
-                                CmdString += "Milage = " + Mileage;
+                                CmdString += "Mileage = " + Mileage;
                         }
                         if (Status != "")
                         {
@@ -484,8 +484,8 @@ namespace Dealership
                 switch (emp_comboBox.SelectedIndex)
                 {
                     case 0:
-                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
-                             "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title" +
+                             " FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
                              " LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) ";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
@@ -498,7 +498,7 @@ namespace Dealership
                         //Search
                         CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title" +
                              " FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
-                             " LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID)";
+                             " LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) ";
                         if (FirstName != "")
                         {
                             CmdString += "WHERE Employee.FirstName LIKE '" + FirstName + "%'";
@@ -570,7 +570,7 @@ namespace Dealership
                             CmdString += ", (SELECT ID FROM Employee WHERE CONCAT(FirstName, ' ', LastName) LIKE '" + Supervisor + "')";
                         else
                             CmdString += ", NULL";
-                        CmdString += ",'" + Email + "'"
+                        CmdString += ", '" + Email + "'"
                         + ", '" + Title + "')";
 
                         cmd = new MySqlCommand(CmdString, conn);
@@ -582,9 +582,9 @@ namespace Dealership
                         cmd.ExecuteNonQuery();
 
 
-                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
-                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) ";
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title" +
+                            " FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
+                            " LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) ";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -604,7 +604,7 @@ namespace Dealership
                             if (FirstName != "")
                                 CmdString += ", MiddleName = '" + MiddleName + "'";
                             else
-                                CmdString += "MiddleName = " + MiddleName + "'";
+                                CmdString += "MiddleName = '" + MiddleName + "'";
                         }
                         if (LastName != "")
                         {
@@ -639,9 +639,9 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
-                            "LEFT JOIN Employee S ON(S.SupervisorID = S.ID) ";
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title" +
+                            " FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
+                            " LEFT JOIN Employee S ON(S.SupervisorID = S.ID) ";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -656,9 +656,9 @@ namespace Dealership
                         cmd = new MySqlCommand(CmdString, conn);
                         cmd.ExecuteNonQuery();
 
-                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title " +
-                            "FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
-                            "LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) ";
+                        CmdString = "SELECT Employee.FirstName, Employee.MiddleName, Employee.LastName, CONCAT(S.FirstName, ' ', S.LastName) AS Supervisor, Number, Employee.Email, Employee.Title" +
+                            " FROM Employee JOIN PhoneInfo ON(Employee.ID = PhoneInfo.EmployeeID)" +
+                            " LEFT JOIN Employee S ON(Employee.SupervisorID = S.ID) ";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
@@ -758,14 +758,14 @@ namespace Dealership
                             if (VIN != "")
                                 CmdString += " AND Customer.Email LIKE '" + CustEmail + "%'";
                             else
-                                CmdString += "WHERE Customer.Email LIKE'" + CustEmail + "%'";
+                                CmdString += "WHERE Customer.Email LIKE '" + CustEmail + "%'";
                         }
                         if (EmpEmail != "")
                         {
                             if (VIN != "" || CustEmail != "")
                                 CmdString += " AND Employee.Email LIKE '" + EmpEmail + "%'";
                             else
-                                CmdString += "WHERE Employee.Email LIKE'" + EmpEmail + "%'";
+                                CmdString += "WHERE Employee.Email LIKE '" + EmpEmail + "%'";
                         }
                         if (EmployeeName != "")
                         {
