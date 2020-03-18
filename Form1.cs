@@ -230,7 +230,7 @@ namespace Dealership
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "MySQL Database Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void car_SearchBtn_Click(object sender, EventArgs e)
@@ -343,7 +343,7 @@ namespace Dealership
 
                         if (VinLength < 17 || VinLength > 17)
                         {
-                            MessageBox.Show("Invalid VIN length\nVIN length was: " + VinLength + "\nVIN must be 17 digits");
+                            MessageBox.Show("Invalid VIN length\nVIN length was: " + VinLength + "\nVIN must be 17 digits", "VIN Number", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
 
@@ -434,7 +434,7 @@ namespace Dealership
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "MySQL Database Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void emp_Button_Click(object sender, EventArgs e)
@@ -644,7 +644,7 @@ namespace Dealership
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "MySQL Database Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void sales_Button_Click(object sender, EventArgs e)
@@ -729,7 +729,7 @@ namespace Dealership
 
                         if (VinLength < 17 || VinLength > 17)
                         {
-                            MessageBox.Show("Invalid VIN length\nVIN length was: " + VinLength + "\nVIN must be 17 digits");
+                            MessageBox.Show("Invalid VIN length\nVIN length was: " + VinLength + "\nVIN must be 17 digits", "VIN Number", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
 
@@ -833,7 +833,7 @@ namespace Dealership
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "MySQL Database Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         public void custUI(bool first, bool middle, bool last, bool number, bool status, bool email)
