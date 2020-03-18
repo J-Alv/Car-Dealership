@@ -408,6 +408,14 @@ namespace Dealership
                             else
                                 CmdString += "Milage = " + Mileage;
                         }
+                        if (Status != "")
+                        {
+                            if (Make != "" || Model != "" || Year != "" || Status != "")
+                                CmdString += ", Status = " + Status;
+                            else
+                                CmdString += "Status = " + Status;
+                        }
+
                         CmdString += " WHERE VIN = '" + VIN + "'";
 
                         cmd = new MySqlCommand(CmdString, conn);
@@ -720,7 +728,9 @@ namespace Dealership
                         break;
                     case 2:
                         //Search
-                        CmdString = "";
+                        CmdString = "SELECT CONCAT(Employee.FirstName, ' ', Employee.LastName) AS Customer, Make, Model, Year AS 'Model Year', MONTH(Date) AS Month, YEAR(Date) AS Year, Price" +
+                            " FROM Car JOIN Sale ON(Car.ID = CarID) JOIN Employee ON(EmployeeID = Employee.ID) JOIN Customer ON(CustomerID = Customer.ID) " +
+                            "WHERE EmployeeID = (SELECT ID FROM Employee WHERE Email = '" + EmpEmail + "')";
 
                         sda = new MySqlDataAdapter(CmdString, conn);
                         sda.Fill(ds);
